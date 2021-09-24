@@ -1,0 +1,24 @@
+:root {
+	--bgColor: #fff000;
+	--primaryColor: #ff0000;
+	--accentColor: #ff0000;
+	--textColor: #000000;
+	--darkenColor: #000000;
+	--lightenColor: #ff0000;
+}
+
+html {
+	background-color: var(--primaryColor, #000000);
+}
+
+body {
+	font-family: "Urbanist", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.5px;
+	background-color: transparent;
+	color: var(--accentColor);
+}
+
+h1 {
+	font-size: 10px;
+}

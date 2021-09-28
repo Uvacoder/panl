@@ -31,15 +31,28 @@
                 <!-- <hr> -->
                 
                  <div class="sidebar-section justify-content-start align-items-start">
-                     <div class="sidebar-section__heading">Color Contrast</div>
-                     <div class="sidebar-section__block d-flex flex-column   w-100 align-items-center">
+                     <div class="sidebar-section__heading">
+                         Color Contrast
+
+                     </div>
+                     <div class="sidebar-section__block d-flex flex-column   w-100">
                          <div class="bg-primary p-2">
                             <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
                                 <span style="color:var(--accentColor); border-right:1px solid var(--accentColor); padding-right:10px; margin-right:10px;" class="h1">A</span>
-                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;">Example text to build on the card</span>
+                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;">Bcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &*-+</span>
                             </div>
                         </div>
                         <div class="text-muted py-2">Ratio: {{computedContrast}} / Grade: {{computedContrastRating}}</div>
+                        <button @click="reverseColors" class="sidebar-section__button--white btn">Reverse Colors
+
+                            <div style="display:inline-block;">
+                            <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" ></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
+</svg></div>
+                        </button>
                      </div>
                         
                  </div>
@@ -78,7 +91,12 @@
                     </div>
                  </div>
                  <hr>
-                 <h5>Accent</h5>
+                 <div class="sidebar-section">
+                     <div class="sidebar-section__heading">Accent</div>
+                     <div class="sidebar-section__colors d-flex">
+                         <color-dots @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                     </div>
+                 </div>
                     <div class="sidebar-color d-flex">
                         <div class="sidebar-color__heading">{{colors[1].toUpperCase()}}</div>
                         <div class="sidebar-color__block bg-accent"></div>
@@ -338,16 +356,7 @@ export default {
     },
     
     mounted() {
-        const primaryColor = Color(this.colors[0])
-        const accentColor = Color(this.colors[1])
-        this.primaryHSL = RoundValues(primaryColor.hsl().object())
-        this.accentHSL = RoundValues(accentColor.hsl().object())
-
-
-        // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
-
-        document.documentElement.style.setProperty('--primaryColor', primaryColor)
-        document.documentElement.style.setProperty('--accentColor', accentColor)
+        
         // this.masterRGB = color.object()
         const loadColorPalette = async () => {
             try{
@@ -371,9 +380,25 @@ export default {
                     console.log('colorPalettes',this.colorPalettes)
                     // Set the currentPalette to the first entry of colors array
                     // const i = this.colorPalettes.length
-                    this.displayColors(this.colorPalettes[0].colors)
+                    this.displayColors(this.colorPalettes[1].colors)
                     // Set the color names for each of the current color palette entry
-                    this.setColorNames(this.colorPalettes[0].colors)
+                    this.setColorNames(this.colorPalettes[1].colors)
+
+                    // Temporary push first 2 colors to the colors array
+                    this.colors[0] = `#${this.colorPalettes[1].colors[0]}`
+                    this.colors[1] = `#${this.colorPalettes[1].colors[1]}`
+
+                    const primaryColor = Color(this.colors[0])
+                    const accentColor = Color(this.colors[1])
+                    this.primaryHSL = RoundValues(primaryColor.hsl().object())
+                    this.accentHSL = RoundValues(accentColor.hsl().object())
+
+
+                    // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
+
+                    document.documentElement.style.setProperty('--primaryColor', primaryColor)
+                    document.documentElement.style.setProperty('--accentColor', accentColor)
+
                 } else {
                     console.log('Error: ' + response.status)
                 }
@@ -603,7 +628,7 @@ export default {
     top: 0;
     left: 0;
     height: 100vh;
-    background-color: black;
+    background-color: #0b0037;
     color: white;
     /* min-width: 320px; */
     width: 100%;
@@ -768,5 +793,33 @@ li:hover {
     /* box-shadow: lighten(var(--accentColor), 10%); */
     /* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
     box-shadow: none;
+}
+
+.sidebar-section__button--white {
+    border-radius: 0;
+    color: #fff;
+    background-color: transparent;
+    padding: 5px 8px;
+    border: 1px solid #fff;
+    font-size: 0.75rem;
+    text-align: right;
+    letter-spacing: 0.5px;
+    transition: all 0.5s ease
+}
+
+.sidebar-section__button--white:hover {
+    color: #000;
+    background-color: white;
+}
+
+svg.reverse {
+    width: 12px;
+    height:12px;
+    fill: #FFFFFF;
+}
+
+.sidebar-section__button--white:hover  svg.reverse {
+    fill: #000000;
+
 }
 </style>

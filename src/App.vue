@@ -3,31 +3,110 @@
     <div class="container-fluid layout">
         <aside>
             <div class="sidenav">
-                <div class="logo">
-                <div class="logo-icon">
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path xmlns="http://www.w3.org/2000/svg" d="M5 3C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H11.999C11.9997 21 12.0003 21 12.001 21H19C20.1046 21 21 20.1046 21 19V12.001C21 12.0003 21 11.9997 21 11.999V5C21 3.89543 20.1046 3 19 3H5ZM19 11.5858L11.5858 19H5V5H19V11.5858ZM14.4142 19L19 14.4142V19H14.4142Z" fill="#FFFFFF"></path>
-                    </svg>
-                    <div class="ms-2 d-flex">
-                        <div class="">
-                            <div class="letter d-inline-block ps-0">P</div>
-                            <div class="letter d-inline-block">A</div>
-                            <div class="letter d-inline-block">L</div>
+                <div class="logo mb-4">
+                    <div class="logo-icon">
+                        <img src="./assets/PANL-Logo.svg" >
+
+                    
+                        <div class="ms-2 d-flex ">
+                            <div class="d-flex flex-row">
+                                <div class="letter">P</div>
+                                <div class="letter">A</div>
+                                <div class="letter">N</div>
+                                <div class="letter">L</div>
+                            </div>
+                            <!-- <div class="logo-text">
+                            Primary Accent Neutral Layout
+                            </div> -->
                         </div>
-                    <div class="logo-text">
-                    Primary Accent Layout
-                    </div>
+                    
                     </div>
                 </div>
+                 
+                <p class="small">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+
+                <!-- <h4 class="text-uppercase">Colors</h4> -->
+                <!-- <hr> -->
                 
-                </div>
-                <ul>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                </ul>
+                 <div class="sidebar-section justify-content-start align-items-start">
+                     <div class="sidebar-section__heading">Color Contrast</div>
+                     <div class="sidebar-section__block d-flex flex-column   w-100 align-items-center">
+                         <div class="bg-primary p-2">
+                            <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
+                                <span style="color:var(--accentColor); border-right:1px solid var(--accentColor); padding-right:10px; margin-right:10px;" class="h1">A</span>
+                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;">Example text to build on the card</span>
+                            </div>
+                        </div>
+                        <div class="text-muted py-2">Ratio: {{computedContrast}} / Grade: {{computedContrastRating}}</div>
+                     </div>
+                        
+                 </div>
+              
+                <hr>
+                 <div class="sidebar-section">
+                     <div class="sidebar-section__heading">Primary</div>
+                     <div class="sidebar-section__colors d-flex">
+                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                     </div>
+                 </div>
+                 <div class="sidebar-color d-flex">
+                     <div class="sidebar-color__heading">{{colors[0].toUpperCase()}}</div>
+                     <div class="sidebar-color__block bg-primary"></div>
+                 </div>
+                 <div class="sidebar-settings-wrapper">
+                     <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading">Hue {{primaryHSL.h}} &#176; </div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="RotateMaster" color-type="master" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                        </div>
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading">Saturation {{primaryHSL.s}}</div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="SaturationMaster" color-type="master" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(primaryHSL.s) @colorChange="onSliderChange($event)"></Slider>
+                        </div>
+                    
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading">Lightness {{primaryHSL.l}}</div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="LightenMaster" color-type="master" channel="l"  :label-hidden="true" :max=100 :value=parseInt(primaryHSL.l) @colorChange="onSliderChange($event)"></Slider>
+                        </div>
+                        
+                    </div>
+                 </div>
+                 <hr>
+                 <h5>Accent</h5>
+                    <div class="sidebar-color d-flex">
+                        <div class="sidebar-color__heading">{{colors[1].toUpperCase()}}</div>
+                        <div class="sidebar-color__block bg-accent"></div>
+                    </div>
+                    <div class="sidebar-settings-wrapper">
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading">Hue {{accentHSL.h}} &#176; </div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="RotateMaster" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                        </div>
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading">Saturation {{accentHSL.s}}</div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                        
+                        </div>
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading">Lightness {{accentHSL.l}}</div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="LightenMaster" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                
             </div>
         </aside>
         <main>
@@ -161,7 +240,12 @@
 
             <div class="row">
                 <div class="col">
-                    <button @click="reverseColors" class="btn btn-round">Reverse</button>
+                    <button @click="reverseColors" class="btn btn-round"><svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" fill="#0D0D0D"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" fill="#0D0D0D"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" fill="#0D0D0D"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" fill="#0D0D0D"></path>
+</svg></button>
                 </div>
                 <div>
                     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -546,17 +630,29 @@ aside {
 }
 
 .logo-icon .letter {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top:0;
-    padding-bottom:0;
-    border-left:  1px solid #ffffff;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    /* border-left:  1px solid #ffffff; */
     font-size: 1.5rem;
     line-height: 1.5rem;
+    width: 40px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #fff;
+    margin-right: 4px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight:600;
+
 }
 
 .logo-icon .letter:first-child {
-    border: 0;
+    /* border: 0; */
 }
 
 .logo-text {
@@ -564,6 +660,54 @@ aside {
     font-size: 0.75rem;
     /* letter-spacing: 5px; */
     /* text-transform:uppercase */
+}
+
+h6 {
+    letter-spacing: 1px;
+}
+
+.text-muted {
+    color: #c4c8cb !important;
+}
+.sidebar-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-section__heading, .sidebar-color__heading {
+    font-size: 1rem;
+    flex: 0 0 35%;
+    /* margin-right: 10px */
+}
+
+.sidebar-section__heading {
+    font-size: 1.25rem;
+}
+
+.sidebar-section__block {
+
+}
+
+.sidebar-section__colors, .sidebar-color__block {
+    /* background-color: var(--primaryColor); */
+    /* display: inline-block; */
+    flex: 1 0 auto;
+}
+
+.sidebar-settings {
+    display: flex;
+    padding: 8px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-settings__heading {
+    flex: 0 0 35%;
+    font-size: 0.85rem;
+}
+
+.sidebar-settings__control {
+    flex: 1 0 auto;
 }
 
 .bg-primary {

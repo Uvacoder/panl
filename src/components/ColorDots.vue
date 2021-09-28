@@ -1,7 +1,7 @@
 <template>
     <div class="small">
         <slot></slot>
-        <button class="round" :style="{backgroundColor: color}" @click="changeBackgroundColor">
+        <button class="round" :style="{backgroundColor: color}" @click="changeBackgroundColor" :title="color">
         </button>
     </div>
 </template>
@@ -46,10 +46,11 @@
 }
 .round {
     display: block;
-    height: 40px;
-    width: 40px;
-    border-radius: 25px;
+    height: 20px;
+    width: 20px;
+    border-radius: 0;
     border: 1px solid #efefef;
+    margin-right: 4px;
 }
 
 </style>>

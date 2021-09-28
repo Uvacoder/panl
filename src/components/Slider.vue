@@ -83,6 +83,7 @@ input[type="range"] {
   opacity: 1; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
+  height: 2px;
 }
 
 /* Mouse-over effects */
@@ -94,18 +95,19 @@ input[type="range"] {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: var(--accentColor); /* Green background */
+  width: 6px; /* Set a specific slider handle width */
+  height: 6px; /* Slider handle height */
+  background: #fff; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 6px; /* Set a specific slider handle width */
+  height: 6px; /* Slider handle height */
   /* background: #04AA6D; Green background */
-  background-color: var(--accentColor);
+  background-color: #fff;
   cursor: pointer; /* Cursor on hover */
+
 }
 
 

@@ -39,7 +39,7 @@
     }
 </script>
 
-<style scoped>
+<style>
 .small {
     font-size: 0.75rem;
     letter-spacing: 0.5;

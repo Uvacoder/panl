@@ -61,9 +61,9 @@
                 <hr>
                  <div class="sidebar-section">
                      <div class="sidebar-section__heading">Primary</div>
-                     <div class="sidebar-section__colors d-flex">
+                     <div class="sidebar-section__colors primary-color-dots d-flex">
                          <color-dots @changeColor="onChangePrimaryColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                  <div class="sidebar-color d-flex mt-3">
@@ -96,9 +96,9 @@
                  <hr>
                  <div class="sidebar-section">
                      <div class="sidebar-section__heading">Accent</div>
-                     <div class="sidebar-section__colors d-flex">
+                     <div class="sidebar-section__colors accent-color-dots d-flex">
                          <color-dots @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                 <div class="sidebar-color d-flex mt-3">
@@ -130,8 +130,8 @@
                 <hr>
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Nuetral</div>
-                     <div class="sidebar-section__colors d-flex">
-                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                     <div class="sidebar-section__colors neutral-color-dots button d-flex">
+                         <color-dots @changeColor="onChangeNeutralColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                 
@@ -139,21 +139,44 @@
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Layout</div>
                      <div class="sidebar-section__block">
-                         <div class="d-flex">
-                            <div class="me-2">
-                                Button round? 
-                            </div>
-                             <!-- Switch -->
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                            </div>
+                         <div class="d-flex justify-content-between">
+                           
+                             
                          </div>
                          
                         
                      </div>
                  </div>
                 
+                <div class="sidebar-settings-wrapper mt-3">
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Round Buttons</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <!-- Switch -->
+                            <div class="form-check form-switch">
+                                <input @change="onSwithButtonRoundChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{accentHSL.s}}</div>
+                        <div class="sidebar-settings__control">
+                            <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
+                            <label class="visually-hidden" for="label">Change Padding</label>
+        <input @input="onSliderChange" class="slider" type="range" :name="label" :id="label" :data-channel="channel" :data-color-type="colorType" :data-value="value" v-model="value" :min="min" :max="max" >
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+
+
+            </div>
+        </aside>
+        <aside>
+            <div class="sidenav" style="background-color:#180d45;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
             </div>
         </aside>
         <main>
@@ -384,8 +407,8 @@ export default {
             rotateValue: 0,
             saturationValue: 10,
             colorPalettes: [],
-            currentPalette: ['FFCDB2', 'FFB4A2', 'E5989B', 'B5838D', '6D6875'],
-            currentPaletteNames: ['Romantic', 'Wax Flower', 'Tonys Pink', 'Brandy Rose', 'Salt Box'],
+            currentPalette: [],
+            currentPaletteNames: [],
             currentPaletteId: 0,
             contrast: null
 
@@ -427,6 +450,8 @@ export default {
                     // Temporary push first 2 colors to the colors array ================================
                     this.colors[0] = `#${this.colorPalettes[tempi].colors[0]}`
                     this.colors[1] = `#${this.colorPalettes[tempi].colors[1]}`
+                    
+                    this.colors[2] = '#FEFEFE'
 
                     const primaryColor = Color(this.colors[0])
                     const accentColor = Color(this.colors[1])
@@ -436,8 +461,18 @@ export default {
 
                     // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
 
-                    document.documentElement.style.setProperty('--primaryColor', primaryColor)
-                    document.documentElement.style.setProperty('--accentColor', accentColor)
+                    // document.documentElement.style.setProperty('--primaryColor', primaryColor)
+                    this.setRootProperties('--primaryColor', primaryColor)
+                    this.setRootProperties('--accentColor', accentColor)
+                    // document.documentElement.style.setProperty('--accentColor', accentColor)
+
+                    this.$nextTick(function(){
+                        this.setActiveColorOnMount('primary')
+                        this.setActiveColorOnMount('accent')
+                        this.setActiveColorOnMount('neutral')
+
+                    })
+                    
 
                 } else {
                     console.log('Error: ' + response.status)
@@ -449,6 +484,7 @@ export default {
             
         }
         loadColorPalette();
+        
         console.log('===================================================')
        
         /*eventBus().emitter.on('foo', (data) => {
@@ -489,12 +525,14 @@ export default {
         updatePrimaryColor() {
             let newColor =  Color(this.primaryHSL).hex()
             this.colors[0] = newColor
-            document.documentElement.style.setProperty('--primaryColor', newColor)
+            // document.documentElement.style.setProperty('--primaryColor', newColor)
+            this.setRootProperties('--primaryColor', newColor)
         },
         updateAccentColor() {
             let newColor =  Color(this.accentHSL).hex()
             this.colors[1]= newColor
-            document.documentElement.style.setProperty('--accentColor', newColor)
+            // document.documentElement.style.setProperty('--accentColor', newColor)
+            this.setRootProperties('--primaryColor', newColor)
         },
         displayColors(arr) {
             this.currentPalette = arr;
@@ -513,7 +551,8 @@ export default {
         },
         onChangePrimaryColor(data) {
             console.log('onChangeBackgroundColor', data)  
-            document.documentElement.style.setProperty('--primaryColor', data.data)
+            // document.documentElement.style.setProperty('--primaryColor', data.data)
+            this.setRootProperties('--primaryColor', data.data)
             this.colors[0]= data.data
 
             const currentHSL = RoundValues(this.primaryHSL)
@@ -522,14 +561,14 @@ export default {
 
             //Prevent from snapping
             const newHSL = RoundValues(Color(this.colors[0]).hsl().object())
-           
-
-            this.animateSlider(currentHSL, newHSL, 'master')
+            this.animateSlider(currentHSL, newHSL, 'primary')
+            this.makeBtnActive(data.event.target, 'primary')
 
         },
         onChangeAccentColor(data) {
             console.log('onChangeTextColor', data)
-            document.documentElement.style.setProperty('--accentColor', data.data)
+            // document.documentElement.style.setProperty('--accentColor', data.data)
+            this.setRootProperties('--accentColor', data.data)
             this.colors[1] = data.data
             // HSL
             
@@ -556,6 +595,40 @@ export default {
 
 
             this.animateSlider(currentHSL, newHSL, 'accent')
+            this.makeBtnActive(data.event.target, 'accent')
+
+        },
+
+         onChangeNeutralColor(data) {
+            console.log('onChangeTextColor', data)
+            document.documentElement.style.setProperty('--neutralColor', data.data)
+            // this.colors[1] = data.data
+            // HSL
+            
+            //const currentHSL = RoundValues(this.accentHSL) // old values
+            //this.accentHSL = RoundValues(Color(this.accentColor).hsl().object()) // new values
+
+
+            //const newHSL = RoundValues(Color(this.colors[1]).hsl().object())
+
+            // anime({
+            //     targets: currrentHSL,
+            //     h: newColorHSLValues.h,
+            //     s: newColorHSLValues.s,
+            //     l: newColorHSLValues.l,
+            //     round: 1,
+            //     easing: 'easeInOutQuad',
+            //     duration: 500,
+            //     update: function() {
+            //         that.accentHSL.h = currrentHSL.h
+            //         that.accentHSL.s = currrentHSL.s
+            //         that.accentHSL.l = currrentHSL.l
+            //     }
+            // })
+
+
+            //this.animateSlider(currentHSL, newHSL, 'accent')
+            this.makeBtnActive(data.event.target, 'neutral')
 
         },
        
@@ -596,7 +669,7 @@ export default {
             }
            
         },
-        animateSlider(currentHSL={}, newColorHSL={}, colorHSLObj='master') {
+        animateSlider(currentHSL={}, newColorHSL={}, colorHSLObj='primary') {
 
             // anime usage
             // target - starting point object {h:10, s:20, l:40} this will be the updating values by anime
@@ -613,7 +686,7 @@ export default {
 
             }*/
             let HSL = {}
-            if(colorHSLObj === 'master') {
+            if(colorHSLObj === 'primary') {
                 HSL = this.primaryHSL
             }
 
@@ -648,6 +721,80 @@ export default {
         },
         copyToClipboard(string) {
            copy(string);
+        },
+        makeBtnActive(el, type) {
+            console.log('make btn active', el);
+            if(type === 'primary') {
+                this.resetSideButtons('primary')
+            }
+            if(type === 'accent') {
+                this.resetSideButtons('accent')
+            }
+            if(type === 'neutral') {
+                this.resetSideButtons('neutral')
+            }
+            el.classList.add('active');
+        },
+        resetSideButtons(type) {
+            if(type === 'primary') {
+                const els = document.querySelectorAll('.primary-color-dots button')
+                els.forEach(el => {
+                    el.classList.remove('active');
+                })
+            }
+
+            if(type === 'accent') {
+                const els = document.querySelectorAll('.accent-color-dots button')
+                els.forEach(el => {
+                    el.classList.remove('active');
+                })
+            }
+
+            if(type === 'neutral') {
+                const els = document.querySelectorAll('.neutral-color-dots button')
+                els.forEach(el => {
+                    el.classList.remove('active');
+                })
+            }
+        },
+        setRootProperties(name, value) {
+
+            // const prop = document.documentElement.style.setProperty('--primaryColor', primaryColor)
+            const prop = document.documentElement.style.setProperty(name, value)
+            return
+        },
+        setActiveColorOnMount(type) {
+            var els, i;
+            if(type == 'primary') {
+                els = document.querySelectorAll('.primary-color-dots button')
+                i = 0
+                
+            }
+
+            if(type == 'accent') {
+                els = document.querySelectorAll('.accent-color-dots button')
+                i = 1
+            }
+            if(type == 'neutral') {
+                els = document.querySelectorAll('.neutral-color-dots button')
+                i = 2
+            }
+
+            els.forEach(el => {
+                    if(el.getAttribute('title') === this.colors[i]) {
+                        this.makeBtnActive(el, type)
+                        return
+                    }
+                })
+        },
+        onSwithButtonRoundChange(e) {
+            console.log('Switch', e)
+            if(e.target.checked === true) {
+                this.setRootProperties('--borderRadius', '20px')
+            } else {
+                this.setRootProperties('--borderRadius', '4px')
+            }
+
         }
         
 
@@ -663,208 +810,6 @@ export default {
 </script>
 
 <style scoped>
-.sidenav {
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: #0b0037;
-    color: white;
-    /* min-width: 320px; */
-    width: 100%;
-    /* z-index: 1; */
-    padding: 1rem;
-}
 
-.layout {
-    grid-template-columns: 1fr 5fr;
-    display:grid;
-    gap:1rem;
-    grid-template-areas: "sidebar main";
-    padding-left: 0;
-}
 
-aside {
-    grid-area: "sidebar";
-    position: sticky;
-}
-
-.logo-icon {
-    display: flex;
-    /* align-items: center; */
-}
-
-.logo-icon .letter {
-    /* padding-left: 10px; */
-    /* padding-right: 10px; */
-    /* padding-top: 5px; */
-    /* padding-bottom: 5px; */
-    /* border-left:  1px solid #ffffff; */
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    width: 40px;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #fff;
-    margin-right: 4px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    font-weight:600;
-
-}
-
-.logo-icon .letter:first-child {
-    /* border: 0; */
-}
-
-.logo-text {
-    line-height: 0.75rem;
-    font-size: 0.75rem;
-    /* letter-spacing: 5px; */
-    /* text-transform:uppercase */
-}
-
-h6 {
-    letter-spacing: 1px;
-}
-
-.text-muted {
-    color: #c4c8cb !important;
-}
-.sidebar-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.sidebar-section__heading, .sidebar-color__heading {
-    /* font-size: 1rem; */
-    
-    flex: 0 0 35%;
-    /* margin-right: 10px */
-}
-
-.sidebar-section__heading {
-    font-size: 1.25rem;
-    line-height: 1.25rem;
-}
-
-.sidebar-section__block {
-
-}
-
-.sidebar-section__colors,.sidebar-section__block, .sidebar-color__block {
-    /* background-color: var(--primaryColor); */
-    /* display: inline-block; */
-    flex: 1 0 65%;
-}
-
-.sidebar-settings {
-    display: flex;
-    padding: 2px 0;
-    justify-content: center;
-    align-items: center;
-}
-
-.sidebar-settings__heading {
-    flex: 0 0 35%;
-    font-size: 0.85rem;
-}
-
-.sidebar-settings__control {
-    flex: 1 0 auto;
-}
-
-.bg-primary {
-    background-color: var(--primaryColor) !important;
-}
-
-.bg-accent {
-    background-color: var(--accentColor) !important;
-}
-
-.text-primary {
-    color: var(--primaryColor) !important;
-}
-
-.text-accent {
-    color: var(--accentColor) !important;
-}
-
-p.card-text {
-    letter-spacing: 5px;
-}
-
-input[type="range"] {
-    cursor: pointer;
-}
-
-li {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-grow: 1;
-    flex-basis: 1px;
-    transition: all .1s ease-in-out;
-}
-
-li:hover {
-    flex-basis: 80px;
-}
-
-.btn-round {
-    border-radius: 20px;
-    padding: 5px 20px;
-    letter-spacing: 0.5;
-    font-weight: 500;
-    background-color: var(--accentColor);
-    color:var(--primaryColor);
-}
-
-.btn-round:hover {
-    color: var(--primaryColor);
-}
-
-.btn-round:focus, .btn-round:active {
-    /* border-color: lighten(var(--accentColor), 10%); */
-    /* box-shadow: lighten(var(--accentColor), 10%); */
-    /* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
-    box-shadow: none;
-}
-
-.sidebar-section__button--white {
-    border-radius: 0;
-    color: #fff;
-    background-color: transparent;
-    padding: 5px 8px;
-    border: 1px solid #fff;
-    font-size: 0.75rem;
-    text-align: right;
-    letter-spacing: 0.5px;
-    transition: all 0.5s ease
-}
-
-.sidebar-section__button--white:hover {
-    color: #000;
-    background-color: white;
-}
-
-svg.reverse {
-    width: 12px;
-    height:12px;
-    fill: #FFFFFF;
-}
-
-.sidebar-section__button--white:hover  svg.reverse {
-    fill: #000000;
-
-}
-.small {
-    font-size: 0.65rem;
-}
 </style>

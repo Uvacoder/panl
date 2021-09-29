@@ -69,46 +69,7 @@
 </script>
 
 <style scoped>
-input[type="range"] {
-    cursor: pointer;
-}
 
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 15px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-  height: 2px;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 0.7; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 6px; /* Set a specific slider handle width */
-  height: 6px; /* Slider handle height */
-  background: #fff; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 6px; /* Set a specific slider handle width */
-  height: 6px; /* Slider handle height */
-  /* background: #04AA6D; Green background */
-  background-color: #fff;
-  cursor: pointer; /* Cursor on hover */
-
-}
 
 
 </style>

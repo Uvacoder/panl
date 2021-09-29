@@ -1,6 +1,7 @@
 <template>
   
     <div class="container-fluid layout">
+        <!-- Panel 1 -->
         <aside>
             <div class="sidenav">
                 <div class="logo mb-4">
@@ -45,14 +46,13 @@
                         
                     
                         <button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
-
                             <div style="display:inline-block;">
                             <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" ></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
-</svg></div>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
+                            </svg></div>
                         </button>
                      </div>
                         
@@ -62,8 +62,8 @@
                  <div class="sidebar-section">
                      <div class="sidebar-section__heading">Primary</div>
                      <div class="sidebar-section__colors primary-color-dots d-flex">
-                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangePrimaryColor($event)" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangePrimaryColor($event)" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                  <div class="sidebar-color d-flex mt-3">
@@ -74,8 +74,7 @@
                      <div class="sidebar-settings">
                         <div class="sidebar-settings__heading text-white-50">Hue {{primaryHSL.h}} &#176; </div>
                         <div class="sidebar-settings__control">
-                            <Slider label="RotateMaster" color-type="master" c
-                            hannel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                            <Slider label="RotateMaster" color-type="master" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                     </div>
                     <div class="sidebar-settings">
@@ -98,7 +97,7 @@
                      <div class="sidebar-section__heading">Accent</div>
                      <div class="sidebar-section__colors accent-color-dots d-flex">
                          <color-dots @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangeAccentColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                 <div class="sidebar-color d-flex mt-3">
@@ -109,20 +108,20 @@
                     <div class="sidebar-settings">
                         <div class="sidebar-settings__heading text-white-50">Hue {{accentHSL.h}} &#176; </div>
                         <div class="sidebar-settings__control">
-                            <Slider label="RotateMaster" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                            <Slider label="RotateAccent" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                     </div>
                     <div class="sidebar-settings">
                         <div class="sidebar-settings__heading text-white-50">Saturation {{accentHSL.s}}</div>
                         <div class="sidebar-settings__control">
-                            <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
+                            <Slider label="SaturationAccent" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                     
                     </div>
                     <div class="sidebar-settings">
                         <div class="sidebar-settings__heading text-white-50">Lightness {{accentHSL.l}}</div>
                         <div class="sidebar-settings__control">
-                            <Slider label="LightenMaster" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
+                            <Slider label="LightenAccent" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                         
                     </div>
@@ -131,7 +130,7 @@
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Nuetral</div>
                      <div class="sidebar-section__colors neutral-color-dots button d-flex">
-                         <color-dots @changeColor="onChangeNeutralColor" v-for="color in ['FEFEFE', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangeNeutralColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                 
@@ -149,24 +148,64 @@
                  </div>
                 
                 <div class="sidebar-settings-wrapper mt-3">
-                    <div class="sidebar-settings">
+                    <!--<div class="sidebar-settings">
                         <div class="sidebar-settings__heading text-white-50 flex-basis-65">Round Buttons</div>
                         <div class="sidebar-settings__control d-flex justify-content-end">
-                            <!-- Switch -->
                             <div class="form-check form-switch">
-                                <input @change="onSwithButtonRoundChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <input @change="onSwitchButtonRoundChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                 <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Default switch checkbox input</label>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{accentHSL.s}}</div>
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{padding}}rem</div>
                         <div class="sidebar-settings__control">
                             <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
-                            <label class="visually-hidden" for="label">Change Padding</label>
-        <input @input="onSliderChange" class="slider" type="range" :name="label" :id="label" :data-channel="channel" :data-color-type="colorType" :data-value="value" v-model="value" :min="min" :max="max" >
+                            <label class="visually-hidden" for="Padding">Change Padding</label>
+                            <input @input="onSliderPaddingChange" class="slider" type="range" name="Padding" id="Padding" v-model="padding" min="0" max="5" >
+
                         </div>
                     
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Border Radius {{borderRadius}}px</div>
+                        <div class="sidebar-settings__control">
+                            <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
+                            <label class="visually-hidden" for="borderRadius">Change Border Radius</label>
+                            <input @input="onSliderBorderRadiusChange" class="slider" type="range" name="borderRadius" id="borderRadius" v-model="borderRadius" min="0" max="20" >
+
+                        </div>
+                    
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Heading Serif</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <!-- Switch -->
+                            <div class="form-check form-switch">
+                                <input @change="onSwitchHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckHeading">
+                                <label class="form-check-label visually-hidden" for="flexSwitchCheckHeading">Default switch checkbox input</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Sub-heading Serif</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <!-- Switch -->
+                            <div class="form-check form-switch">
+                                <input @change="onSwitchSubHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckSubHeading">
+                                <label class="form-check-label visually-hidden" for="flexSwitchCheckSubHeading">Default switch checkbox input</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Card Text Serif</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <!-- Switch -->
+                            <div class="form-check form-switch">
+                                <input @change="onSwitchTextChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCardText">
+                                <label class="form-check-label visually-hidden" for="flexSwitchCheckCardText">Default switch checkbox input</label>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
@@ -174,174 +213,71 @@
 
             </div>
         </aside>
+        <!-- Panel 2 -->
         <aside>
             <div class="sidenav" style="background-color:#180d45;">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
-            </div>
-        </aside>
-        <main>
-            <!-- Info -->
-            <div class="row py-4">
-                <!-- Color -->
-                <div id="info-color" class="col">
-                    <h3>Color {{computedContrast}} {{computedContrastRating}}</h3>
-                    <!-- Color Info Component -->
-                    <div class="d-flex">
-                        <h4>{{colors[0].toUpperCase()}}</h4>
-        
-                        
-                    </div>
-            
-                </div>
-                <!-- Background -->
-                <div class="col">
-                    <h3>Background Colors</h3>
-                    <div class="d-flex">
-                        <color-dots @changeColor="onChangePrimaryColor" class="px-2" v-for="color in currentPalette" :key="color" :color="`#${color}` ">{{color.toUpperCase()}}</color-dots>
-                        <color-dots @changeColor="onChangePrimaryColor"   class="px-2" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` ">{{color.toUpperCase()}}</color-dots>
-                    </div>
-                </div>
-                <!-- Text Color -->
-                <div class="col">
-                    <h3>Text Colors</h3>
-                    <div class="d-flex">
-                        <color-dots @changeColor="onChangeAccentColor" class="px-2" v-for="color in currentPalette" :key="color" :color="`#${color}` ">{{color.toUpperCase()}}</color-dots>
-                        <color-dots @changeColor="onChangeAccentColor"   class="px-2" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` ">{{color.toUpperCase()}}</color-dots>
-                    </div>
-                </div>
-            
-                <div class="d-flex justify-content-around">
-                    <!--<div>
-                        <h3>Darken</h3>
-                        <ul>
-                            <li :style="{backgroundColor: computedDarkenValue}">{{computedDarkenValue}}</li>
-                        </ul>
-                        <Slider label="Darken" :max=100 :value=parseInt(darkenValue) @rgbchange="onDarkenChange($event)"></Slider>
-                        <p>
-                            
-                        </p>
-                    </div>-->
-                    <!-- BG -->
-                    <div class="wrapper d-flex" style="flex: 1 1 100%">
-                        <div class="hslControllers mx-4 w-50">
-                            <div class="pb-2">
-                                
-                                <h6>Hue {{primaryHSL.h}} &#176; </h6>
-                                
-                                <Slider label="RotateMaster" color-type="master" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
 
-                            
-                            </div>
-                            <div class="pb-2">
-                                <h6>Saturation {{primaryHSL.s}}</h6>
-                                
-                                <Slider label="SaturationMaster" color-type="master" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(primaryHSL.s) @colorChange="onSliderChange($event)"></Slider>
-                            
-                            </div>
-                            <div class="pb-2">
-                                <h6>Lightness {{primaryHSL.l}}</h6>
-                            
-                                <Slider label="LightenMaster" color-type="master" channel="l"  :label-hidden="true" :max=100 :value=parseInt(primaryHSL.l) @colorChange="onSliderChange($event)"></Slider>
-                                
-                            </div>
-                        </div>
-                        <div class="w-50">
-                            <h4>BG {{colors[0]}}</h4>
-                            <ul class="d-flex">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="h6 mb-0">Current Palette</div>
+                        <!--<ul class="d-flex">
                                 <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
-                            </ul>
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- ACCENT -->
-                    <div class="wrapper d-flex" style="flex: 1 1 100%">
-                        <div class="hslControllers mx-4 w-50">
-                            <div class="pb-2">
-                                
-                                <h6>Hue {{accentHSL.h}} &#176; </h6>
-                                
-                                <Slider label="Rotate" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
-
-                            
-                            </div>
-                            <div class="pb-2">
-                                <h6>Saturation {{accentHSL.s}}</h6>
-                                
-                                <Slider label="Saturation" color-type="accent" channel="s" :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
-                            
-                            </div>
-                            <div class="pb-2">
-                                <h6>Lightness {{accentHSL.l}}</h6>
-                            
-                                <Slider label="Lighten" color-type="accent" channel="l" :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
-                                
-                            </div>
-                        </div>
-                        <div class="w-50">
-                            <h4>ACCENT {{colors[1]}}</h4>
-                            <ul class="d-flex">
                                 <li style="border:1px solid #efefef" :style="{backgroundColor: computedAccentMix}">{{computedAccentMix}}</li>
+                            </ul>-->
+                        <div class="h5 text-uppercase">{{currentPaletteName}}</div>
+                        <div class="d-flex">
+                            <ul class="list-unstyled d-flex color-palette-list">
+                                <li v-for="(color, index) in currentPalette" :key="index"  class="color-palette-list-item d-flex flex-column" style="height:40px;">
+                                    <!-- <div> {{currentPaletteNames[index]}} </div> -->
+                                    <div class="d-block w-100 h-100 mb-2" :style="{backgroundColor:'#'+color+''}" ></div>
+                                    <div class="color-palette-list-item__text">{{color.toUpperCase()}}</div>
+                                    
+                                </li>
                             </ul>
-                            <p>
-                                
-                            </p>
                         </div>
                     </div>
-                    
                 </div>
-                
-
-
-            </div>
-            <!-- Display Current Palette -->
-            <div class="row">
-                <div class="col">
-                    <h3>Current Palette // </h3>
-                    <div class="d-flex">
-                        <ul class="list-unstyled d-flex">
-                            <li v-for="(color, index) in currentPalette" :key="index" :style="{backgroundColor:'#'+color+''}" class="small">{{currentPaletteNames[index]}} <br/>{{color.toUpperCase()}}</li>
-                        </ul>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h6>Color Palettes</h6>
+                        <div class="d-flex py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
+                            <div class="flex-basis-40 small">{{value.name}}</div>
+                            <ul class="list-unstyled d-flex p-0 m-0 flex-basis-65 color-palette-list">
+                                <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex" style="height:20px;">
+                                    
+                                    <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
+                                    <!-- <div>{{color.toUpperCase()}}</div> -->
+                                    
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
+            
+        </aside>
+        <!-- Main -->
+        <main>
+           
+           
+
+
+         
 
             <div class="row">
                 <div class="col">
-                    <!-- Switch -->
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <button @click="reverseColors" class="btn btn-round"><svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" fill="#0D0D0D"></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" fill="#0D0D0D"></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" fill="#0D0D0D"></path>
-<path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" fill="#0D0D0D"></path>
-</svg></button>
-                </div>
-                <div>
-                    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--accentColor)"></path>
-    </svg>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="card py-4 px-3 bg-accent text-primary" style="width: 18rem;">
+                    <div class="card bg-accent text-primary" style="width: 18rem;">
                         <div class="card-body">
-                            <h2 class="card-title mb-5">The Bulk Of It</h2>
-                            <p class="card-text text-primary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" >Card link</a>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
                             
                         </div>
                     </div>
@@ -408,9 +344,13 @@ export default {
             saturationValue: 10,
             colorPalettes: [],
             currentPalette: [],
+            currentPaletteName: 'Awesome',
             currentPaletteNames: [],
             currentPaletteId: 0,
-            contrast: null
+            neutralPalette: ['EFEFEF', '000000'],
+            contrast: null,
+            padding: 2,
+            borderRadius: 4
 
 
 
@@ -426,7 +366,7 @@ export default {
                 const params = {
                     access_token: import.meta.env.VITE_CONTENTFUL_API,
                     content_type: 'themes',
-                    limit: 3,
+                    limit: 20,
                     order: '-fields.likes'
                 }
                 const esc = encodeURIComponent;
@@ -442,15 +382,16 @@ export default {
                     console.log('colorPalettes',this.colorPalettes)
                     // Set the currentPalette to the first entry of colors array
                     // const i = this.colorPalettes.length
-                    const tempi = 0;
+                    const tempi = 1;
                     this.displayColors(this.colorPalettes[tempi].colors)
                     // Set the color names for each of the current color palette entry
                     this.setColorNames(this.colorPalettes[tempi].colors)
+                    this.currentPaletteName = this.colorPalettes[tempi].name
+                    this.currentPaletteId = tempi;
 
                     // Temporary push first 2 colors to the colors array ================================
                     this.colors[0] = `#${this.colorPalettes[tempi].colors[0]}`
                     this.colors[1] = `#${this.colorPalettes[tempi].colors[1]}`
-                    
                     this.colors[2] = '#FEFEFE'
 
                     const primaryColor = Color(this.colors[0])
@@ -532,7 +473,7 @@ export default {
             let newColor =  Color(this.accentHSL).hex()
             this.colors[1]= newColor
             // document.documentElement.style.setProperty('--accentColor', newColor)
-            this.setRootProperties('--primaryColor', newColor)
+            this.setRootProperties('--accentColor', newColor)
         },
         displayColors(arr) {
             this.currentPalette = arr;
@@ -551,8 +492,9 @@ export default {
         },
         onChangePrimaryColor(data) {
             console.log('onChangeBackgroundColor', data)  
-            // document.documentElement.style.setProperty('--primaryColor', data.data)
-            this.setRootProperties('--primaryColor', data.data)
+            document.documentElement.style.setProperty('--primaryColor', data.data)
+            // this.setRootProperties('--primaryColor', data.data)
+            console.log('root primary color value: ',document.documentElement.style.getPropertyValue('--primaryColor'))
             this.colors[0]= data.data
 
             const currentHSL = RoundValues(this.primaryHSL)
@@ -562,7 +504,8 @@ export default {
             //Prevent from snapping
             const newHSL = RoundValues(Color(this.colors[0]).hsl().object())
             this.animateSlider(currentHSL, newHSL, 'primary')
-            this.makeBtnActive(data.event.target, 'primary')
+            // this.makeBtnActive('primary')
+            this.setActiveColorOnMount('primary')
 
         },
         onChangeAccentColor(data) {
@@ -577,30 +520,14 @@ export default {
 
 
             const newHSL = RoundValues(Color(this.colors[1]).hsl().object())
-
-            // anime({
-            //     targets: currrentHSL,
-            //     h: newColorHSLValues.h,
-            //     s: newColorHSLValues.s,
-            //     l: newColorHSLValues.l,
-            //     round: 1,
-            //     easing: 'easeInOutQuad',
-            //     duration: 500,
-            //     update: function() {
-            //         that.accentHSL.h = currrentHSL.h
-            //         that.accentHSL.s = currrentHSL.s
-            //         that.accentHSL.l = currrentHSL.l
-            //     }
-            // })
-
-
             this.animateSlider(currentHSL, newHSL, 'accent')
-            this.makeBtnActive(data.event.target, 'accent')
+            // this.makeBtnActive(data.event.target, 'accent')
+            this.setActiveColorOnMount('accent')
 
         },
 
          onChangeNeutralColor(data) {
-            console.log('onChangeTextColor', data)
+            console.log('onChangeNeutralColor', data)
             document.documentElement.style.setProperty('--neutralColor', data.data)
             // this.colors[1] = data.data
             // HSL
@@ -628,7 +555,9 @@ export default {
 
 
             //this.animateSlider(currentHSL, newHSL, 'accent')
-            this.makeBtnActive(data.event.target, 'neutral')
+            // this.makeBtnActive(data.event.target, 'neutral')
+            this.colors[2] = data.data
+            this.setActiveColorOnMount('neutral')
 
         },
        
@@ -709,23 +638,25 @@ export default {
                 }
             }) 
 
-
-
-
-
         },
         reverseColors() {
-            this.colors = this.colors.reverse();
+            // needs a target for the active outline
+            // this.colors = this.colors.reverse();
+            // var newArr = this.colors.splice(2,1).concat(this.colors.reverse());
+            var revArr = [...this.colors].splice(0,2).reverse().concat([...this.colors].splice(-1));
+            this.colors = [...revArr]
+            // this.colors = newArr;
             this.onChangePrimaryColor({data:this.colors[0]})
             this.onChangeAccentColor({data:this.colors[1]})
         },
         copyToClipboard(string) {
            copy(string);
         },
-        makeBtnActive(el, type) {
-            console.log('make btn active', el);
+        makeBtnActive(el,type) {
+            console.log('make btn active');
             if(type === 'primary') {
                 this.resetSideButtons('primary')
+                const els = document.querySelectorAll('.primary-color-dots button')
             }
             if(type === 'accent') {
                 this.resetSideButtons('accent')
@@ -777,23 +708,95 @@ export default {
             }
             if(type == 'neutral') {
                 els = document.querySelectorAll('.neutral-color-dots button')
+                console.log('els: ', els)
                 i = 2
             }
 
             els.forEach(el => {
+                console.log('el: ',el.getAttribute('title'))
+                        console.log('array: ', this.colors[i])
                     if(el.getAttribute('title') === this.colors[i]) {
+                        
                         this.makeBtnActive(el, type)
                         return
                     }
                 })
         },
-        onSwithButtonRoundChange(e) {
+        onSwitchButtonRoundChange(e) {
             console.log('Switch', e)
             if(e.target.checked === true) {
                 this.setRootProperties('--borderRadius', '20px')
             } else {
                 this.setRootProperties('--borderRadius', '4px')
             }
+
+        },
+        onSwitchHeadingChange(e) {
+            console.log('Switch for heading', e)
+            if(e.target.checked === true) {
+                this.setRootProperties('--cardHeading', 'var(--fontSerif)')
+            } else {
+                this.setRootProperties('--cardHeading', 'var(--fontSansSerif)')
+            }
+        },
+        onSwitchSubHeadingChange(e) {
+            console.log('Switch for heading', e)
+            if(e.target.checked === true) {
+                this.setRootProperties('--cardSubHeading', 'var(--fontSerif)')
+            } else {
+                this.setRootProperties('--cardSubHeading', 'var(--fontSansSerif)')
+            }
+        },
+        onSwitchTextChange(e) {
+            console.log('Switch for text', e)
+            if(e.target.checked === true) {
+                this.setRootProperties('--cardText', 'var(--fontSerif)')
+            } else {
+                this.setRootProperties('--cardText', 'var(--fontSansSerif)')
+            }
+        },
+        onSliderPaddingChange(e) {
+            console.log('slider padding change', this.padding)
+            this.setRootProperties('--padding', `${this.padding}rem`)
+            console.log(document.documentElement.style.getPropertyValue('--padding'))
+        },
+        onSliderBorderRadiusChange(e) {
+            console.log('slider border radius change', this.borderRadius)
+            this.setRootProperties('--borderRadius', `${this.borderRadius}px`)
+            console.log(document.documentElement.style.getPropertyValue('--borderRadius'))
+        },
+        setCurrentPalette(index) {
+            console.log(index);
+            this.currentPaletteId = index;
+            this.currentPaletteName = this.colorPalettes[index].name;
+            this.currentPalette = this.colorPalettes[index].colors;
+
+            // NEED TO REFACTOR - SAME AS ON MOUNTED
+
+            // Temporary push first 2 colors to the colors array ================================
+            this.colors[0] = `#${this.colorPalettes[index].colors[0]}`
+            this.colors[1] = `#${this.colorPalettes[index].colors[1]}`
+            this.colors[2] = '#FEFEFE'
+
+            const primaryColor = Color(this.colors[0])
+            const accentColor = Color(this.colors[1])
+            this.primaryHSL = RoundValues(primaryColor.hsl().object())
+            this.accentHSL = RoundValues(accentColor.hsl().object())
+
+
+            // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
+
+            // document.documentElement.style.setProperty('--primaryColor', primaryColor)
+            this.setRootProperties('--primaryColor', primaryColor)
+            this.setRootProperties('--accentColor', accentColor)
+            // document.documentElement.style.setProperty('--accentColor', accentColor)
+
+            this.$nextTick(function(){
+                this.setActiveColorOnMount('primary')
+                this.setActiveColorOnMount('accent')
+                this.setActiveColorOnMount('neutral')
+
+            })
 
         }
         

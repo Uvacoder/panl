@@ -32,18 +32,19 @@
                 
                  <div class="sidebar-section justify-content-start align-items-start">
                      <div class="sidebar-section__heading">
-                         Color Contrast
-
+                         Color Contrast Checker
+                        <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Grade</span> {{computedContrastRating}}</span></div>
                      </div>
                      <div class="sidebar-section__block d-flex flex-column   w-100">
                          <div class="bg-primary p-2">
                             <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
-                                <span style="color:var(--accentColor); border-right:1px solid var(--accentColor); padding-right:10px; margin-right:10px;" class="h1">A</span>
-                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;">Bcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &*-+</span>
+                                <span style="color:var(--accentColor);  margin-right:10px;" class="h1">A</span>
+                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;border-left:1px solid var(--accentColor); padding-left:10px;">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
                             </div>
                         </div>
-                        <div class="text-muted py-2">Ratio: {{computedContrast}} / Grade: {{computedContrastRating}}</div>
-                        <button @click="reverseColors" class="sidebar-section__button--white btn">Reverse Colors
+                        
+                    
+                        <button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
 
                             <div style="display:inline-block;">
                             <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -62,28 +63,30 @@
                      <div class="sidebar-section__heading">Primary</div>
                      <div class="sidebar-section__colors d-flex">
                          <color-dots @changeColor="onChangePrimaryColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangePrimaryColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
-                 <div class="sidebar-color d-flex">
-                     <div class="sidebar-color__heading">{{colors[0].toUpperCase()}}</div>
+                 <div class="sidebar-color d-flex mt-3">
+                     <div class="sidebar-color__heading text-white-50">{{colors[0].toUpperCase()}}</div>
                      <div class="sidebar-color__block bg-primary"></div>
                  </div>
-                 <div class="sidebar-settings-wrapper">
+                 <div class="sidebar-settings-wrapper mt-3">
                      <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading">Hue {{primaryHSL.h}} &#176; </div>
+                        <div class="sidebar-settings__heading text-white-50">Hue {{primaryHSL.h}} &#176; </div>
                         <div class="sidebar-settings__control">
-                            <Slider label="RotateMaster" color-type="master" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                            <Slider label="RotateMaster" color-type="master" c
+                            hannel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                     </div>
                     <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading">Saturation {{primaryHSL.s}}</div>
+                        <div class="sidebar-settings__heading text-white-50">Saturation {{primaryHSL.s}}</div>
                         <div class="sidebar-settings__control">
                             <Slider label="SaturationMaster" color-type="master" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(primaryHSL.s) @colorChange="onSliderChange($event)"></Slider>
                         </div>
                     
                     </div>
                     <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading">Lightness {{primaryHSL.l}}</div>
+                        <div class="sidebar-settings__heading text-white-50">Lightness {{primaryHSL.l}}</div>
                         <div class="sidebar-settings__control">
                             <Slider label="LightenMaster" color-type="master" channel="l"  :label-hidden="true" :max=100 :value=parseInt(primaryHSL.l) @colorChange="onSliderChange($event)"></Slider>
                         </div>
@@ -95,35 +98,61 @@
                      <div class="sidebar-section__heading">Accent</div>
                      <div class="sidebar-section__colors d-flex">
                          <color-dots @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
-                    <div class="sidebar-color d-flex">
-                        <div class="sidebar-color__heading">{{colors[1].toUpperCase()}}</div>
-                        <div class="sidebar-color__block bg-accent"></div>
-                    </div>
-                    <div class="sidebar-settings-wrapper">
-                        <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading">Hue {{accentHSL.h}} &#176; </div>
-                            <div class="sidebar-settings__control">
-                                <Slider label="RotateMaster" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
-                            </div>
+                <div class="sidebar-color d-flex mt-3">
+                    <div class="sidebar-color__heading text-white-50">{{colors[1].toUpperCase()}}</div>
+                    <div class="sidebar-color__block bg-accent"></div>
+                </div>
+                <div class="sidebar-settings-wrapper mt-3">
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50">Hue {{accentHSL.h}} &#176; </div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="RotateMaster" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
                         </div>
-                        <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading">Saturation {{accentHSL.s}}</div>
-                            <div class="sidebar-settings__control">
-                                <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
-                            </div>
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50">Saturation {{accentHSL.s}}</div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
+                        </div>
+                    
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50">Lightness {{accentHSL.l}}</div>
+                        <div class="sidebar-settings__control">
+                            <Slider label="LightenMaster" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
+                        </div>
                         
-                        </div>
-                        <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading">Lightness {{accentHSL.l}}</div>
-                            <div class="sidebar-settings__control">
-                                <Slider label="LightenMaster" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
-                            </div>
-                            
-                        </div>
                     </div>
-
+                </div>
+                <hr>
+                <div class="sidebar-section">
+                     <div class="sidebar-section__heading">Nuetral</div>
+                     <div class="sidebar-section__colors d-flex">
+                         <color-dots @changeColor="onChangeAccentColor" v-for="color in ['fefefe', '000000']" :key="color" :color="`#${color}` "></color-dots>
+                     </div>
+                 </div>
+                
+                <hr>
+                <div class="sidebar-section">
+                     <div class="sidebar-section__heading">Layout</div>
+                     <div class="sidebar-section__block">
+                         <div class="d-flex">
+                            <div class="me-2">
+                                Button round? 
+                            </div>
+                             <!-- Switch -->
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                            </div>
+                         </div>
+                         
+                        
+                     </div>
+                 </div>
                 
             </div>
         </aside>
@@ -258,6 +287,16 @@
 
             <div class="row">
                 <div class="col">
+                    <!-- Switch -->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
                     <button @click="reverseColors" class="btn btn-round"><svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
 <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" fill="#0D0D0D"></path>
 <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" fill="#0D0D0D"></path>
@@ -380,13 +419,14 @@ export default {
                     console.log('colorPalettes',this.colorPalettes)
                     // Set the currentPalette to the first entry of colors array
                     // const i = this.colorPalettes.length
-                    this.displayColors(this.colorPalettes[1].colors)
+                    const tempi = 0;
+                    this.displayColors(this.colorPalettes[tempi].colors)
                     // Set the color names for each of the current color palette entry
-                    this.setColorNames(this.colorPalettes[1].colors)
+                    this.setColorNames(this.colorPalettes[tempi].colors)
 
-                    // Temporary push first 2 colors to the colors array
-                    this.colors[0] = `#${this.colorPalettes[1].colors[0]}`
-                    this.colors[1] = `#${this.colorPalettes[1].colors[1]}`
+                    // Temporary push first 2 colors to the colors array ================================
+                    this.colors[0] = `#${this.colorPalettes[tempi].colors[0]}`
+                    this.colors[1] = `#${this.colorPalettes[tempi].colors[1]}`
 
                     const primaryColor = Color(this.colors[0])
                     const accentColor = Color(this.colors[1])
@@ -700,28 +740,30 @@ h6 {
     align-items: center;
 }
 .sidebar-section__heading, .sidebar-color__heading {
-    font-size: 1rem;
+    /* font-size: 1rem; */
+    
     flex: 0 0 35%;
     /* margin-right: 10px */
 }
 
 .sidebar-section__heading {
     font-size: 1.25rem;
+    line-height: 1.25rem;
 }
 
 .sidebar-section__block {
 
 }
 
-.sidebar-section__colors, .sidebar-color__block {
+.sidebar-section__colors,.sidebar-section__block, .sidebar-color__block {
     /* background-color: var(--primaryColor); */
     /* display: inline-block; */
-    flex: 1 0 auto;
+    flex: 1 0 65%;
 }
 
 .sidebar-settings {
     display: flex;
-    padding: 8px 0;
+    padding: 2px 0;
     justify-content: center;
     align-items: center;
 }
@@ -821,5 +863,8 @@ svg.reverse {
 .sidebar-section__button--white:hover  svg.reverse {
     fill: #000000;
 
+}
+.small {
+    font-size: 0.65rem;
 }
 </style>

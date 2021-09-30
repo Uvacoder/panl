@@ -22,7 +22,7 @@ html {
 
 body {
 	font-family: var(--fontMain);
-	font-size: 16px;
+	font-size: 14px;
 	letter-spacing: 0.5px;
 	background-color: transparent;
 	color: var(--accentColor);
@@ -362,9 +362,55 @@ input[type="range"] {
 }
 
 .color-palette-list li:first-child div {
-	border-radius: 4px 0 0 4px;
+	border-radius: 2px 0 0 2px;
 }
 
 .color-palette-list li:last-child div {
-	border-radius: 0 4px 4px 0;
+	border-radius: 0 2px 2px 0;
+}
+
+.primary-color-dots {
+}
+
+.neutral-color-dots .neutral-color-dot,
+.accent-color-dots .accent-color-dot,
+.primary-color-dots .primary-color-dot {
+	flex: 1 1px;
+	transition: all 0.25s ease;
+}
+
+.neutral-color-dots .neutral-color-dot:hover,
+/* .neutral-color-dots .neutral-color-dot.active, */
+.accent-color-dots .accent-color-dot:hover,
+/* .accent-color-dots .accent-color-dot.active, */
+.primary-color-dots .primary-color-dot:hover
+/* .primary-color-dots .primary-color-dot.active  */ {
+	flex: 1 40px;
+}
+
+.neutral-color-dots .neutral-color-dot button,
+.accent-color-dots .accent-color-dot button,
+.primary-color-dots .primary-color-dot button {
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.neutral-color-dots .neutral-color-dot:first-child button,
+.accent-color-dots .accent-color-dot:first-child button,
+.primary-color-dots .primary-color-dot:first-child button {
+	border-radius: 2px 0 0 2px;
+}
+.neutral-color-dots .neutral-color-dot:last-child button,
+.accent-color-dots .accent-color-dot:last-child button,
+.primary-color-dots .primary-color-dot:last-child button {
+	border-radius: 0 2px 2px 0;
+}
+
+.border-radius-4 {
+	border-radius: 4px;
+}
+
+.h-10 {
+	height: 10px;
 }

@@ -31,44 +31,39 @@
                 <!-- <h4 class="text-uppercase">Colors</h4> -->
                 <!-- <hr> -->
                 
-                 <div class="sidebar-section justify-content-start align-items-start">
-                     <div class="sidebar-section__heading">
-                         Color Contrast Checker
-                        <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Grade</span> {{computedContrastRating}}</span></div>
-                     </div>
-                     <div class="sidebar-section__block d-flex flex-column   w-100">
-                         <div class="bg-primary p-2">
-                            <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
-                                <span style="color:var(--accentColor);  margin-right:10px;" class="h1">A</span>
-                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;border-left:1px solid var(--accentColor); padding-left:10px;">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
-                            </div>
-                        </div>
-                        
-                    
-                        <button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
-                            <div style="display:inline-block;">
-                            <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" ></path>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
-                            </svg></div>
-                        </button>
-                     </div>
-                        
-                 </div>
+                 
               
+                <hr>
+                <div class="sidebar">
+                    <div class="h6 mb-0">Current Palette</div>
+                        <!--<ul class="d-flex">
+                                <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
+                                <li style="border:1px solid #efefef" :style="{backgroundColor: computedAccentMix}">{{computedAccentMix}}</li>
+                            </ul>-->
+                        <div class="h5 text-uppercase">{{currentPaletteName}}</div>
+                        <div class="d-flex align-items-center">
+                            <ul class="list-unstyled d-flex color-palette-list">
+                                <li v-for="(color, index) in currentPalette" :key="index"  class="color-palette-list-item d-flex flex-column h-10" style="height:40px;">
+                                    <!-- <div> {{currentPaletteNames[index]}} </div> -->
+                                    <div class="d-block w-100 h-100 mb-2" :style="{backgroundColor:'#'+color+''}" ></div>
+                                    <div class="color-palette-list-item__text">{{color.toUpperCase()}}</div>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+
                 <hr>
                  <div class="sidebar-section">
                      <div class="sidebar-section__heading">Primary</div>
-                     <div class="sidebar-section__colors primary-color-dots d-flex">
-                         <color-dots @changeColor="onChangePrimaryColor($event)" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangePrimaryColor($event)" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
+                     <div class="sidebar-section__colors primary-color-dots d-flex align-items-center">
+                         <color-dots class="primary-color-dot h-10" @changeColor="onChangePrimaryColor($event)" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots class="primary-color-dot h-10" @changeColor="onChangePrimaryColor($event)" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
-                 <div class="sidebar-color d-flex mt-3">
+                 <div class="sidebar-color d-flex mt-3 align-items-center">
                      <div class="sidebar-color__heading text-white-50">{{colors[0].toUpperCase()}}</div>
-                     <div class="sidebar-color__block bg-primary"></div>
+                     <div class="sidebar-color__block bg-primary border-radius-4 h-10"></div>
                  </div>
                  <div class="sidebar-settings-wrapper mt-3">
                      <div class="sidebar-settings">
@@ -95,14 +90,14 @@
                  <hr>
                  <div class="sidebar-section">
                      <div class="sidebar-section__heading">Accent</div>
-                     <div class="sidebar-section__colors accent-color-dots d-flex">
-                         <color-dots @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
-                         <color-dots @changeColor="onChangeAccentColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
+                     <div class="sidebar-section__colors accent-color-dots d-flex align-items-center">
+                         <color-dots class="accent-color-dot h-10" @changeColor="onChangeAccentColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots class="accent-color-dot h-10" @changeColor="onChangeAccentColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
-                <div class="sidebar-color d-flex mt-3">
+                <div class="sidebar-color d-flex align-items-center mt-3">
                     <div class="sidebar-color__heading text-white-50">{{colors[1].toUpperCase()}}</div>
-                    <div class="sidebar-color__block bg-accent"></div>
+                    <div class="sidebar-color__block bg-accent border-radius-4 h-10"></div>
                 </div>
                 <div class="sidebar-settings-wrapper mt-3">
                     <div class="sidebar-settings">
@@ -130,11 +125,62 @@
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Nuetral</div>
                      <div class="sidebar-section__colors neutral-color-dots button d-flex">
-                         <color-dots @changeColor="onChangeNeutralColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
+                         <color-dots class="neutral-color-dot h-10" @changeColor="onChangeNeutralColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                      </div>
                  </div>
                 
                 <hr>
+                <div class="sidebar-section justify-content-between align-items-stretch flex-column">
+                    <h6>Color Palettes</h6>
+                    <div class="d-flex flex-row py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
+                        <div class="flex-basis-40 small">{{value.name}}</div>
+                        <ul class="list-unstyled d-flex p-0 m-0 flex-basis-65 color-palette-list">
+                            <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex h-10">
+                                
+                                <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
+                                <!-- <div>{{color.toUpperCase()}}</div> -->
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </aside>
+        <!-- Panel 2 -->
+        <aside>
+            <div class="sidenav" style="background-color:#180d45;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
+
+                <div class="sidebar-section justify-content-start align-items-start">
+                     <div class="sidebar-section__heading">
+                         Color Contrast Checker
+                        <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Grade</span> {{computedContrastRating}}</span></div>
+                     </div>
+                     <div class="sidebar-section__block d-flex flex-column   w-100">
+                         <div class="bg-primary p-2">
+                            <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
+                                <span style="color:var(--accentColor);  margin-right:10px;" class="h1">A</span>
+                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;border-left:1px solid var(--accentColor); padding-left:10px;">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                            </div>
+                        </div>
+                        
+                    
+                        <button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
+                            <div style="display:inline-block;">
+                            <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.9727 5.73425 20.9996 5.8625 21 5.997Z" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
+                            </svg></div>
+                        </button>
+                     </div>
+                        
+                 </div>
+
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Layout</div>
                      <div class="sidebar-section__block">
@@ -210,50 +256,11 @@
                     
                 </div>
 
-
-            </div>
-        </aside>
-        <!-- Panel 2 -->
-        <aside>
-            <div class="sidenav" style="background-color:#180d45;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
-
-
-                <div class="row">
-                    <div class="col">
-                        <div class="h6 mb-0">Current Palette</div>
-                        <!--<ul class="d-flex">
-                                <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
-                                <li style="border:1px solid #efefef" :style="{backgroundColor: computedAccentMix}">{{computedAccentMix}}</li>
-                            </ul>-->
-                        <div class="h5 text-uppercase">{{currentPaletteName}}</div>
-                        <div class="d-flex">
-                            <ul class="list-unstyled d-flex color-palette-list">
-                                <li v-for="(color, index) in currentPalette" :key="index"  class="color-palette-list-item d-flex flex-column" style="height:40px;">
-                                    <!-- <div> {{currentPaletteNames[index]}} </div> -->
-                                    <div class="d-block w-100 h-100 mb-2" :style="{backgroundColor:'#'+color+''}" ></div>
-                                    <div class="color-palette-list-item__text">{{color.toUpperCase()}}</div>
-                                    
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <h6>Color Palettes</h6>
-                        <div class="d-flex py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
-                            <div class="flex-basis-40 small">{{value.name}}</div>
-                            <ul class="list-unstyled d-flex p-0 m-0 flex-basis-65 color-palette-list">
-                                <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex" style="height:20px;">
-                                    
-                                    <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
-                                    <!-- <div>{{color.toUpperCase()}}</div> -->
-                                    
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -656,6 +663,7 @@ export default {
             console.log('make btn active');
             if(type === 'primary') {
                 this.resetSideButtons('primary')
+                // const els = document.querySelectorAll('.primary-color-dots button')
                 const els = document.querySelectorAll('.primary-color-dots button')
             }
             if(type === 'accent') {
@@ -664,27 +672,28 @@ export default {
             if(type === 'neutral') {
                 this.resetSideButtons('neutral')
             }
-            el.classList.add('active');
+            console.dir(el)
+            el.parentElement.classList.add('active');
         },
         resetSideButtons(type) {
             if(type === 'primary') {
                 const els = document.querySelectorAll('.primary-color-dots button')
                 els.forEach(el => {
-                    el.classList.remove('active');
+                    el.parentElement.classList.remove('active');
                 })
             }
 
             if(type === 'accent') {
                 const els = document.querySelectorAll('.accent-color-dots button')
                 els.forEach(el => {
-                    el.classList.remove('active');
+                    el.parentElement.classList.remove('active');
                 })
             }
 
             if(type === 'neutral') {
                 const els = document.querySelectorAll('.neutral-color-dots button')
                 els.forEach(el => {
-                    el.classList.remove('active');
+                    el.parentElement.classList.remove('active');
                 })
             }
         },

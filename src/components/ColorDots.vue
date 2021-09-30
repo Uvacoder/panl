@@ -1,7 +1,7 @@
 <template>
-    <div class="small">
+    <div >
         <slot></slot>
-        <button class="round" :style="{backgroundColor: color}" @click="changeBackgroundColor" :title="color">
+        <button  :style="{backgroundColor: color}" @click="changeBackgroundColor" :title="color">
         </button>
     </div>
 </template>
@@ -40,18 +40,7 @@
 </script>
 
 <style>
-.small {
-    font-size: 0.75rem;
-    letter-spacing: 0.5;
-}
-.round {
-    display: block;
-    height: 20px;
-    width: 20px;
-    border-radius: 0;
-    border: 1px solid #efefef;
-    margin-right: 4px;
-}
+
 
 </style>>
     

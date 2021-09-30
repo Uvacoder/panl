@@ -1,0 +1,50 @@
+:root {
+	--bgColor: #fff000;
+	--primaryColor: #ff0000;
+	--accentColor: #ff0000;
+	--textColor: #000000;
+	--darkenColor: #000000;
+	--lightenColor: #ff0000;
+	--neutralColor: #ffffff;
+	--baseFontSize: 12px;
+	--borderRadius: 4px;
+	--paddings: 2rem;
+	--margins: 1rem;
+	--fontSerif: "Yeseva One", cursive;
+	--fontSansSerif: "Montserrat", sans-serif;
+	--fontMain: "Urbanist", sans-serif;
+	--cardHeading: var(--fontSansSerif);
+	--cardSubHeading: var(--fontSansSerif);
+	--cardText: var(--fontSansSerif);
+}
+
+.root-margins {
+	margin: var(--margins);
+}
+.root-paddings {
+	padding: var(--paddings);
+}
+
+.bg-primary {
+	background-color: var(--primaryColor) !important;
+}
+
+.bg-accent {
+	background-color: var(--accentColor) !important;
+}
+
+.bg-neutral {
+	background-color: var(--neutralColor) !important;
+}
+
+.text-primary {
+	color: var(--primaryColor) !important;
+}
+
+.text-accent {
+	color: var(--accentColor) !important;
+}
+
+.text-neutral {
+	color: var(--neutralColor) !important;
+}

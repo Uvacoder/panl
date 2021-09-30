@@ -1,0 +1,42 @@
+main .btn-round {
+	border-radius: var(--borderRadius);
+	padding: 5px 20px;
+	letter-spacing: 1px;
+	font-weight: 500;
+	background-color: var(--accentColor);
+	color: var(--primaryColor);
+	transition: all 0.25s ease;
+	font-size: var(--baseFontSize);
+}
+
+.btn-round:hover {
+	color: var(--primaryColor);
+}
+
+.btn-round:focus,
+.btn-round:active {
+	/* border-color: lighten(var(--accentColor), 10%); */
+	/* box-shadow: lighten(var(--accentColor), 10%); */
+	/* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
+	box-shadow: none;
+}
+
+main .card {
+	border-radius: var(--borderRadius);
+	padding: var(--paddings);
+	border: 0;
+}
+
+.card-heading {
+	font-family: var(--cardHeading);
+}
+
+.card-subheading {
+	font-family: var(--cardSubHeading);
+	font-size: 1.15rem;
+}
+
+.card-text {
+	font-family: var(--cardText);
+	font-size: var(--baseFontSize);
+}

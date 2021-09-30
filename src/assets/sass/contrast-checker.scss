@@ -1,0 +1,26 @@
+.contrast-checker-card {
+	&__outter {
+	}
+	&__inner {
+	}
+	&__heading {
+	}
+}
+.contrast-checker-card__heading {
+	padding-right: 5px;
+	line-height: 1.75rem;
+	text-align: center;
+}
+.contrast-checker-card__inner {
+	border: 2px solid var(--accentColor);
+	padding: 10px;
+}
+
+.contrast-checker-card__text {
+	line-height: 0.85rem;
+	font-size: 0.75rem;
+	border-left: 1px solid var(--accentColor);
+	padding-left: 10px;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}

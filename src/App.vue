@@ -1,6 +1,6 @@
 <template>
   
-    <div class="container-fluid layout">
+    <div class="container-fluid d-flex p-0">
         <!-- Panel 1 -->
         <aside>
             <div class="sidenav">
@@ -45,8 +45,8 @@
                             <ul class="list-unstyled d-flex color-palette-list">
                                 <li v-for="(color, index) in currentPalette" :key="index"  class="color-palette-list-item d-flex flex-column h-10" style="height:40px;">
                                     <!-- <div> {{currentPaletteNames[index]}} </div> -->
-                                    <div class="d-block w-100 h-100 mb-2" :style="{backgroundColor:'#'+color+''}" ></div>
-                                    <div class="color-palette-list-item__text">{{color.toUpperCase()}}</div>
+                                    <div class="d-block w-100 h-100 mb-2" :style="{backgroundColor:'#'+color+''}" @click="copyToClipboard($event,color.toUpperCase())" :title="color.toUpperCase()"></div>
+                                    <div class="color-palette-list-item__text" @click="copyToClipboard(color.toUpperCase())">{{color.toUpperCase()}}</div>
                                     
                                 </li>
                             </ul>
@@ -154,16 +154,18 @@
             <div class="sidenav" style="background-color:#180d45;">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
 
+                <hr>
+
                 <div class="sidebar-section justify-content-start align-items-start">
                      <div class="sidebar-section__heading">
                          Color Contrast Checker
                         <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Grade</span> {{computedContrastRating}}</span></div>
                      </div>
-                     <div class="sidebar-section__block d-flex flex-column   w-100">
-                         <div class="bg-primary p-2">
-                            <div style="border:2px solid var(--accentColor); padding: 10px;" class="d-flex align-items-center">
-                                <span style="color:var(--accentColor);  margin-right:10px;" class="h1">A</span>
-                                <span class="small" style="color:var(--accentColor); line-height:0.85rem;font-size:.75rem;border-left:1px solid var(--accentColor); padding-left:10px;">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                     <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card">
+                         <div class="bg-primary p-2 contrast-checker-card__outter">
+                            <div class="d-flex align-items-center contrast-checker-card__inner">
+                                <span class="h1 me-1 text-accent contrast-checker-card__heading">A <br/> a</span>
+                                <span class="small text-accent contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
                             </div>
                         </div>
                         
@@ -180,6 +182,8 @@
                      </div>
                         
                  </div>
+
+                    <hr>
 
                 <div class="sidebar-section">
                      <div class="sidebar-section__heading">Layout</div>
@@ -204,11 +208,31 @@
                         </div>
                     </div>-->
                     <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{padding}}rem</div>
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Base Font Size {{baseFontSize}}px</div>
                         <div class="sidebar-settings__control">
                             <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
-                            <label class="visually-hidden" for="Padding">Change Padding</label>
-                            <input @input="onSliderPaddingChange" class="slider" type="range" name="Padding" id="Padding" v-model="padding" min="0" max="5" >
+                            <label class="visually-hidden" for="BaseFontSize">Change Base Font Size</label>
+                            <input @input="onSliderBaseFontSizeChange" class="slider" type="range" name="BaseFontSize" id="BaseFontSize" v-model="baseFontSize" min="10" max="20" >
+
+                        </div>
+                    
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{paddings}}rem</div>
+                        <div class="sidebar-settings__control">
+                            <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
+                            <label class="visually-hidden" for="Paddings">Change Padding</label>
+                            <input @input="onSliderPaddingsChange" class="slider" type="range" name="Paddings" id="Paddings" v-model="paddings" min="0" max="5" >
+
+                        </div>
+                    
+                    </div>
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Margins {{margins}}rem</div>
+                        <div class="sidebar-settings__control">
+                            <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
+                            <label class="visually-hidden" for="Padding">Change Margins</label>
+                            <input @input="onSliderMarginsChange" class="slider" type="range" name="Margins" id="Margins" v-model="margins" min="0" max="5" >
 
                         </div>
                     
@@ -228,7 +252,7 @@
                         <div class="sidebar-settings__control d-flex justify-content-end">
                             <!-- Switch -->
                             <div class="form-check form-switch">
-                                <input @change="onSwitchHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckHeading">
+                                <input @change="onSwitchHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckHeading" :checked="headingSerif == 1">
                                 <label class="form-check-label visually-hidden" for="flexSwitchCheckHeading">Default switch checkbox input</label>
                             </div>
                         </div>
@@ -238,19 +262,44 @@
                         <div class="sidebar-settings__control d-flex justify-content-end">
                             <!-- Switch -->
                             <div class="form-check form-switch">
-                                <input @change="onSwitchSubHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckSubHeading">
+                                <input @change="onSwitchSubHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckSubHeading" :checked="subHeadingSerif == 1">
                                 <label class="form-check-label visually-hidden" for="flexSwitchCheckSubHeading">Default switch checkbox input</label>
                             </div>
                         </div>
                     </div>
                     <div class="sidebar-settings">
-                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Card Text Serif</div>
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Text Serif</div>
                         <div class="sidebar-settings__control d-flex justify-content-end">
                             <!-- Switch -->
                             <div class="form-check form-switch">
-                                <input @change="onSwitchTextChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCardText">
+                                <input @change="onSwitchTextChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCardText" :checked="textSerif == 1">
                                 <label class="form-check-label visually-hidden" for="flexSwitchCheckCardText">Default switch checkbox input</label>
                             </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Save current settings</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <div class="icon" @click="saveSettings">
+                                <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M3 5C3 3.89543 3.89543 3 5 3H9H15H16.5858C17.1162 3 17.6249 3.21071 18 3.58579L20.7071 6.29289C20.8946 6.48043 21 6.73478 21 7V19C21 20.1046 20.1046 21 19 21H15H9H5C3.89543 21 3 20.1046 3 19V5ZM9 19H15V13H9V19ZM17 19H19V7.41421L17 5.41421V7C17 8.10457 16.1046 9 15 9H9C7.89543 9 7 8.10457 7 7V5H5V19H7V13C7 11.8954 7.89543 11 9 11H15C16.1046 11 17 11.8954 17 13V19ZM9 5V7H15V5H9Z" fill="#FFFFFF"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-settings">
+                        <div class="sidebar-settings__heading text-white-50 flex-basis-65">Load previous settings</div>
+                        <div class="sidebar-settings__control d-flex justify-content-end">
+                            <div class="icon" @click="loadSettings">
+                                <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M9 5C8.44772 5 8 5.44772 8 6C8 6.55228 8.44772 7 9 7C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5ZM6.17071 5C6.58254 3.83481 7.69378 3 9 3C10.3062 3 11.4175 3.83481 11.8293 5H19C19.5523 5 20 5.44772 20 6C20 6.55228 19.5523 7 19 7H11.8293C11.4175 8.16519 10.3062 9 9 9C7.69378 9 6.58254 8.16519 6.17071 7H5C4.44772 7 4 6.55228 4 6C4 5.44772 4.44772 5 5 5H6.17071ZM15 11C14.4477 11 14 11.4477 14 12C14 12.5523 14.4477 13 15 13C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11ZM12.1707 11C12.5825 9.83481 13.6938 9 15 9C16.3062 9 17.4175 9.83481 17.8293 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H17.8293C17.4175 14.1652 16.3062 15 15 15C13.6938 15 12.5825 14.1652 12.1707 13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H12.1707ZM9 17C8.44772 17 8 17.4477 8 18C8 18.5523 8.44772 19 9 19C9.55228 19 10 18.5523 10 18C10 17.4477 9.55228 17 9 17ZM6.17071 17C6.58254 15.8348 7.69378 15 9 15C10.3062 15 11.4175 15.8348 11.8293 17H19C19.5523 17 20 17.4477 20 18C20 18.5523 19.5523 19 19 19H11.8293C11.4175 20.1652 10.3062 21 9 21C7.69378 21 6.58254 20.1652 6.17071 19H5C4.44772 19 4 18.5523 4 18C4 17.4477 4.44772 17 5 17H6.17071Z" fill="#FFFFFF"></path>
+                                </svg>
+                            </div>
+                            
                         </div>
                     </div>
                     
@@ -269,16 +318,32 @@
             
         </aside>
         <!-- Main -->
-        <main>
+        <main class="container layout flex-grow">
            
            
-
-
-         
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi illum est voluptatum velit ullam sequi vitae neque. Temporibus, voluptates eaque dolores suscipit iure animi ad error nesciunt laborum amet architecto.
+                        </p>
+                    </div>
+                </div>
 
             <div class="row">
                 <div class="col">
-                    <div class="card bg-accent text-primary" style="width: 18rem;">
+                    <div class="card bg-primary text-accent root-margins">
+                        <div class="card-body">
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-accent text-primary root-margins">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
                             <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
@@ -288,6 +353,89 @@
                             
                         </div>
                     </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-neutral text-accent root-margins p-0">
+                        <div class="card-body">
+                            <h2 class="card-title card-heading mb-2" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+        
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-neutral text-accent root-margins p-0" style="padding:0 !important;">
+                        <div class="card-body">
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text text-accent" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum rerum deserunt voluptatibus dolor, temporibus tempore eaque minima quae neque illo cupiditate explicabo officiis suscipit voluptatum soluta nulla. Iure, esse libero.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+
+            <div class="row">
+                <div class="col-7">
+                    <div class="card bg-primary text-accent root-margins flex-shrink-1" >
+                        <div class="card-body">
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="card bg-accent text-primary root-margins">
+                        <div class="card-body">
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-accent text-primary root-margins">
+                        <div class="card-body">
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row footer">
+                <div class="col m-0">
+                    <div class="d-flex">
+                        <span class="me-2 small">&copy; 2021 Tu Trinh</span>
+                        <span class="me-2 small"><a href="hellotu.com">Hellotu.com</a></span>
+                    </div>
+                   
+
                 </div>
             </div>
 
@@ -325,6 +473,7 @@ import Color from 'color'
 import ColorDots from '@/components/ColorDots.vue'
 import Slider from '@/components/Slider.vue'
 import {RoundValues} from '@/utilities/utils'
+import {Cookie} from '@/utilities/cookies'
 export default {
     components: {
         ColorDots,
@@ -332,7 +481,7 @@ export default {
     },
     data() {
         return {
-            colors: ['#EAE2B7', '#003049'],// primary, accent
+            colors: ['#EAE2B7', '#003049', '#EFEFEF'],// primary, accent, neutral
             primaryHSL: {
                 h: 0,
                 s: 0,
@@ -356,8 +505,13 @@ export default {
             currentPaletteId: 0,
             neutralPalette: ['EFEFEF', '000000'],
             contrast: null,
-            padding: 2,
-            borderRadius: 4
+            paddings: 2,
+            margins: 1,
+            borderRadius: 4,
+            baseFontSize: 12,
+            headingSerif: 0,
+            subHeadingSerif: 0,
+            textSerif: 0
 
 
 
@@ -365,6 +519,7 @@ export default {
     },
     
     mounted() {
+        
         
         // this.masterRGB = color.object()
         const loadColorPalette = async () => {
@@ -389,17 +544,17 @@ export default {
                     console.log('colorPalettes',this.colorPalettes)
                     // Set the currentPalette to the first entry of colors array
                     // const i = this.colorPalettes.length
-                    const tempi = 1;
-                    this.displayColors(this.colorPalettes[tempi].colors)
+                    // const tempi = 1;
+                    this.displayColors(this.colorPalettes[this.currentPaletteId].colors)
                     // Set the color names for each of the current color palette entry
-                    this.setColorNames(this.colorPalettes[tempi].colors)
-                    this.currentPaletteName = this.colorPalettes[tempi].name
-                    this.currentPaletteId = tempi;
+                    this.setColorNames(this.colorPalettes[this.currentPaletteId].colors)
+                    this.currentPaletteName = this.colorPalettes[this.currentPaletteId].name
+                    //this.currentPaletteId = this.currentPaletteId;
 
                     // Temporary push first 2 colors to the colors array ================================
-                    this.colors[0] = `#${this.colorPalettes[tempi].colors[0]}`
-                    this.colors[1] = `#${this.colorPalettes[tempi].colors[1]}`
-                    this.colors[2] = '#FEFEFE'
+                    this.colors[0] = `#${this.colorPalettes[this.currentPaletteId].colors[0]}`
+                    this.colors[1] = `#${this.colorPalettes[this.currentPaletteId].colors[1]}`
+                    this.colors[2] = '#EFEFEF'
 
                     const primaryColor = Color(this.colors[0])
                     const accentColor = Color(this.colors[1])
@@ -420,6 +575,13 @@ export default {
                         this.setActiveColorOnMount('neutral')
 
                     })
+
+                    // Load previous settings if cookie exist
+                    console.log('cookie exist: ', Cookie.cookieExist('__panl-paletteId'))
+                    if(Cookie.cookieExist('__panl-paletteId') === true) {
+                        this.loadSettings();
+                        console.log('Colors: ', this.colors)
+                    }
                     
 
                 } else {
@@ -656,8 +818,9 @@ export default {
             this.onChangePrimaryColor({data:this.colors[0]})
             this.onChangeAccentColor({data:this.colors[1]})
         },
-        copyToClipboard(string) {
-           copy(string);
+        copyToClipboard(e,string) {
+            console.log('copy to clipboard: ', e)
+           copy(`#${string}`);
         },
         makeBtnActive(el,type) {
             console.log('make btn active');
@@ -744,30 +907,46 @@ export default {
             console.log('Switch for heading', e)
             if(e.target.checked === true) {
                 this.setRootProperties('--cardHeading', 'var(--fontSerif)')
+                this.headingSerif = 1
             } else {
                 this.setRootProperties('--cardHeading', 'var(--fontSansSerif)')
+                this.headingSerif = -0
             }
         },
         onSwitchSubHeadingChange(e) {
             console.log('Switch for heading', e)
             if(e.target.checked === true) {
                 this.setRootProperties('--cardSubHeading', 'var(--fontSerif)')
+                this.subHeadingSerif = 1
             } else {
                 this.setRootProperties('--cardSubHeading', 'var(--fontSansSerif)')
+                this.subHeadingSerif = 0
             }
         },
         onSwitchTextChange(e) {
             console.log('Switch for text', e)
             if(e.target.checked === true) {
                 this.setRootProperties('--cardText', 'var(--fontSerif)')
+                this.textSerif = 1
             } else {
                 this.setRootProperties('--cardText', 'var(--fontSansSerif)')
+                this.textSerif = 0
             }
         },
-        onSliderPaddingChange(e) {
-            console.log('slider padding change', this.padding)
-            this.setRootProperties('--padding', `${this.padding}rem`)
-            console.log(document.documentElement.style.getPropertyValue('--padding'))
+        onSliderBaseFontSizeChange(e) {
+            console.log('slider base font size change', this.baseFontSize)
+            this.setRootProperties('--baseFontSize', `${this.baseFontSize}px`)
+            console.log(document.documentElement.style.getPropertyValue('--baseFontSize'))
+        },
+        onSliderPaddingsChange(e) {
+            console.log('slider paddings change', this.paddings)
+            this.setRootProperties('--paddings', `${this.paddings}rem`)
+            console.log(document.documentElement.style.getPropertyValue('--paddings'))
+        },
+        onSliderMarginsChange(e) {
+            console.log('slider margins change', this.margins)
+            this.setRootProperties('--margins', `${this.margins}rem`)
+            console.log(document.documentElement.style.getPropertyValue('--margins'))
         },
         onSliderBorderRadiusChange(e) {
             console.log('slider border radius change', this.borderRadius)
@@ -806,6 +985,96 @@ export default {
                 this.setActiveColorOnMount('neutral')
 
             })
+
+        },
+        saveSettings() {
+            Cookie.getAllCookies();
+            let cookieObj = {
+            paletteId: this.currentPaletteId,
+            borderRadius: this.borderRadius,
+            baseFontSize: this.baseFontSize,
+            paddings: this.paddings,
+            margins: this.margins,
+            headingSerif: this.headingSerif,
+            subHeadingSerif: this.subHeadingSerif,
+            textSerif: this.textSerif,
+            primaryColor: this.colors[0],
+            accentColor: this.colors[1],
+            neutralColor: this.colors[2]
+            }
+            // Cookie names
+            // __panl-palletteId
+            // __panl-borderRadius
+            // __panl-baseFontSize
+            // __panl-paddings
+            // __panl-margins
+
+            console.log('Before saving colors: ', this.colors)
+
+            for(const [key, value] of Object.entries(cookieObj)) {
+                console.log(key, value)
+                Cookie.setCookie(`__panl-${key}`, value);
+            }
+
+            Cookie.getAllCookies();
+        },
+        loadSettings() {
+            let cookieNames = [
+            'paletteId',
+            'borderRadius',
+            'baseFontSize',
+            'paddings',
+            'margins',
+            'headingSerif',
+            'subHeadingSerif',
+            'textSerif',
+            'primaryColor',
+            'accentColor',
+            'neutralColor',
+            ]
+
+            for(const cName of cookieNames) {
+                console.log(cName)
+                //getCookieValue
+                //cookieExist
+                console.log(Cookie.getCookieValue(`__panl-${cName}`))
+            }
+            this.currentPaletteId = Cookie.getCookieValue(`__panl-${cookieNames[0]}`)
+            this.borderRadius = Cookie.getCookieValue(`__panl-${cookieNames[1]}`)
+            this.baseFontSize = Cookie.getCookieValue(`__panl-${cookieNames[2]}`)
+            this.paddings = Cookie.getCookieValue(`__panl-${cookieNames[3]}`)
+            this.margins = Cookie.getCookieValue(`__panl-${cookieNames[4]}`)
+            this.headingSerif = Cookie.getCookieValue(`__panl-${cookieNames[5]}`)
+            this.subHeadingSerif = Cookie.getCookieValue(`__panl-${cookieNames[6]}`)
+            this.textSerif = Cookie.getCookieValue(`__panl-${cookieNames[7]}`)
+            this.colors[0] = Cookie.getCookieValue(`__panl-${cookieNames[8]}`)
+            this.colors[1] = Cookie.getCookieValue(`__panl-${cookieNames[9]}`)
+            this.colors[2] = Cookie.getCookieValue(`__panl-${cookieNames[10]}`)
+
+            // Temp table
+            let colorsArr = []
+            colorsArr.push(this.colors[0])
+            colorsArr.push(this.colors[1])
+            colorsArr.push(this.colors[2])
+
+            // Settings the root properties
+            this.setCurrentPalette(this.currentPaletteId);
+            this.setRootProperties('--borderRadius', `${this.borderRadius}px`);
+            this.setRootProperties('--paddings', `${this.paddings}rem`);
+            this.setRootProperties('--margins', `${this.margins}rem`);
+            this.setRootProperties('--baseFontSize', `${this.baseFontSize}px`);
+
+            this.colors = [...colorsArr]
+            this.setRootProperties('--primaryColor', this.colors[0])
+            this.setRootProperties('--accentColor', this.colors[1])
+            this.setRootProperties('--neutralColor', this.colors[2])
+
+            colorsArr = []
+
+            // console.log('heading serif: ', this.headingSerif)
+            this.headingSerif == 1 ? this.setRootProperties('--cardHeading', 'var(--fontSerif)') : this.setRootProperties('--cardHeading', 'var(--fontSansSerif)');
+            this.subHeadingSerif == 1 ? this.setRootProperties('--cardSubHeading', 'var(--fontSerif)') : this.setRootProperties('--cardSubHeading', 'var(--fontSansSerif)');
+            this.textSerif == 1 ? this.setRootProperties('--cardText', 'var(--fontSerif)') : this.setRootProperties('--cardText', 'var(--fontSansSerif)');
 
         }
         

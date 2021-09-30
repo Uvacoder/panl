@@ -1,126 +1,35 @@
-:root {
-	--bgColor: #fff000;
-	--primaryColor: #ff0000;
-	--accentColor: #ff0000;
-	--textColor: #000000;
-	--darkenColor: #000000;
-	--lightenColor: #ff0000;
-	--neutralColor: #ffffff;
-	--borderRadius: 4px;
-	--padding: 2rem;
-	--fontSerif: "Yeseva One", cursive;
-	--fontSansSerif: "Montserrat", sans-serif;
-	--fontMain: "Urbanist", sans-serif;
-	--cardHeading: var(--fontSansSerif);
-	--cardSubHeading: var(--fontSansSerif);
-	--cardText: var(--fontSansSerif);
-}
+@import "@/assets/sass/root.scss";
+@import "@/assets/sass/utility.scss";
+@import "@/assets/sass/logo.scss";
+@import "@/assets/sass/card.scss";
+@import "@/assets/sass/slider.scss";
+@import "@/assets/sass/contrast-checker.scss";
+@import "@/assets/sass/layout.scss";
+@import "@/assets/sass/icon.scss";
 
 html {
-	background-color: var(--primaryColor, #000000);
+	background-color: var(--neutralColor);
 }
 
 body {
 	font-family: var(--fontMain);
 	font-size: 14px;
-	letter-spacing: 0.5px;
-	background-color: transparent;
-	color: var(--accentColor);
+	/* letter-spacing: 0.5px; */
+	background-color: var(--neutralColor);
+	/* color: var(--accentColor); */
 }
-
-h1 {
-	font-size: 10px;
-}
-
 * {
 	box-sizing: border-box;
 	scrollbar-width: none; /* Firefox implementation */
 }
 
-.sidenav {
-	position: sticky;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	background-color: #0b0037;
-	color: white;
-	/* min-width: 320px; */
-	width: 100%;
-	/* z-index: 1; */
-	padding: 1rem;
-	overflow-y: auto;
-}
-
-.sidenav::-webkit-scrollbar {
-	display: none;
-}
-
-.layout {
-	/* grid-template-columns: 1fr 5fr; */
-	display: flex;
-	/* gap:1rem; */
-	/* grid-template-areas: "sidebar sidebar main"; */
-	padding-left: 0;
-}
-
-.flex-basis-40 {
-	flex: 0 1 40% !important;
-}
-
-.flex-basis-60,
-.flex-basis-65 {
-	flex: 0 1 60% !important;
-}
-
-aside {
-	grid-area: "sidebar";
-	position: sticky;
-	width: 300px;
-}
-
 main {
-	/* padding-left: 10px */
-	padding: 2rem;
+	font-size: var(--baseFontSize);
+	background-color: var(--neutralColor);
 }
 
-.sidebar {
-}
-
-.logo-icon {
-	display: flex;
-	/* align-items: center; */
-}
-
-.logo-icon .letter {
-	/* padding-left: 10px; */
-	/* padding-right: 10px; */
-	/* padding-top: 5px; */
-	/* padding-bottom: 5px; */
-	/* border-left:  1px solid #ffffff; */
-	font-size: 1.5rem;
-	line-height: 1.5rem;
-	width: 40px;
-	text-align: center;
-	background-color: #fff;
-	border: 1px solid #fff;
-	margin-right: 4px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #000;
-	font-weight: 600;
-}
-
-.logo-icon .letter:first-child {
-	/* border: 0; */
-}
-
-.logo-text {
-	line-height: 0.75rem;
-	font-size: 0.75rem;
-	/* letter-spacing: 5px; */
-	/* text-transform:uppercase */
+h1 {
+	font-size: 10px;
 }
 
 h6 {
@@ -130,88 +39,13 @@ h6 {
 .text-muted {
 	color: #c4c8cb !important;
 }
-.sidebar-section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.sidebar-section__heading,
-.sidebar-color__heading {
-	/* font-size: 1rem; */
-
-	flex: 0 0 40%;
-	/* margin-right: 10px */
-}
-
-.sidebar-section__heading {
-	font-size: 1.25rem;
-	line-height: 1.25rem;
-}
-
-.sidebar-section__block {
-}
-
-.sidebar-section__colors,
-.sidebar-section__block,
-.sidebar-color__block {
-	/* background-color: var(--primaryColor); */
-	/* display: inline-block; */
-	flex: 1 0 60%;
-}
-
-.sidebar-settings {
-	display: flex;
-	padding: 2px 0;
-	justify-content: center;
-	align-items: center;
-}
-
-.sidebar-settings__heading {
-	flex: 0 0 40%;
-	font-size: 0.85rem;
-}
-
-.sidebar-settings__control {
-	flex: 1 0 auto;
-}
-
-.bg-primary {
-	background-color: var(--primaryColor) !important;
-}
-
-.bg-accent {
-	background-color: var(--accentColor) !important;
-}
-
-.text-primary {
-	color: var(--primaryColor) !important;
-}
-
-.text-accent {
-	color: var(--accentColor) !important;
-}
-
-.card {
-	border-radius: var(--borderRadius) !important;
-}
-
-.card-heading {
-	font-family: var(--cardHeading);
-}
-
-.card-subheading {
-	font-family: var(--cardSubHeading);
-	font-size: 1.15rem;
-}
-
-.card-text {
-	font-family: var(--cardText);
-	font-size: 1rem;
-}
 
 input[type="range"] {
 	cursor: pointer;
 }
+
+/* Color Dots */
+
 ul {
 	width: 100%;
 }
@@ -231,28 +65,6 @@ li {
 li:hover {
 	flex-basis: 80px;
 	cursor: pointer;
-}
-
-main .btn-round {
-	border-radius: var(--borderRadius);
-	padding: 5px 20px;
-	letter-spacing: 0.5;
-	font-weight: 500;
-	background-color: var(--accentColor);
-	color: var(--primaryColor);
-	transition: all 0.25s ease;
-}
-
-.btn-round:hover {
-	color: var(--primaryColor);
-}
-
-.btn-round:focus,
-.btn-round:active {
-	/* border-color: lighten(var(--accentColor), 10%); */
-	/* box-shadow: lighten(var(--accentColor), 10%); */
-	/* box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%); */
-	box-shadow: none;
 }
 
 .sidebar-section__button--white {
@@ -315,46 +127,6 @@ button.round {
 .round.active {
 	/* border: 2px solid #72f1b8; */
 	border: 2px solid #fff000;
-}
-
-input[type="range"] {
-	cursor: pointer;
-}
-
-.slider {
-	-webkit-appearance: none; /* Override default CSS styles */
-	appearance: none;
-	width: 100%; /* Full-width */
-	height: 15px; /* Specified height */
-	background: #d3d3d3; /* Grey background */
-	outline: none; /* Remove outline */
-	opacity: 1; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-	transition: opacity 0.2s;
-	height: 2px;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-	opacity: 0.7; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none; /* Override default look */
-	appearance: none;
-	width: 6px; /* Set a specific slider handle width */
-	height: 6px; /* Slider handle height */
-	background: #fff; /* Green background */
-	cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-	width: 6px; /* Set a specific slider handle width */
-	height: 6px; /* Slider handle height */
-	/* background: #04AA6D; Green background */
-	background-color: #fff;
-	cursor: pointer; /* Cursor on hover */
 }
 
 .card-body {

@@ -525,7 +525,14 @@ export default {
 
         }
     },
-    
+    beforeMount() {
+        // Load previous settings if cookie exist
+        if(Cookie.cookieExist('__panl-paletteId') === true) {
+            //this.loadSettings();
+            console.log('current palette id before mount: ', this.currentPaletteId);
+            this.currentPaletteId = Cookie.getCookieValue('__panl-paletteId')
+        }
+    },
     mounted() {
         
         
@@ -544,8 +551,6 @@ export default {
                 const response = await fetch('https://cdn.contentful.com/spaces/rysom3n9r3je/entries?' + query);
                 if(response.status === 200) {
                     const data = await response.json();
-                    // console.log(data)
-                    // console.log(data.items)
                     data.items.forEach(item => {
                         this.colorPalettes.push(item.fields)
                     })
@@ -571,15 +576,9 @@ export default {
                     SetHSLToRoot(this.primaryHSL, 'primary');
                     SetHSLToRoot(this.accentHSL, 'accent');
                     SetHSLToRoot(this.neutralHSL, 'neutral');
-                    // console.log(GetRootPropertyValue('--primaryh'))
-                    // console.log('Color from object', Color(this.neutralHSL).hex())
-
-                    // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
-
-                    // document.documentElement.style.setProperty('--primaryColor', primaryColor)
                     SetRootProperty('--primaryColor', primaryColor)
                     SetRootProperty('--accentColor', accentColor)
-                    // document.documentElement.style.setProperty('--accentColor', accentColor)
+                    SetRootProperty('--neutralColor', neutralColor)
 
                     this.$nextTick(function(){
                         this.setActiveColorOnMount('primary')
@@ -588,10 +587,7 @@ export default {
 
                     })
 
-                    // Load previous settings if cookie exist
-                    if(Cookie.cookieExist('__panl-paletteId') === true) {
-                        this.loadSettings();
-                    }
+                    
                     
 
                 } else {
@@ -705,35 +701,8 @@ export default {
         },
 
          onChangeNeutralColor(data) {
-            // console.log('onChangeNeutralColor', data)
-            document.documentElement.style.setProperty('--neutralColor', data.data)
-            // this.colors[1] = data.data
-            // HSL
-            
-            //const currentHSL = RoundValues(this.accentHSL) // old values
-            //this.accentHSL = RoundValues(Color(this.accentColor).hsl().object()) // new values
-
-
-            //const newHSL = RoundValues(Color(this.colors[1]).hsl().object())
-
-            // anime({
-            //     targets: currrentHSL,
-            //     h: newColorHSLValues.h,
-            //     s: newColorHSLValues.s,
-            //     l: newColorHSLValues.l,
-            //     round: 1,
-            //     easing: 'easeInOutQuad',
-            //     duration: 500,
-            //     update: function() {
-            //         that.accentHSL.h = currrentHSL.h
-            //         that.accentHSL.s = currrentHSL.s
-            //         that.accentHSL.l = currrentHSL.l
-            //     }
-            // })
-
-
-            //this.animateSlider(currentHSL, newHSL, 'accent')
-            // this.makeBtnActive(data.event.target, 'neutral')
+            SetRootProperty('--neutralColor', data.data)
+          
             this.colors[2] = data.data
             this.setActiveColorOnMount('neutral')
 
@@ -1056,24 +1025,24 @@ export default {
             this.colors[2] = Cookie.getCookieValue(`__panl-${cookieNames[10]}`)
 
             // Temp table
-            let colorsArr = []
-            colorsArr.push(this.colors[0])
-            colorsArr.push(this.colors[1])
-            colorsArr.push(this.colors[2])
+            //let colorsArr = []
+            //colorsArr.push(this.colors[0])
+            //colorsArr.push(this.colors[1])
+            //colorsArr.push(this.colors[2])
 
             // Settings the root properties
-            this.setCurrentPalette(this.currentPaletteId);
+            //this.setCurrentPalette(this.currentPaletteId);
             SetRootProperty('--borderRadius', `${this.borderRadius}px`);
             SetRootProperty('--paddings', `${this.paddings}rem`);
             SetRootProperty('--margins', `${this.margins}rem`);
             SetRootProperty('--baseFontSize', `${this.baseFontSize}px`);
 
-            this.colors = [...colorsArr]
+            //this.colors = [...colorsArr]
             SetRootProperty('--primaryColor', this.colors[0])
             SetRootProperty('--accentColor', this.colors[1])
             SetRootProperty('--neutralColor', this.colors[2])
 
-            colorsArr = []
+            //colorsArr = []
 
             // console.log('heading serif: ', this.headingSerif)
             this.headingSerif == 1 ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');

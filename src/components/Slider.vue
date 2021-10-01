@@ -44,7 +44,7 @@
         },
         mounted() {
             //const slider = this.getElementByClassName("slider");
-            console.log('this', this)
+            // console.log('this', this)
             //console.log(slider)
         },
         computed: {
@@ -58,7 +58,7 @@
         },
         methods: {
             onSliderChange(e) {
-                console.log('change slider', e)
+                // console.log('change slider', e)
                 this.$emit('color-change', {type: e.target.dataset['colorType'], channel: e.target.dataset['channel'], value: e.target.value})
             }
         },

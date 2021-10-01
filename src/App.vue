@@ -331,10 +331,10 @@
 
             <div class="row">
                 <div class="col">
-                    <div class="card bg-primary text-accent root-margins">
+                    <div class="card bg-primary text-accent root-margins shadow">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 1</h2>
                             <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
@@ -343,10 +343,10 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card bg-accent text-primary root-margins">
+                    <div class="card bg-accent text-primary root-margins shadow">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 2</h2>
                             <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
@@ -355,11 +355,13 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card bg-neutral text-accent root-margins p-0">
+                    <div class="card bg-neutral text-accent root-margins shadow">
                         <div class="card-body">
-                            <h2 class="card-title card-heading mb-2" contenteditable="true">The Bulk Of It</h2>
-                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-subheading" contenteditable="true">Card Category</div>
+                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 3</h2>
+                            <p class="card-text" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-neutral" contenteditable="true">View More</a>
                             
                         </div>
                     </div>
@@ -472,7 +474,7 @@ import eventBus from '@/utilities/eventbus'
 import Color from 'color'
 import ColorDots from '@/components/ColorDots.vue'
 import Slider from '@/components/Slider.vue'
-import {RoundValues} from '@/utilities/utils'
+import {RoundValues, SetRootProperty, GetRootPropertyValue, SetHSLToRoot} from '@/utilities/utils'
 import {Cookie} from '@/utilities/cookies'
 export default {
     components: {
@@ -483,15 +485,21 @@ export default {
         return {
             colors: ['#EAE2B7', '#003049', '#EFEFEF'],// primary, accent, neutral
             primaryHSL: {
-                h: 0,
-                s: 0,
-                l: 0
+                H: 0, //number 0 - 360
+                S: 0, // percentage 100
+                L: 0 // percentage 100
 
             },
             accentHSL: {
-                h: 0,
-                s: 0,
-                l: 0
+                H: 0,
+                S: 0,
+                L: 0
+
+            },
+            neutralHSL: {
+                H: 0,
+                S: 0,
+                L: 0
 
             },
             darkenValue: 10,
@@ -537,14 +545,11 @@ export default {
                 if(response.status === 200) {
                     const data = await response.json();
                     // console.log(data)
-                    console.log(data.items)
+                    // console.log(data.items)
                     data.items.forEach(item => {
                         this.colorPalettes.push(item.fields)
                     })
-                    console.log('colorPalettes',this.colorPalettes)
-                    // Set the currentPalette to the first entry of colors array
-                    // const i = this.colorPalettes.length
-                    // const tempi = 1;
+                    // console.log('colorPalettes',this.colorPalettes)
                     this.displayColors(this.colorPalettes[this.currentPaletteId].colors)
                     // Set the color names for each of the current color palette entry
                     this.setColorNames(this.colorPalettes[this.currentPaletteId].colors)
@@ -558,15 +563,22 @@ export default {
 
                     const primaryColor = Color(this.colors[0])
                     const accentColor = Color(this.colors[1])
+                    const neutralColor = Color(this.colors[2])
                     this.primaryHSL = RoundValues(primaryColor.hsl().object())
                     this.accentHSL = RoundValues(accentColor.hsl().object())
+                    this.neutralHSL = neutralColor.hsl().object()
 
+                    SetHSLToRoot(this.primaryHSL, 'primary');
+                    SetHSLToRoot(this.accentHSL, 'accent');
+                    SetHSLToRoot(this.neutralHSL, 'neutral');
+                    // console.log(GetRootPropertyValue('--primaryh'))
+                    // console.log('Color from object', Color(this.neutralHSL).hex())
 
                     // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
 
                     // document.documentElement.style.setProperty('--primaryColor', primaryColor)
-                    this.setRootProperties('--primaryColor', primaryColor)
-                    this.setRootProperties('--accentColor', accentColor)
+                    SetRootProperty('--primaryColor', primaryColor)
+                    SetRootProperty('--accentColor', accentColor)
                     // document.documentElement.style.setProperty('--accentColor', accentColor)
 
                     this.$nextTick(function(){
@@ -577,10 +589,8 @@ export default {
                     })
 
                     // Load previous settings if cookie exist
-                    console.log('cookie exist: ', Cookie.cookieExist('__panl-paletteId'))
                     if(Cookie.cookieExist('__panl-paletteId') === true) {
                         this.loadSettings();
-                        console.log('Colors: ', this.colors)
                     }
                     
 
@@ -595,7 +605,6 @@ export default {
         }
         loadColorPalette();
         
-        console.log('===================================================')
        
         /*eventBus().emitter.on('foo', (data) => {
             console.log('===================================================')
@@ -636,13 +645,13 @@ export default {
             let newColor =  Color(this.primaryHSL).hex()
             this.colors[0] = newColor
             // document.documentElement.style.setProperty('--primaryColor', newColor)
-            this.setRootProperties('--primaryColor', newColor)
+            SetRootProperty('--primaryColor', newColor)
         },
         updateAccentColor() {
             let newColor =  Color(this.accentHSL).hex()
             this.colors[1]= newColor
             // document.documentElement.style.setProperty('--accentColor', newColor)
-            this.setRootProperties('--accentColor', newColor)
+            SetRootProperty('--accentColor', newColor)
         },
         displayColors(arr) {
             this.currentPalette = arr;
@@ -660,10 +669,10 @@ export default {
             })
         },
         onChangePrimaryColor(data) {
-            console.log('onChangeBackgroundColor', data)  
+            // console.log('onChangeBackgroundColor', data)
             document.documentElement.style.setProperty('--primaryColor', data.data)
             // this.setRootProperties('--primaryColor', data.data)
-            console.log('root primary color value: ',document.documentElement.style.getPropertyValue('--primaryColor'))
+            // console.log('root primary color value: ',document.documentElement.style.getPropertyValue('--primaryColor'))
             this.colors[0]= data.data
 
             const currentHSL = RoundValues(this.primaryHSL)
@@ -678,9 +687,9 @@ export default {
 
         },
         onChangeAccentColor(data) {
-            console.log('onChangeTextColor', data)
+            // console.log('onChangeTextColor', data)
             // document.documentElement.style.setProperty('--accentColor', data.data)
-            this.setRootProperties('--accentColor', data.data)
+            SetRootProperty('--accentColor', data.data)
             this.colors[1] = data.data
             // HSL
             
@@ -696,7 +705,7 @@ export default {
         },
 
          onChangeNeutralColor(data) {
-            console.log('onChangeNeutralColor', data)
+            // console.log('onChangeNeutralColor', data)
             document.documentElement.style.setProperty('--neutralColor', data.data)
             // this.colors[1] = data.data
             // HSL
@@ -731,7 +740,7 @@ export default {
         },
        
         onSliderChange(data) {
-            console.log('on master change: ', data)
+            // console.log('on master change: ', data)
             const type = data.type
             const channel = data.channel
             const value = data.value
@@ -819,11 +828,11 @@ export default {
             this.onChangeAccentColor({data:this.colors[1]})
         },
         copyToClipboard(e,string) {
-            console.log('copy to clipboard: ', e)
+            // console.log('copy to clipboard: ', e)
            copy(`#${string}`);
         },
         makeBtnActive(el,type) {
-            console.log('make btn active');
+            // console.log('make btn active');
             if(type === 'primary') {
                 this.resetSideButtons('primary')
                 // const els = document.querySelectorAll('.primary-color-dots button')
@@ -835,7 +844,7 @@ export default {
             if(type === 'neutral') {
                 this.resetSideButtons('neutral')
             }
-            console.dir(el)
+            // console.dir(el)
             el.parentElement.classList.add('active');
         },
         resetSideButtons(type) {
@@ -860,12 +869,7 @@ export default {
                 })
             }
         },
-        setRootProperties(name, value) {
-
-            // const prop = document.documentElement.style.setProperty('--primaryColor', primaryColor)
-            const prop = document.documentElement.style.setProperty(name, value)
-            return
-        },
+        
         setActiveColorOnMount(type) {
             var els, i;
             if(type == 'primary') {
@@ -880,13 +884,13 @@ export default {
             }
             if(type == 'neutral') {
                 els = document.querySelectorAll('.neutral-color-dots button')
-                console.log('els: ', els)
+                // console.log('els: ', els)
                 i = 2
             }
 
             els.forEach(el => {
-                console.log('el: ',el.getAttribute('title'))
-                        console.log('array: ', this.colors[i])
+                // console.log('el: ',el.getAttribute('title'))
+                        // console.log('array: ', this.colors[i])
                     if(el.getAttribute('title') === this.colors[i]) {
                         
                         this.makeBtnActive(el, type)
@@ -895,66 +899,66 @@ export default {
                 })
         },
         onSwitchButtonRoundChange(e) {
-            console.log('Switch', e)
+            // console.log('Switch', e)
             if(e.target.checked === true) {
-                this.setRootProperties('--borderRadius', '20px')
+                SetRootProperty('--borderRadius', '20px')
             } else {
-                this.setRootProperties('--borderRadius', '4px')
+                SetRootProperty('--borderRadius', '4px')
             }
 
         },
         onSwitchHeadingChange(e) {
-            console.log('Switch for heading', e)
+            // console.log('Switch for heading', e)
             if(e.target.checked === true) {
-                this.setRootProperties('--cardHeading', 'var(--fontSerif)')
+                SetRootProperty('--cardHeading', 'var(--fontSerif)')
                 this.headingSerif = 1
             } else {
-                this.setRootProperties('--cardHeading', 'var(--fontSansSerif)')
+                SetRootProperty('--cardHeading', 'var(--fontSansSerif)')
                 this.headingSerif = -0
             }
         },
         onSwitchSubHeadingChange(e) {
-            console.log('Switch for heading', e)
+            // console.log('Switch for heading', e)
             if(e.target.checked === true) {
-                this.setRootProperties('--cardSubHeading', 'var(--fontSerif)')
+                SetRootProperty('--cardSubHeading', 'var(--fontSerif)')
                 this.subHeadingSerif = 1
             } else {
-                this.setRootProperties('--cardSubHeading', 'var(--fontSansSerif)')
+                SetRootProperty('--cardSubHeading', 'var(--fontSansSerif)')
                 this.subHeadingSerif = 0
             }
         },
         onSwitchTextChange(e) {
-            console.log('Switch for text', e)
+            // console.log('Switch for text', e)
             if(e.target.checked === true) {
-                this.setRootProperties('--cardText', 'var(--fontSerif)')
+                SetRootProperty('--cardText', 'var(--fontSerif)')
                 this.textSerif = 1
             } else {
-                this.setRootProperties('--cardText', 'var(--fontSansSerif)')
+                SetRootProperty('--cardText', 'var(--fontSansSerif)')
                 this.textSerif = 0
             }
         },
         onSliderBaseFontSizeChange(e) {
-            console.log('slider base font size change', this.baseFontSize)
-            this.setRootProperties('--baseFontSize', `${this.baseFontSize}px`)
-            console.log(document.documentElement.style.getPropertyValue('--baseFontSize'))
+            // console.log('slider base font size change', this.baseFontSize)
+            SetRootProperty('--baseFontSize', `${this.baseFontSize}px`)
+            // console.log(document.documentElement.style.getPropertyValue('--baseFontSize'))
         },
         onSliderPaddingsChange(e) {
-            console.log('slider paddings change', this.paddings)
-            this.setRootProperties('--paddings', `${this.paddings}rem`)
-            console.log(document.documentElement.style.getPropertyValue('--paddings'))
+            // console.log('slider paddings change', this.paddings)
+            SetRootProperty('--paddings', `${this.paddings}rem`)
+            // console.log(document.documentElement.style.getPropertyValue('--paddings'))
         },
         onSliderMarginsChange(e) {
-            console.log('slider margins change', this.margins)
-            this.setRootProperties('--margins', `${this.margins}rem`)
-            console.log(document.documentElement.style.getPropertyValue('--margins'))
+            // console.log('slider margins change', this.margins)
+            SetRootProperty('--margins', `${this.margins}rem`)
+            // console.log(document.documentElement.style.getPropertyValue('--margins'))
         },
         onSliderBorderRadiusChange(e) {
-            console.log('slider border radius change', this.borderRadius)
-            this.setRootProperties('--borderRadius', `${this.borderRadius}px`)
-            console.log(document.documentElement.style.getPropertyValue('--borderRadius'))
+            // console.log('slider border radius change', this.borderRadius)
+            SetRootProperty('--borderRadius', `${this.borderRadius}px`)
+            // console.log(document.documentElement.style.getPropertyValue('--borderRadius'))
         },
         setCurrentPalette(index) {
-            console.log(index);
+            // console.log(index);
             this.currentPaletteId = index;
             this.currentPaletteName = this.colorPalettes[index].name;
             this.currentPalette = this.colorPalettes[index].colors;
@@ -975,8 +979,8 @@ export default {
             // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
 
             // document.documentElement.style.setProperty('--primaryColor', primaryColor)
-            this.setRootProperties('--primaryColor', primaryColor)
-            this.setRootProperties('--accentColor', accentColor)
+            SetRootProperty('--primaryColor', primaryColor)
+            SetRootProperty('--accentColor', accentColor)
             // document.documentElement.style.setProperty('--accentColor', accentColor)
 
             this.$nextTick(function(){
@@ -1009,10 +1013,10 @@ export default {
             // __panl-paddings
             // __panl-margins
 
-            console.log('Before saving colors: ', this.colors)
+            // console.log('Before saving colors: ', this.colors)
 
             for(const [key, value] of Object.entries(cookieObj)) {
-                console.log(key, value)
+                // console.log(key, value)
                 Cookie.setCookie(`__panl-${key}`, value);
             }
 
@@ -1034,10 +1038,10 @@ export default {
             ]
 
             for(const cName of cookieNames) {
-                console.log(cName)
+                // console.log(cName)
                 //getCookieValue
                 //cookieExist
-                console.log(Cookie.getCookieValue(`__panl-${cName}`))
+                // console.log(Cookie.getCookieValue(`__panl-${cName}`))
             }
             this.currentPaletteId = Cookie.getCookieValue(`__panl-${cookieNames[0]}`)
             this.borderRadius = Cookie.getCookieValue(`__panl-${cookieNames[1]}`)
@@ -1059,22 +1063,22 @@ export default {
 
             // Settings the root properties
             this.setCurrentPalette(this.currentPaletteId);
-            this.setRootProperties('--borderRadius', `${this.borderRadius}px`);
-            this.setRootProperties('--paddings', `${this.paddings}rem`);
-            this.setRootProperties('--margins', `${this.margins}rem`);
-            this.setRootProperties('--baseFontSize', `${this.baseFontSize}px`);
+            SetRootProperty('--borderRadius', `${this.borderRadius}px`);
+            SetRootProperty('--paddings', `${this.paddings}rem`);
+            SetRootProperty('--margins', `${this.margins}rem`);
+            SetRootProperty('--baseFontSize', `${this.baseFontSize}px`);
 
             this.colors = [...colorsArr]
-            this.setRootProperties('--primaryColor', this.colors[0])
-            this.setRootProperties('--accentColor', this.colors[1])
-            this.setRootProperties('--neutralColor', this.colors[2])
+            SetRootProperty('--primaryColor', this.colors[0])
+            SetRootProperty('--accentColor', this.colors[1])
+            SetRootProperty('--neutralColor', this.colors[2])
 
             colorsArr = []
 
             // console.log('heading serif: ', this.headingSerif)
-            this.headingSerif == 1 ? this.setRootProperties('--cardHeading', 'var(--fontSerif)') : this.setRootProperties('--cardHeading', 'var(--fontSansSerif)');
-            this.subHeadingSerif == 1 ? this.setRootProperties('--cardSubHeading', 'var(--fontSerif)') : this.setRootProperties('--cardSubHeading', 'var(--fontSansSerif)');
-            this.textSerif == 1 ? this.setRootProperties('--cardText', 'var(--fontSerif)') : this.setRootProperties('--cardText', 'var(--fontSansSerif)');
+            this.headingSerif == 1 ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');
+            this.subHeadingSerif == 1 ? SetRootProperty('--cardSubHeading', 'var(--fontSerif)') : SetRootProperty('--cardSubHeading', 'var(--fontSansSerif)');
+            this.textSerif == 1 ? SetRootProperty('--cardText', 'var(--fontSerif)') : SetRootProperty('--cardText', 'var(--fontSansSerif)');
 
         }
         

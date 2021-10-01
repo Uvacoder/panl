@@ -24,7 +24,7 @@
             changeBackgroundColor(e) {
                 //console.log(this.color);
                 //document.documentElement.style.setProperty('--bgColor', this.color)
-                console.log('Background color is dark?', Color(this.color).isDark())
+                // console.log('Background color is dark?', Color(this.color).isDark())
                 /*if(Color(this.color).isDark()) {
                     document.documentElement.style.setProperty('--textColor', '#FFFFFF')
                 } else {

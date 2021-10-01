@@ -35,9 +35,9 @@
 }
 
 aside {
-	grid-area: "sidebar";
 	position: sticky;
-	width: 300px;
+	/* width: 300px; */
+	flex: 1 0 300px;
 }
 
 main {
@@ -46,20 +46,15 @@ main {
 	font-family: var(--fontSansSerif);
 }
 
-.sidebar {
-}
-
 .sidebar-section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .sidebar-section__heading,
 .sidebar-color__heading {
-	/* font-size: 1rem; */
-
 	flex: 0 0 40%;
-	/* margin-right: 10px */
 }
 
 .sidebar-section__heading {

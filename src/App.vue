@@ -665,35 +665,24 @@ export default {
             })
         },
         onChangePrimaryColor(data) {
-            // console.log('onChangeBackgroundColor', data)
-            document.documentElement.style.setProperty('--primaryColor', data.data)
-            // this.setRootProperties('--primaryColor', data.data)
-            // console.log('root primary color value: ',document.documentElement.style.getPropertyValue('--primaryColor'))
+            SetRootProperty('--primaryColor', data.data)
             this.colors[0]= data.data
 
             const currentHSL = RoundValues(this.primaryHSL)
-
-            // this.masterHSL = hslObject
-
-            //Prevent from snapping
             const newHSL = RoundValues(Color(this.colors[0]).hsl().object())
+            SetHSLToRoot(newHSL, 'primary')
             this.animateSlider(currentHSL, newHSL, 'primary')
-            // this.makeBtnActive('primary')
             this.setActiveColorOnMount('primary')
 
         },
         onChangeAccentColor(data) {
-            // console.log('onChangeTextColor', data)
-            // document.documentElement.style.setProperty('--accentColor', data.data)
             SetRootProperty('--accentColor', data.data)
             this.colors[1] = data.data
-            // HSL
             
             const currentHSL = RoundValues(this.accentHSL) // old values
-            //this.accentHSL = RoundValues(Color(this.accentColor).hsl().object()) // new values
-
 
             const newHSL = RoundValues(Color(this.colors[1]).hsl().object())
+            SetHSLToRoot(newHSL, 'accent')
             this.animateSlider(currentHSL, newHSL, 'accent')
             // this.makeBtnActive(data.event.target, 'accent')
             this.setActiveColorOnMount('accent')
@@ -702,8 +691,9 @@ export default {
 
          onChangeNeutralColor(data) {
             SetRootProperty('--neutralColor', data.data)
-          
             this.colors[2] = data.data
+            const newHSL = RoundValues(Color(this.colors[2]).hsl().object())
+            SetHSLToRoot(newHSL, 'neutral')
             this.setActiveColorOnMount('neutral')
 
         },
@@ -795,6 +785,7 @@ export default {
             // this.colors = newArr;
             this.onChangePrimaryColor({data:this.colors[0]})
             this.onChangeAccentColor({data:this.colors[1]})
+            this.onChangeNeutralColor({data:this.colors[2]})
         },
         copyToClipboard(e,string) {
             // console.log('copy to clipboard: ', e)

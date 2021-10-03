@@ -29,7 +29,7 @@
                             <!-- <div class="logo-text">
                             Primary Accent Neutral Layout
                             </div> -->
-                            <img src="panl.svg">  
+                            <img src="../public/panl.svg">  
                         </div>
 
                                           

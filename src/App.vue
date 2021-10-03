@@ -29,7 +29,7 @@
                             <!-- <div class="logo-text">
                             Primary Accent Neutral Layout
                             </div> -->
-                            <!-- <img src="/panl.svg">   -->
+                            <!-- <img src="@/assets/panl.svg">   -->
                             <svg width="165px" height="67px" viewBox="0 0 165 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <defs>
                                     <linearGradient x1="0.25781251%" y1="49.7500002%" x2="101.257813%" y2="49.7500002%" id="linearGradient-1">
@@ -51,7 +51,7 @@
                 <p class="small">
                 Primary Accent Neutral Layout or PANL is a color combination visualizer.
                 </p>
-                <img src="@/assets/test.jpg" width="300" />
+                <!-- <img src="@/assets/test.jpg" width="300" /> -->
                 <!-- <h4 class="text-uppercase">Colors</h4> -->
                 <!-- <hr> -->
                 

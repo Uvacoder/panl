@@ -6,8 +6,7 @@
             <div class="sidenav">
                 <div class="logo mb-4">
                     <div class="logo-icon">
-                        <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+                        <!--<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="PANL-Logo-2">
                                     <rect id="Rectangle-3" fill="#3EB69B" x="0" y="0" width="40" height="4"></rect>
@@ -18,25 +17,27 @@
                                     <rect id="Rectangle-3-Copy-4" fill="#AEFCEA" x="0" y="36" width="20" height="4"></rect>
                                 </g>
                             </g>
-                        </svg>
+                        </svg>-->
                     
                         <div class="ms-2 d-flex ">
-                            <div class="d-flex flex-row">
+                            <!-- <div class="d-flex flex-row">
                                 <div class="letter">P</div>
                                 <div class="letter">A</div>
                                 <div class="letter">N</div>
                                 <div class="letter">L</div>
-                            </div>
+                            </div> -->
                             <!-- <div class="logo-text">
                             Primary Accent Neutral Layout
                             </div> -->
+                            <img src="panl.svg">  
                         </div>
-                    
+
+                                          
                     </div>
                 </div>
                  
                 <p class="small">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                Primary Accent Neutral Layout or PANL is a color combination visualizer.
                 </p>
 
                 <!-- <h4 class="text-uppercase">Colors</h4> -->

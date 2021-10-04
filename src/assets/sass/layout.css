@@ -37,13 +37,18 @@
 aside {
 	position: sticky;
 	/* width: 300px; */
-	flex: 1 0 300px;
+	flex: 0 600px;
+	display: flex;
 }
 
 main {
 	/* padding-left: 10px */
 	padding: 2rem;
 	font-family: var(--fontSansSerif);
+}
+
+aside .admin {
+	flex: 10 0%;
 }
 
 .sidebar-section {

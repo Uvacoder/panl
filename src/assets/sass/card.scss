@@ -29,6 +29,7 @@ main .card {
 
 .card-heading {
 	font-family: var(--cardHeading);
+	font-weight: 700;
 }
 
 .card-subheading {
@@ -39,4 +40,12 @@ main .card {
 .card-text {
 	font-family: var(--cardText);
 	font-size: var(--baseFontSize);
+}
+
+.card-overlay {
+	background-blend-mode: color-burn;
+	/*background-image: url("../src/assets/pattern.jpg");*/
+	/* background-color: var(--accentColor); */
+	background-size: cover;
+	background-position: center;
 }

@@ -366,7 +366,7 @@
 
             <div class="row my-4">
                 <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow card-overlay" style="background-image: url(../src/assets/pattern.jpg)">
+                    <div class="card bg-primary text-accent root-margins shadow card-overlay" style="background-image: url(./src/assets/pattern.jpg)">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
                             <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 1</h2>
@@ -421,7 +421,7 @@
 
             <div class="row my-4">
                 <div class="col-7">
-                    <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay" style="background-image: url(@/assets/pattern-5.jpg)">
+                    <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay" style="background-image: url(./src/assets/pattern-5.jpg)">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
                             <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>

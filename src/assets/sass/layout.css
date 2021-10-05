@@ -48,7 +48,7 @@ main {
 }
 
 aside .admin {
-	flex: 10 0%;
+	flex: 1 0 0%;
 }
 
 .sidebar-section {

@@ -27,14 +27,30 @@ main .card {
 	border: 0;
 }
 
+.card-body {
+	z-index: 1;
+	padding: 20px !important;
+	border-radius: var(--borderRadius);
+}
+
+.card-body--h-360 {
+	min-height: 360px;
+}
+
 .card-heading {
 	font-family: var(--cardHeading);
 	font-weight: 700;
 }
 
+.card-heading--large {
+	font-size: 3rem;
+	line-height: 2rem;
+}
+
 .card-subheading {
 	font-family: var(--cardSubHeading);
-	font-size: 1.15rem;
+	font-size: 0.8rem;
+	font-weight: 500;
 }
 
 .card-text {
@@ -42,10 +58,64 @@ main .card {
 	font-size: var(--baseFontSize);
 }
 
+.card-text--large {
+	font-size: 1.15rem;
+	line-height: 1.25rem;
+}
+
 .card-overlay {
-	background-blend-mode: color-burn;
 	/*background-image: url("../src/assets/pattern.jpg");*/
 	/* background-color: var(--accentColor); */
 	background-size: cover;
-	background-position: center;
+	background-position: top;
+}
+
+.blend-hard-light {
+	background-blend-mode: hard-light;
+}
+
+.blend-color-burn {
+	background-blend-mode: color-burn;
+}
+
+.blend-multiply {
+	background-blend-mode: multiply;
+}
+.blend-negative {
+	background-blend-mode: negative;
+}
+
+.card-body-overlay {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	background-blend-mode: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	border-radius: var(--borderRadius);
+}
+
+.card-body-overlay--accent {
+	background: rgb(255, 29, 153);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 29, 153, 0) 0%,
+		var(--accentColor) 100%
+	);
+}
+
+.card-body-overlay--primary {
+	background: rgb(255, 29, 153);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 29, 153, 0) 0%,
+		var(--primaryColor) 100%
+	);
+}
+
+.card-body--bordered {
+	box-shadow: inset 0 0 0 4px !important;
 }

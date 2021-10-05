@@ -140,14 +140,43 @@
                             
                         </div>
                     </div>
+
                     <hr>
                     <div class="sidebar-section">
-                        <div class="sidebar-section__heading">Nuetral</div>
-                        <div class="sidebar-section__colors neutral-color-dots button d-flex">
+                        <div class="sidebar-section__heading">Neutral</div>
+                        <div class="sidebar-section__colors neutral-color-dots d-flex align-items-center">
+                            <color-dots class="neutral-color-dot h-10" @changeColor="onChangeNeutralColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
                             <color-dots class="neutral-color-dot h-10" @changeColor="onChangeNeutralColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
                         </div>
                     </div>
-                    
+                    <div class="sidebar-color d-flex align-items-center mt-3">
+                        <div class="sidebar-color__heading text-white-50">{{colors[2].toUpperCase()}}</div>
+                        <div class="sidebar-color__block bg-neutral border-radius-4 h-10"></div>
+                    </div>
+                    <div class="sidebar-settings-wrapper mt-3">
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading text-white-50">Hue {{neutralHSL.h}} &#176; </div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="RotateNeutral" color-type="neutral" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(neutralHSL.h) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                        </div>
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading text-white-50">Saturation {{neutralHSL.s}}</div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="SaturationNeutral" color-type="neutral" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(neutralHSL.s) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                        
+                        </div>
+                        <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading text-white-50">Lightness {{neutralHSL.l}}</div>
+                            <div class="sidebar-settings__control">
+                                <Slider label="LightenNeutral" color-type="neutral" channel="l"  :label-hidden="true" :max=100 :value=parseInt(neutralHSL.l) @colorChange="onSliderChange($event)"></Slider>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
                     <div class="hr border-bottom--gradient"></div>
                     <div class="sidebar-section justify-content-between align-items-stretch flex-column">
                         <h6>Color Palettes</h6>
@@ -171,7 +200,7 @@
         <!-- Admin Panel 2 -->
             <div class="admin position-relative">
                 <div class="sidenav" style="background-color:#180d45;">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus? Cumque assumenda ducimus, repellat commodi, velit est quaerat excepturi minima modi neque accusamus quasi non a, expedita nemo natus porro!</p>
+                    <p>Provide enough contrast between text and its background so that it can be read by people with moderately low vision (who do not use contrast-enhancing assistive technology).</p>
 
                     <div class="hr border-bottom--gradient"></div>
 
@@ -199,8 +228,12 @@
                                 </svg></div>
                             </button>
                         </div>
+
+                        
                             
                     </div>
+
+                    
 
                     <div class="hr border-bottom--gradient"></div>
 
@@ -217,15 +250,7 @@
                     </div>
                     
                     <div class="sidebar-settings-wrapper mt-3">
-                        <!--<div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Round Buttons</div>
-                            <div class="sidebar-settings__control d-flex justify-content-end">
-                                <div class="form-check form-switch">
-                                    <input @change="onSwitchButtonRoundChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                                </div>
-                            </div>
-                        </div>-->
+                    
                         <div class="sidebar-settings">
                             <div class="sidebar-settings__heading text-white-50 flex-basis-65">Base Font Size {{baseFontSize}}px</div>
                             <div class="sidebar-settings__control">
@@ -344,71 +369,30 @@
         <!-- Main -->
         <main class="container layout flex-grow">
            
+                
            
-                <div class="row">
+                <!--<div class="row">
                     <div class="col">
                         <div class="header-logo">
                             <svg width="34px" height="40px" viewBox="0 0 34 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-    <title>header-logo</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M0,36.3525778 C4.04192695,24.4104168 9.61848647,12.2928909 16.7296786,0 C19.3717381,1.84319398 21.1634086,3.0600872 22.1046901,3.65067965 C20.4764243,5.96557059 19.697696,7.61945163 19.7685049,8.61232277 C21.3654332,6.47949646 24.2028698,4.5461365 28.2808146,2.8122429 C29.7868368,4.19102096 31.693232,5.70297554 34,7.34810662 C34,10.3720158 32.8651504,14.0668538 30.5954512,18.4326208 L27.5615614,24.0324718 L16.7296786,28.0894737 C15.1474207,26.1749247 13.5609355,24.6290907 11.9702231,23.4519718 C10.4774922,25.1762202 8.46443046,30.6922296 5.93103788,40 L0,36.3525778 Z M12.8850391,22.0116793 C17.600905,21.2941608 20.8177812,20.2097121 22.5356678,18.758333 C24.2535544,17.306954 25.7787762,14.384979 27.1113331,9.99240804 L14.7721863,17.7764764 L12.8850391,22.0116793 Z" id="header-logo" fill="var(--primaryColor)"></path>
-    </g>
-</svg>
+                                <defs></defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M0,36.3525778 C4.04192695,24.4104168 9.61848647,12.2928909 16.7296786,0 C19.3717381,1.84319398 21.1634086,3.0600872 22.1046901,3.65067965 C20.4764243,5.96557059 19.697696,7.61945163 19.7685049,8.61232277 C21.3654332,6.47949646 24.2028698,4.5461365 28.2808146,2.8122429 C29.7868368,4.19102096 31.693232,5.70297554 34,7.34810662 C34,10.3720158 32.8651504,14.0668538 30.5954512,18.4326208 L27.5615614,24.0324718 L16.7296786,28.0894737 C15.1474207,26.1749247 13.5609355,24.6290907 11.9702231,23.4519718 C10.4774922,25.1762202 8.46443046,30.6922296 5.93103788,40 L0,36.3525778 Z M12.8850391,22.0116793 C17.600905,21.2941608 20.8177812,20.2097121 22.5356678,18.758333 C24.2535544,17.306954 25.7787762,14.384979 27.1113331,9.99240804 L14.7721863,17.7764764 L12.8850391,22.0116793 Z" id="header-logo" fill="var(--primaryColor)"></path>
+                                </g>
+                            </svg>
                         </div>
-                        <p>
-                            PANL is a color component visualization tool that allows you to select colors quickly and easily.
-                        </p>
+                        
                     </div>
-                </div>
+                </div>-->
 
-            <div class="row my-4">
-                <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow card-overlay" style="background-image: url(./pattern.jpg)">
-                        <div class="card-body">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 1</h2>
-                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-accent text-primary root-margins shadow card-overlay" style="background-image: url(./pattern-8.jpg)">
-                        <div class="card-body">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 2</h2>
-                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-neutral text-primary root-margins shadow">
-                        <div class="card-body">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It 3</h2>
-                            <p class="card-text" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-neutral" contenteditable="true">View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>    
-
-        
             <div class="row my-4">
                 <div class="col">
                     <div class="card bg-neutral text-primary root-margins p-0" style="padding:0 !important;">
-                        <div class="card-body">
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">What is PANL</h2>
+                        <div class="card- p-0">
+                            <h1>PANL</h1>
+                            <h2 class="card-title card-heading mb-1" contenteditable="true">
+                                 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
+                            </h2>
                             <p class="card-text " contenteditable="true">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
                         The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
                             
@@ -420,11 +404,58 @@
 
 
             <div class="row my-4">
+                <div class="col">
+                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern.jpg)">
+                        <div class="card-body-overlay card-body-overlay--primary"></div>
+                        <div class="card-body card-body--bordered card-body--h-360">
+                            <div class="card-subheading" contenteditable="true">Featuring</div>
+                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
+                            <p class="card-text card-text--large text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./portrait-3.jpg)">
+                        <div class="card-body-overlay card-body-overlay--accent"></div>
+                        <div class="card-body card-body--bordered card-body--h-360 d-flex flex-column justify-content-between">
+                            <div class="card-subheading" contenteditable="true">I AM</div>
+                            <p></p>
+                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <div class="card-title card-heading card-heading--large mt-5" contenteditable="true">Be Great. <br/> Create.</div>
+                            <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-accent text-primary root-margins shadow">
+                        <div class="card-body card-body--bordered card-body--h-360">
+                            <div class="card-subheading" contenteditable="true">Occupation</div>
+                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
+                            <div class="card-text card-text--large" contenteditable="true">Do what you love, and you'll always love what you do.</div>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            
+
+            
+
+
+            <div class="row my-4">
                 <div class="col-7">
-                    <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay" style="background-image: url(./pattern-5.jpg)">
-                        <div class="card-body">
+                    <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
+                        <div class="card-body-overlay card-body-overlay--primary"></div>
+                        <div class="card-body card-body--bordered">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</h2>
                             <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
@@ -433,7 +464,7 @@
                     </div>
                 </div>
                 <div class="col-5">
-                    <div class="card bg-accent text-primary root-margins">
+                    <div class="card bg-transparent text-primary root-margins">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
                             <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
@@ -452,10 +483,10 @@
 
             <div class="row my-4">
                 <div class="col">
-                    <div class="card bg-accent text-primary root-margins card-overlay" style="background-image: url(./pattern.jpg)">
+                    <div class="card bg-transparent text-primary root-margins">
                         <div class="card-body">
                             <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
+                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</div>
                             <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
@@ -548,11 +579,11 @@ export default {
             currentPaletteId: 0,
             neutralPalette: ['EFEFEF', '000000'],
             contrast: null,
-            paddings: 2,
+            paddings: 1,
             margins: 1,
-            borderRadius: 10,
-            baseFontSize: 12,
-            headingSerif: 0,
+            borderRadius: 0,
+            baseFontSize: 14,
+            headingSerif: 1,
             subHeadingSerif: 0,
             textSerif: 0,
             bsBodyColor: ''
@@ -568,9 +599,15 @@ export default {
             console.log('current palette id before mount: ', this.currentPaletteId);
             this.currentPaletteId = Cookie.getCookieValue('__panl-paletteId')
         }
+
+
+
     },
     mounted() {
         
+        // Set San/Serif Heading
+        (this.headingSerif === 1) ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');
+
         // BS Black Text Color
         this.bsBodyColor = GetRootPropertyValue('--bs-body-color');
         // this.masterRGB = color.object()
@@ -608,7 +645,7 @@ export default {
                     const neutralColor = Color(this.colors[2])
                     this.primaryHSL = RoundValues(primaryColor.hsl().object())
                     this.accentHSL = RoundValues(accentColor.hsl().object())
-                    this.neutralHSL = neutralColor.hsl().object()
+                    this.neutralHSL = RoundValues(neutralColor.hsl().object())
 
                     SetHSLToRoot(this.primaryHSL, 'primary');
                     SetHSLToRoot(this.accentHSL, 'accent');
@@ -686,6 +723,12 @@ export default {
             // document.documentElement.style.setProperty('--accentColor', newColor)
             SetRootProperty('--accentColor', newColor)
         },
+        updateNeutralColor() {
+            let newColor =  Color(this.neutralHSL).hex()
+            this.colors[2]= newColor
+            // document.documentElement.style.setProperty('--accentColor', newColor)
+            SetRootProperty('--neutralColor', newColor)
+        },
         displayColors(arr) {
             this.currentPalette = arr;
             
@@ -730,14 +773,15 @@ export default {
             SetRootProperty('--neutralColor', data.data)
 
             this.colors[2] = data.data
-            console.log("Dark: ", Color(this.colors[2]).isDark())
-            if(Color(this.colors[2]).isDark()) {
+            /*if(Color(this.colors[2]).isDark()) {
                 SetRootProperty('--bs-body-color', '#FEFEFE')
             }else{
                 SetRootProperty('--bs-body-color', this.bsBodyColor)
-            }
+            }*/
+            const currentHSL = RoundValues(this.neutralHSL) // old values
             const newHSL = RoundValues(Color(this.colors[2]).hsl().object())
             SetHSLToRoot(newHSL, 'neutral')
+            this.animateSlider(currentHSL, newHSL, 'accent')
             this.setActiveColorOnMount('neutral')
 
         },
@@ -777,6 +821,20 @@ export default {
                 }
                 this.updateAccentColor()
             }
+            if(type === 'neutral') {
+                 switch (channel) {
+                case 'h':
+                    this.neutralHSL.h = value
+                    break;
+                case 's':
+                    this.neutralHSL.s = value
+                    break;
+                case 'l':
+                    this.neutralHSL.l = value
+                    break;
+                }
+                this.updateNeutralColor()
+            }
            
         },
         animateSlider(currentHSL={}, newColorHSL={}, colorHSLObj='primary') {
@@ -804,6 +862,10 @@ export default {
                 HSL = this.accentHSL
             }
 
+            if(colorHSLObj === 'neutral') {
+                HSL = this.neutralHSL
+            }
+
             anime({
                 targets: currentHSL,
                 h: newColorHSL.h,
@@ -817,6 +879,7 @@ export default {
                     HSL.s = currentHSL.s
                     HSL.l = currentHSL.l
                 }
+                
             }) 
 
         },

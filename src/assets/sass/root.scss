@@ -16,10 +16,10 @@
 	--neutralS: 50%;
 	--neutralL: 48%;
 	--baseFontSize: 12px;
-	--borderRadius: 4px;
-	--paddings: 2rem;
+	--borderRadius: 0px;
+	--paddings: 1rem;
 	--margins: 1rem;
-	--fontSerif: "Abril Fatface", cursive;
+	--fontSerif: "Rozha One", serif;
 	--fontSansSerif: "Montserrat", sans-serif;
 	--fontMain: "Urbanist", sans-serif;
 	--cardHeading: var(--fontSansSerif);
@@ -44,6 +44,9 @@
 
 .bg-neutral {
 	background-color: var(--neutralColor) !important;
+}
+.bg-transparent {
+	background-color: transparent !important;
 }
 
 .text-primary {

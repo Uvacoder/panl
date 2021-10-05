@@ -98,3 +98,16 @@ aside .admin {
 	position: relative;
 	bottom: 0;
 }
+
+.paragraph-columns {
+	/* column-count: 3; */
+	/* column-gap: 40px; */
+	/* column-rule-style: solid; */
+	/* column-rule-width: 1px; */
+}
+
+.paragraph-columns::first-letter {
+	/* font-weight: bold; */
+	/* font-size: calc(var(--baseFontSize) * 2); */
+	/* margin-right: 4px; */
+}

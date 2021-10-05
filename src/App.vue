@@ -393,7 +393,9 @@
                             <h2 class="card-title card-heading mb-1" contenteditable="true">
                                  ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
                             </h2>
-                            <p class="card-text " contenteditable="true">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
+                            
+
+                            <p class="mt-5 card-text paragraph-columns " contenteditable="true">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
                         The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
                             
                         </div>
@@ -450,7 +452,7 @@
 
 
             <div class="row my-4">
-                <div class="col-7">
+                <div class="col">
                     <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
                         <div class="card-body-overlay card-body-overlay--primary"></div>
                         <div class="card-body card-body--bordered">
@@ -463,18 +465,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
-                    <div class="card bg-transparent text-primary root-margins">
-                        <div class="card-body">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading mb-5" contenteditable="true">The Bulk Of It</h2>
-                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up...</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
 

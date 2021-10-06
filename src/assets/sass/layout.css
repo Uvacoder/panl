@@ -45,6 +45,7 @@ main {
 	/* padding-left: 10px */
 	padding: 2rem;
 	font-family: var(--fontSansSerif);
+	font-size: var(--baseFontSize);
 }
 
 aside .admin {

@@ -27,6 +27,11 @@ main .card {
 	border: 0;
 }
 
+.card a,
+.card button {
+	font-size: 1rem;
+}
+
 .card a {
 	text-decoration: dotted;
 	transition: all 0.25s ease;
@@ -77,6 +82,7 @@ main .card {
 .card-text {
 	font-family: var(--cardText);
 	font-size: var(--baseFontSize);
+	line-height: 1.2;
 }
 
 .card-text--large {

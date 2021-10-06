@@ -457,7 +457,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         <div class="card-body card-body--bordered ">
                             <div class="card-subheading" >Featuring</div>
                             <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
-                            <p class="card-text card-text--large text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                            <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
                             
@@ -468,7 +468,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                     <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-bottom" style="background-image: url(./statue.jpg);">
                         <div class="card-body-overlay card-body-overlay--primary"></div>
                         <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
-                            <div class="card-subheading" contenteditable="true">I AM</div>
+                            <div class="card-subheading" >I AM</div>
                             <p></p>
                             <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                             <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
@@ -480,9 +480,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-primary text-accent root-margins shadow">
                         <div class="card-body card-body--bordered ">
-                            <div class="card-subheading" contenteditable="true">Occupation</div>
+                            <div class="card-subheading" >Occupation</div>
                             <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
-                            <div class="card-text card-text--large" contenteditable="true">Do what you love, and you'll always love what you do.</div>
+                            <div class="card-text" >Do what you love, and you'll always love what you do.</div>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
                             
@@ -501,7 +501,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         <div class="card-body  card-body--h-360">
                             <div class="card-subheading" >Featuring</div>
                             <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
-                            <p class="card-text card-text--large " >It is a beautiful thing when a career and a passion come together.</p>
+                            <p class="card-text  " >It is a beautiful thing when a career and a passion come together.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
                             
@@ -512,11 +512,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                     <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./portrait-3.jpg)">
                         <div class="card-body-overlay card-body-overlay--accent"></div>
                         <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
-                            <div class="card-subheading" contenteditable="true">I AM</div>
+                            <div class="card-subheading" >I AM</div>
                             <p></p>
-                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <div class="card-title card-heading card-heading--large mt-5" contenteditable="true">Be Great. <br/> Create.</div>
-                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" contenteditable="true">View More</a> -->
+                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
+                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
                             
                         </div>
                     </div>
@@ -524,9 +524,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-accent text-primary root-margins shadow">
                         <div class="card-body  card-body--h-360">
-                            <div class="card-subheading" contenteditable="true">Occupation</div>
-                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
-                            <div class="card-text card-text--large" contenteditable="true">Do what you love, and you'll always love what you do.</div>
+                            <div class="card-subheading" >Occupation</div>
+                            <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
+                            <div class="card-text " >Do what you love, and you'll always love what you do.</div>
                             <hr/>
                             <a href="./" class="d-inline-block text-primary" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
 <path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
@@ -580,7 +580,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-neutral text-primary root-margins ">
                         <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
-                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                             <div class="card-title card-heading card-heading--large mt-5">Be Great. <br/> Create.</div>
                             <div class="card-section--absolute w-100 h-100">
                                 <svg style="left: 5%; bottom: 10%; transform: rotate(45deg);" width="96px" height="91px" viewBox="0 0 96 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -621,9 +621,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-transparent text-primary root-margins ">
                         <div class="card-body card-body--bordered ">
-                            <div class="card-subheading" contenteditable="true">Occupation</div>
-                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
-                            <div class="card-text card-text--large">Do what you love, and you'll always love what you do.</div>
+                            <div class="card-subheading" >Occupation</div>
+                            <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
+                            <div class="card-text ">Do what you love, and you'll always love what you do.</div>
                             
                         </div>
                     </div>
@@ -673,9 +673,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                     <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
                         <div class="card-body-overlay card-body-overlay--primary"></div>
                         <div class="card-body card-body--bordered">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</h2>
-                            <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-subheading" >Card Category</div>
+                            <h2 class="card-title card-heading card-heading--large mb-5" >The Bulk Of It</h2>
+                            <p class="card-text text-accent" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
                             
@@ -693,9 +693,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-transparent text-primary root-margins">
                         <div class="card-body">
-                            <div class="card-subheading" contenteditable="true">Card Category</div>
-                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</div>
-                            <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-subheading" >Card Category</div>
+                            <div class="card-title card-heading card-heading--large mb-5" >The Bulk Of It</div>
+                            <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-neutral" >View More</a>
                             

@@ -31,7 +31,7 @@
 
 .flex-basis-60,
 .flex-basis-65 {
-	flex: 0 1 60% !important;
+	flex: 0 60% !important;
 }
 
 aside {
@@ -82,7 +82,7 @@ aside .admin {
 .sidebar-settings {
 	display: flex;
 	padding: 2px 0;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 

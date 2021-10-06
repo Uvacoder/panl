@@ -1,3 +1,33 @@
 .shadow {
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
 }
+
+.text-right {
+	text-align: right;
+}
+
+.border-left-1 {
+	border-left: 1px solid var(--primaryColor);
+}
+
+.background-top {
+	background-position: top;
+}
+.background-bottom {
+	background-position: bottom !important;
+}
+
+.blend-hard-light {
+	background-blend-mode: hard-light;
+}
+
+.blend-color-burn {
+	background-blend-mode: color-burn;
+}
+
+.blend-multiply {
+	background-blend-mode: multiply;
+}
+.blend-negative {
+	background-blend-mode: negative;
+}

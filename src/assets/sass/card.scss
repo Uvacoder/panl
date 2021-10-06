@@ -27,10 +27,31 @@ main .card {
 	border: 0;
 }
 
+.card a {
+	text-decoration: dotted;
+	transition: all 0.25s ease;
+	display: block;
+}
+
+.card a svg {
+	margin-left: 0;
+	transition: all 0.25s ease;
+}
+
+.card a:hover {
+	margin-left: 5px;
+}
+.card a:hover svg {
+	text-decoration: dotted;
+	margin-left: 10px;
+}
+
 .card-body {
 	z-index: 1;
 	padding: 20px !important;
 	border-radius: var(--borderRadius);
+	overflow: hidden;
+	position: relative;
 }
 
 .card-body--h-360 {
@@ -70,21 +91,6 @@ main .card {
 	background-position: top;
 }
 
-.blend-hard-light {
-	background-blend-mode: hard-light;
-}
-
-.blend-color-burn {
-	background-blend-mode: color-burn;
-}
-
-.blend-multiply {
-	background-blend-mode: multiply;
-}
-.blend-negative {
-	background-blend-mode: negative;
-}
-
 .card-body-overlay {
 	display: block;
 	width: 100%;
@@ -98,12 +104,20 @@ main .card {
 	border-radius: var(--borderRadius);
 }
 
+.card-body-overlay--neutral {
+	background: rgb(255, 29, 153);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 29, 153, 0) -100%,
+		var(--neutralColor) 100%
+	);
+}
 .card-body-overlay--accent {
 	background: rgb(255, 29, 153);
 	background: linear-gradient(
 		180deg,
-		rgba(255, 29, 153, 0) 0%,
-		var(--accentColor) 100%
+		rgba(255, 29, 153, 0) -20%,
+		var(--accentColor) 80%
 	);
 }
 
@@ -111,11 +125,24 @@ main .card {
 	background: rgb(255, 29, 153);
 	background: linear-gradient(
 		180deg,
-		rgba(255, 29, 153, 0) 0%,
-		var(--primaryColor) 100%
+		rgba(255, 29, 153, 0) 20%,
+		var(--primaryColor) 80%
 	);
 }
 
 .card-body--bordered {
 	box-shadow: inset 0 0 0 4px !important;
+}
+
+.card-section--absolute {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+
+.card-section--absolute svg {
+	position: absolute;
 }

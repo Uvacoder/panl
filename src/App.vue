@@ -143,7 +143,8 @@
 
                     <hr>
                     <div class="sidebar-section">
-                        <div class="sidebar-section__heading">Neutral</div>
+                        <div class="sidebar-section__heading">Neutral<span class="small d-block text-white-50">Background</span></div>
+                        
                         <div class="sidebar-section__colors neutral-color-dots d-flex align-items-center">
                             <color-dots class="neutral-color-dot h-10" @changeColor="onChangeNeutralColor" v-for="color in currentPalette" :key="color" :color="`#${color}` "></color-dots>
                             <color-dots class="neutral-color-dot h-10" @changeColor="onChangeNeutralColor" v-for="color in neutralPalette" :key="color" :color="`#${color}` "></color-dots>
@@ -199,26 +200,39 @@
             </div>
         <!-- Admin Panel 2 -->
             <div class="admin position-relative">
-                <div class="sidenav" style="background-color:#180d45;">
-                    <p>Provide enough contrast between text and its background so that it can be read by people with moderately low vision (who do not use contrast-enhancing assistive technology).</p>
+                <div class="sidenav">
+                    
 
-                    <div class="hr border-bottom--gradient"></div>
+                    <!-- <div class="hr border-bottom--gradient"></div> -->
+
+                    <div class="sidebar-section my-2">
+                        <div class="sidebar-section__heading justify-content-start flex-grow-1">
+                            <div class=" ">Color Contrast Checker</div>
+                            <p class="small my-3 text-white-50">Provide enough contrast between text and its background so that it can be read by people with moderately low vision (who do not use contrast-enhancing assistive technology).</p>
+                        </div>
+                       
+                    </div>
+
+
 
                     <div class="sidebar-section justify-content-start align-items-start">
+                        
                         <div class="sidebar-section__heading">
-                            Color Contrast Checker
-                            <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Grade</span> {{computedContrastRating}}</span></div>
+                            <div class="small text-whtie-50">Primary / Accent</div>
+                            <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><div class="d-flex flex-column"><span class="text-uppercase"><span class="small text-muted text-uppercase">Norm</span> {{computedContrastRatingNorm}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Large</span> {{computedContrastRatingLarge}}</span></div></div>
                         </div>
                         <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card">
-                            <div class="bg-primary p-2 contrast-checker-card__outter">
-                                <div class="d-flex align-items-center contrast-checker-card__inner">
-                                    <span class="h1 me-1 text-accent contrast-checker-card__heading">A <br/> a</span>
-                                    <span class="small text-accent contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                            
+                            <div class="bg-accent p-2 contrast-checker-card__outter">
+                                <div class="d-flex align-items-center justify-content-center contrast-checker-card__inner">
+                                    <span class="h1 me-1 text-primary contrast-checker-card__heading">A a</span>
+                                    <span class="small text-primary contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
                                 </div>
                             </div>
                             
-                        
-                            <button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
+                            <a href="#" @click="reverseColors" class="small text-white-50 my-2">Reverse Primary / Accent</a>
+
+                            <!--<button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
                                 <div style="display:inline-block;">
                                 <svg class="reverse" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                                 <path xmlns="http://www.w3.org/2000/svg" d="M20.9241 5.61722C20.8753 5.49927 20.803 5.38877 20.7071 5.29289L17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289C15.9024 2.68342 15.9024 3.31658 16.2929 3.70711L17.5858 5L8 5C5.23858 5 3 7.23858 3 10V12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12L5 10C5 8.34315 6.34315 7 8 7L17.5858 7L16.2929 8.29289C15.9024 8.68342 15.9024 9.31658 16.2929 9.70711C16.6834 10.0976 17.3166 10.0976 17.7071 9.70711L20.7063 6.70787C20.7088 6.70544 20.7112 6.703 20.7136 6.70055C20.9045 6.50613 21 6.25307 21 6" ></path>
@@ -226,14 +240,45 @@
                                 <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.02699 17.7351 3 17.8644 3 18C3 18.2761 3.11193 18.5261 3.29289 18.7071L6.29289 21.7071C6.68342 22.0976 7.31658 22.0976 7.70711 21.7071C8.09763 21.3166 8.09763 20.6834 7.70711 20.2929L6.41421 19L16 19C18.7614 19 21 16.7614 21 14V12C21 11.4477 20.5523 11 20 11C19.4477 11 19 11.4477 19 12V14C19 15.6569 17.6569 17 16 17L6.41421 17L7.70711 15.7071C8.09763 15.3166 8.09763 14.6834 7.70711 14.2929C7.31658 13.9024 6.68342 13.9024 6.29289 14.2929L3.29316 17.2926" ></path>
                                 <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
                                 </svg></div>
-                            </button>
+                            </button>-->
+                        
+                            
                         </div>
 
                         
                             
                     </div>
 
-                    
+                    <div class="sidebar-section justify-content-start align-items-start mt-4">
+                        <div class="sidebar-section__heading">
+                            <div class="small text-whtie-50">Primary / Neutral</div>
+                            <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrastNeutral}}</span><div class="d-flex flex-column"><span class="text-uppercase"><span class="small text-muted text-uppercase">Norm</span> {{computedContrastRatingNeutralNorm}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Large</span> {{computedContrastRatingNeutralLarge}}</span></div></div>
+                        </div>
+                        <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card--neutral">
+                            
+                            <div class="bg-neutral p-2 contrast-checker-card__outter--neutral text-center">
+                                <div class="d-flex align-items-center justify-content-center contrast-checker-card__inner--neutral">
+                                    <span class="h1 text-primary contrast-checker-card__heading--neutral">A a</span>
+                                    <span class="small text-primary contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        
+                            
+                    </div>
+
+                    <div class="wcag-info p-2 text-white-50">
+
+                   
+                    <p class="small">
+                        WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+</p>
+<p class="small">
+Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+                    </p>
+ </div>
 
                     <div class="hr border-bottom--gradient"></div>
 
@@ -252,7 +297,7 @@
                     <div class="sidebar-settings-wrapper mt-3">
                     
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Base Font Size {{baseFontSize}}px</div>
+                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Base Font Size {{baseFontSize}}pt</div>
                             <div class="sidebar-settings__control">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="BaseFontSize">Change Base Font Size</label>
@@ -354,7 +399,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="copyright small">
-                                <span class="me-2">&copy; 2021-2022 Tu Trinh</span>
+                                <span class="me-2">&copy; 2021 <br>All rights reserved</span><br>
                                 <span><a href="www.hellotu.com" title="HelloTu.com" class="text-white">Hellotu.com</a></span>
                             </div>
                         </div>
@@ -371,50 +416,94 @@
            
                 
            
-                <!--<div class="row">
-                    <div class="col">
-                        <div class="header-logo">
-                            <svg width="34px" height="40px" viewBox="0 0 34 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <defs></defs>
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <path d="M0,36.3525778 C4.04192695,24.4104168 9.61848647,12.2928909 16.7296786,0 C19.3717381,1.84319398 21.1634086,3.0600872 22.1046901,3.65067965 C20.4764243,5.96557059 19.697696,7.61945163 19.7685049,8.61232277 C21.3654332,6.47949646 24.2028698,4.5461365 28.2808146,2.8122429 C29.7868368,4.19102096 31.693232,5.70297554 34,7.34810662 C34,10.3720158 32.8651504,14.0668538 30.5954512,18.4326208 L27.5615614,24.0324718 L16.7296786,28.0894737 C15.1474207,26.1749247 13.5609355,24.6290907 11.9702231,23.4519718 C10.4774922,25.1762202 8.46443046,30.6922296 5.93103788,40 L0,36.3525778 Z M12.8850391,22.0116793 C17.600905,21.2941608 20.8177812,20.2097121 22.5356678,18.758333 C24.2535544,17.306954 25.7787762,14.384979 27.1113331,9.99240804 L14.7721863,17.7764764 L12.8850391,22.0116793 Z" id="header-logo" fill="var(--primaryColor)"></path>
+            <div class="row">
+                <div class="col-12">
+                    <div class="header d-flex justify-content-center align-items-center">
+                        <div class="header__logo">
+                            <svg width="165px" height="67px" viewBox="0 0 165 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Group-4" fill="var(--primaryColor)">
+                                        <path d="M0.264144897,61.3234558 C5.52617391,45.5480855 12.7860819,29.5410614 22.043869,13.3023834 C25.4834646,15.737208 27.8159714,17.3447011 29.0413895,18.1248627 C26.9216131,21.1827901 25.9078166,23.3675359 26,24.6791 C28.0789795,21.8616765 31.7729289,19.3077443 37.0818481,17.0173035 C39.0424805,18.8386434 41.5243429,20.835907 44.5274353,23.0090942 C44.5274353,27.0036214 43.0500183,31.8844331 40.0951843,37.6515293 C42.8488668,36.804294 46.5027974,35.3320262 51.0569763,33.234726 C53.5904948,22.423111 61.0237923,16.1670265 73.3568687,14.4664726 L77.9173317,21.4394531 L81.0778122,16.7011242 L87.5733185,21.4394531 C85.2397368,24.9916586 83.5479873,27.6936652 82.4980698,29.5454731 C81.2699992,31.7115011 79.5447668,35.0362481 77.3223724,39.5197144 C84.4432119,37.1229045 88.8719482,35.0279083 90.6085815,33.234726 C90.6085815,30.8850149 94.322525,24.6289304 101.750412,14.4664726 L107.894592,19.2720337 C105.19869,24.660258 103.850739,26.7792409 103.850739,25.6289825 C110.200867,20.3553111 114.875158,17.4847514 117.873611,17.0173035 L124.354874,23.4196968 C124.020665,28.4700279 121.860245,33.8367004 117.873611,39.5197144 C121.6763,38.2063446 123.048401,37.8883362 131.209473,33.234726 C135.246063,21.0171051 142.782547,10.0481364 153.818924,0.327819824 C157.378586,2.16427612 161.016276,4.34729004 164.731995,6.87686157 C164.731995,20.5285339 156.305873,29.9029134 139.453629,35 C138.334478,38.1971029 137.604721,40.3370361 137.264359,41.4197998 C141.464391,42.3132222 150.050257,39.5811005 163.021957,33.2234344 L164.731995,39.5197144 C160.806444,41.9954278 156.981252,43.9275338 153.25642,45.3160324 C149.531588,46.704531 143.620309,48.4018704 135.522583,50.4080505 C131.60553,46.3398336 129.067001,43.7904612 127.906998,42.7599335 C123.329096,45.7412872 118.407555,48.031517 113.142372,49.6306229 L105.136055,43.9065742 C108.210173,39.4835745 110.347474,36.1296863 111.547958,33.8449097 C112.748443,31.560133 113.580526,29.5413024 114.044209,27.7884178 L98.5418892,35.5437088 L93.7139435,50.4080505 L86,44.2819977 L74.0949554,50.4080505 C72.4264476,47.8831278 70.8636983,45.8411102 69.4067078,44.2819977 C65.5511983,47.2122854 61.6694132,49.254303 57.7613525,50.4080505 C53.064799,45.9272156 50.3114675,42.931132 49.501358,41.4197998 C49.501358,42.6061198 40.3488617,45.6022034 22.043869,50.4080505 C19.9839884,47.8789673 17.9186045,45.8369497 15.8477173,44.2819977 C13.9043884,46.5596975 11.2836609,53.8462423 7.98553467,66.1416321 L0.264144897,61.3234558 Z M17.038681,42.3793983 C23.1780851,41.4315699 27.3660124,39.9990335 29.6024628,38.081789 C31.8389132,36.1645446 33.8245407,32.3046705 35.5593452,26.5021667 L19.4954853,36.7847748 L17.038681,42.3793983 Z M71.1963921,31.3833337 L73.7992706,22.3409052 C68.9415238,23.6899946 65.4687315,25.6219299 63.3808937,28.1367111 C61.2930559,30.6514923 59.7610061,34.7478427 58.7847443,40.4257622 C61.9239134,39.2406288 64.2234002,38.1162963 65.6832047,37.0527649 C67.1430091,35.9892334 68.9807383,34.099423 71.1963921,31.3833337 Z M142.935436,27.4432487 C147.483344,24.9655223 150.536447,22.5890683 152.094746,20.3138866 C153.653045,18.038705 155.143936,13.7807361 156.567421,7.53997993 C153.096104,11.4297881 150.599252,14.4860682 149.076862,16.7088203 C147.554473,18.9315724 145.507331,22.5097152 142.935436,27.4432487 Z" id="BW"></path>
+                                    </g>
                                 </g>
                             </svg>
                         </div>
-                        
+                        <div class="header__text ms-4 px-4 me-auto text-left border-left-1">
+                            <div class="h6 text-primary text-left mb-0">
+                                Color Pairing <br> Accessibility <br> Playground
+                            </div>
+                        </div>
                     </div>
-                </div>-->
-
-            <div class="row my-4">
-                <div class="col">
-                    <div class="card bg-neutral text-primary root-margins p-0" style="padding:0 !important;">
-                        <div class="card- p-0">
-                            <h1>PANL</h1>
-                            <h2 class="card-title card-heading mb-1" contenteditable="true">
+                </div>
+                <div class="col-12">
+                    <div class="card bg-transparent text-primary root-margins p-0" style="padding:0 !important;">
+                            <h2 class="card-title card-heading mb-1" >
                                  ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
                             </h2>
                             
 
-                            <p class="mt-5 card-text paragraph-columns " contenteditable="true">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
+                            <p class="mt-5 card-text">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
                         The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
+                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-4 cards-match-height" data-match-height-group="cards"
+  data-match-height-enable="(min-width: 768px)">
+                <div class="col">
+                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern.jpg)">
+                        <div class="card-body-overlay card-body-overlay--primary"></div>
+                        <div class="card-body card-body--bordered ">
+                            <div class="card-subheading" >Featuring</div>
+                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
+                            <p class="card-text card-text--large text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
                             
                         </div>
                     </div>
                 </div>
-               
-            </div>
-
-
-            <div class="row my-4">
                 <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern.jpg)">
+                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-bottom" style="background-image: url(./statue.jpg);">
                         <div class="card-body-overlay card-body-overlay--primary"></div>
-                        <div class="card-body card-body--bordered card-body--h-360">
-                            <div class="card-subheading" contenteditable="true">Featuring</div>
-                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
-                            <p class="card-text card-text--large text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                        <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
+                            <div class="card-subheading" contenteditable="true">I AM</div>
+                            <p></p>
+                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
+                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-accent text-primary">View More</a> -->
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-primary text-accent root-margins shadow">
+                        <div class="card-body card-body--bordered ">
+                            <div class="card-subheading" contenteditable="true">Occupation</div>
+                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
+                            <div class="card-text card-text--large" contenteditable="true">Do what you love, and you'll always love what you do.</div>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+
+
+            <div class="row my-4 cards-match-height" data-match-height-group="cards"
+  data-match-height-enable="(min-width: 768px)">
+                <div class="col">
+                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
+                        <div class="card-body-overlay card-body-overlay--accent"></div>
+                        <div class="card-body  card-body--h-360">
+                            <div class="card-subheading" >Featuring</div>
+                            <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
+                            <p class="card-text card-text--large " >It is a beautiful thing when a career and a passion come together.</p>
+                            <hr/>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
                             
                         </div>
                     </div>
@@ -422,24 +511,26 @@
                 <div class="col">
                     <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./portrait-3.jpg)">
                         <div class="card-body-overlay card-body-overlay--accent"></div>
-                        <div class="card-body card-body--bordered card-body--h-360 d-flex flex-column justify-content-between">
+                        <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
                             <div class="card-subheading" contenteditable="true">I AM</div>
                             <p></p>
                             <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                             <div class="card-title card-heading card-heading--large mt-5" contenteditable="true">Be Great. <br/> Create.</div>
-                            <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" contenteditable="true">View More</a> -->
                             
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card bg-accent text-primary root-margins shadow">
-                        <div class="card-body card-body--bordered card-body--h-360">
+                        <div class="card-body  card-body--h-360">
                             <div class="card-subheading" contenteditable="true">Occupation</div>
                             <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
                             <div class="card-text card-text--large" contenteditable="true">Do what you love, and you'll always love what you do.</div>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            <a href="./" class="d-inline-block text-primary" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
+</svg></a>
                             
                         </div>
                     </div>
@@ -447,7 +538,133 @@
             </div>    
 
             
-
+                <div class="row my-4 tiles-match-height" data-match-height-group="tiles"
+  data-match-height-enable="(min-width: 768px)">
+                <div class="col col-md-12">
+                    <div class="card bg-neutral text-primary">
+                        <div class="card-body">
+                            <div class="card-subheading" >Up Coming</div>
+                            <h2 class="card-title card-heading card-heading--large mb-3" >Events</h2>
+                            <div class="table-responsive">
+                                <table class="table text-primary">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Event</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">Prototype</th>
+                                        <td>09/29</td>
+                                        <td>8AM</td>
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">Development</th>
+                                        <td>10/02</td>
+                                        <td>10AM</td>
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">Deploy</th>
+                                        <td >11/11</td>
+                                        <td >7AM</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-neutral text-primary root-margins ">
+                        <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
+                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <div class="card-title card-heading card-heading--large mt-5">Be Great. <br/> Create.</div>
+                            <div class="card-section--absolute w-100 h-100">
+                                <svg style="left: 5%; bottom: 10%; transform: rotate(45deg);" width="96px" height="91px" viewBox="0 0 96 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon id="Polygon" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 12%)" points="48 0 95.5528258 34.5491503 77.3892626 90.4508497 18.6107374 90.4508497 0.447174185 34.5491503"></polygon>
+                                    </g>
+                                </svg>
+                                <svg style="left: 50%; bottom: 5%;" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <circle id="Oval-2" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)" cx="15" cy="15" r="15"></circle>
+                                    </g>
+                                </svg>
+                                <svg style="right: 5%; top: 5%;" width="100px" height="58px" viewBox="0 0 100 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="stripes" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)">
+                                            <rect id="Rectangle-11" x="0" y="0" width="100" height="10"></rect>
+                                            <rect id="Rectangle-11-Copy" x="0" y="24" width="100" height="10"></rect>
+                                            <rect id="Rectangle-11-Copy-2" x="0" y="48" width="100" height="10"></rect>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg style="right: 5%; bottom: 10%; transform: rotate(90deg)" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon id="Triangle" fill="hsla(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%), 1" points="24 0 48 48 0 48"></polygon>
+                                    </g>
+                                </svg>
+                                <svg style="left: 50%; bottom: 20%; transform:scale(1.5)" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="donut" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)">
+                                            <path d="M15,30 C6.71572875,30 0,23.2842712 0,15 C0,6.71572875 6.71572875,0 15,0 C23.2842712,0 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z M15,18 C16.6568542,18 18,16.6568542 18,15 C18,13.3431458 16.6568542,12 15,12 C13.3431458,12 12,13.3431458 12,15 C12,16.6568542 13.3431458,18 15,18 Z" id="Combined-Shape"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-transparent text-primary root-margins ">
+                        <div class="card-body card-body--bordered ">
+                            <div class="card-subheading" contenteditable="true">Occupation</div>
+                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
+                            <div class="card-text card-text--large">Do what you love, and you'll always love what you do.</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-transparent text-primary root-margins ">
+                        <div class="card-body card-body--bordered ">
+                            <div class="card-subheading">Schedule</div>
+                            <div class="table-responsive">
+                                <table class="table text-primary">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Event</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">Prototype</th>
+                                        <td>09/29</td>
+                                        <td>8AM</td>
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">Development</th>
+                                        <td>10/02</td>
+                                        <td>10AM</td>
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">Deploy</th>
+                                        <td >11/11</td>
+                                        <td >7AM</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
             
 
 
@@ -460,7 +677,7 @@
                             <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</h2>
                             <p class="card-text text-accent" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" contenteditable="true">View More</a>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
                             
                         </div>
                     </div>
@@ -480,23 +697,14 @@
                             <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">The Bulk Of It</div>
                             <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-neutral" >View More</a>
                             
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row footer">
-                <div class="col m-0">
-                    <div class="d-flex">
-                        <span class="me-2 small">&copy; 2021 Tu Trinh</span>
-                        <span class="me-2 small"><a href="hellotu.com">Hellotu.com</a></span>
-                    </div>
-                   
-
-                </div>
-            </div>
+           
 
         </main>
     </div>
@@ -523,7 +731,8 @@ Salt Box 6D6875
 // import anime from 'animejs/lib/anime.es.js';
 // https://www.npmjs.com/package/clipboard-copy;
 // https://www.npmjs.com/package/color-contrast
-// 
+// https://www.npmjs.com/package/@tannerhodges/match-height
+
 import copy from 'clipboard-copy'
 import colorContrast from 'color-contrast'
 import anime from 'animejs/lib/anime.es.js';
@@ -533,6 +742,7 @@ import ColorDots from '@/components/ColorDots.vue'
 import Slider from '@/components/Slider.vue'
 import {RoundValues, SetRootProperty, GetRootPropertyValue, SetHSLToRoot} from '@/utilities/utils'
 import {Cookie} from '@/utilities/cookies'
+import MatchHeight from '@tannerhodges/match-height';
 export default {
     components: {
         ColorDots,
@@ -573,7 +783,7 @@ export default {
             paddings: 1,
             margins: 1,
             borderRadius: 0,
-            baseFontSize: 14,
+            baseFontSize: 12,
             headingSerif: 1,
             subHeadingSerif: 0,
             textSerif: 0,
@@ -672,7 +882,7 @@ export default {
             console.log('foo', data)
         })*/
         
- 
+        this.matchHeight();
    
 
     },
@@ -686,11 +896,53 @@ export default {
         computedContrast() {
             return colorContrast(this.colors[0], this.colors[1]).toFixed(1)
         },
-        computedContrastRating() {
+        computedContrastRatingNorm() {
             let rating;
             if(this.computedContrast >= 4.5 && this.computedContrast < 7) {
                 rating = 'AA'
             } else if (this.computedContrast >= 7) {
+                rating = 'AAA'
+            } else {
+                rating = 'Fail'
+            }
+            
+
+            return rating
+        },
+        computedContrastRatingLarge() {
+            let rating;
+            if(this.computedContrast >= 3.1 && this.computedContrast < 7) {
+                rating = 'AA'
+            } else if (this.computedContrast >= 7) {
+                rating = 'AAA'
+            } else {
+                rating = 'Fail'
+            }
+            
+
+            return rating
+        },
+        computedContrastNeutral() {
+            return colorContrast(this.colors[0], this.colors[2]).toFixed(1)
+        },
+        computedContrastRatingNeutralNorm() {
+            let rating;
+            if(this.computedContrastNeutral >= 4.5 && this.computedContrastNeutral < 7) {
+                rating = 'AA'
+            } else if (this.computedContrastNeutral >= 7) {
+                rating = 'AAA'
+            } else {
+                rating = 'Fail'
+            }
+            
+
+            return rating
+        },
+        computedContrastRatingNeutralLarge() {
+            let rating;
+            if(this.computedContrastNeutral >= 3.1 && this.computedContrastNeutral < 7) {
+                rating = 'AA'
+            } else if (this.computedContrastNeutral >= 7) {
                 rating = 'AAA'
             } else {
                 rating = 'Fail'
@@ -707,18 +959,22 @@ export default {
             this.colors[0] = newColor
             // document.documentElement.style.setProperty('--primaryColor', newColor)
             SetRootProperty('--primaryColor', newColor)
+            SetHSLToRoot(this.primaryHSL, 'primary');
+                   
         },
         updateAccentColor() {
             let newColor =  Color(this.accentHSL).hex()
             this.colors[1]= newColor
-            // document.documentElement.style.setProperty('--accentColor', newColor)
             SetRootProperty('--accentColor', newColor)
+            SetHSLToRoot(this.accentHSL, 'accent');
+                    
         },
         updateNeutralColor() {
             let newColor =  Color(this.neutralHSL).hex()
             this.colors[2]= newColor
             // document.documentElement.style.setProperty('--accentColor', newColor)
             SetRootProperty('--neutralColor', newColor)
+            SetHSLToRoot(this.neutralHSL, 'neutral');
         },
         displayColors(arr) {
             this.currentPalette = arr;
@@ -772,7 +1028,7 @@ export default {
             const currentHSL = RoundValues(this.neutralHSL) // old values
             const newHSL = RoundValues(Color(this.colors[2]).hsl().object())
             SetHSLToRoot(newHSL, 'neutral')
-            this.animateSlider(currentHSL, newHSL, 'accent')
+            this.animateSlider(currentHSL, newHSL, 'neutral')
             this.setActiveColorOnMount('neutral')
 
         },
@@ -874,7 +1130,8 @@ export default {
             }) 
 
         },
-        reverseColors() {
+        reverseColors(e) {
+            e.preventDefault();
             // needs a target for the active outline
             // this.colors = this.colors.reverse();
             // var newArr = this.colors.splice(2,1).concat(this.colors.reverse());
@@ -974,6 +1231,7 @@ export default {
                 SetRootProperty('--cardHeading', 'var(--fontSansSerif)')
                 this.headingSerif = -0
             }
+            this.updateHeight()
         },
         onSwitchSubHeadingChange(e) {
             // console.log('Switch for heading', e)
@@ -984,6 +1242,7 @@ export default {
                 SetRootProperty('--cardSubHeading', 'var(--fontSansSerif)')
                 this.subHeadingSerif = 0
             }
+            this.updateHeight();
         },
         onSwitchTextChange(e) {
             // console.log('Switch for text', e)
@@ -994,26 +1253,31 @@ export default {
                 SetRootProperty('--cardText', 'var(--fontSansSerif)')
                 this.textSerif = 0
             }
+            this.updateHeight();
         },
         onSliderBaseFontSizeChange(e) {
             // console.log('slider base font size change', this.baseFontSize)
-            SetRootProperty('--baseFontSize', `${this.baseFontSize}px`)
+            SetRootProperty('--baseFontSize', `${this.baseFontSize}pt`)
             // console.log(document.documentElement.style.getPropertyValue('--baseFontSize'))
+            this.updateHeight();
         },
         onSliderPaddingsChange(e) {
             // console.log('slider paddings change', this.paddings)
             SetRootProperty('--paddings', `${this.paddings}rem`)
             // console.log(document.documentElement.style.getPropertyValue('--paddings'))
+            this.updateHeight();
         },
         onSliderMarginsChange(e) {
             // console.log('slider margins change', this.margins)
             SetRootProperty('--margins', `${this.margins}rem`)
             // console.log(document.documentElement.style.getPropertyValue('--margins'))
+            this.updateHeight();
         },
         onSliderBorderRadiusChange(e) {
             // console.log('slider border radius change', this.borderRadius)
             SetRootProperty('--borderRadius', `${this.borderRadius}px`)
             // console.log(document.documentElement.style.getPropertyValue('--borderRadius'))
+            this.updateHeight();
         },
         setCurrentPalette(index) {
             // console.log(index);
@@ -1026,12 +1290,14 @@ export default {
             // Temporary push first 2 colors to the colors array ================================
             this.colors[0] = `#${this.colorPalettes[index].colors[0]}`
             this.colors[1] = `#${this.colorPalettes[index].colors[1]}`
-            this.colors[2] = '#FEFEFE'
+            this.colors[2] = `#${this.colorPalettes[index].colors[2]}`
 
             const primaryColor = Color(this.colors[0])
             const accentColor = Color(this.colors[1])
+            const neutralColor = Color(this.colors[2])
             this.primaryHSL = RoundValues(primaryColor.hsl().object())
             this.accentHSL = RoundValues(accentColor.hsl().object())
+            this.neutralHSL = RoundValues(neutralColor.hsl().object())
 
 
             // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
@@ -1039,6 +1305,11 @@ export default {
             // document.documentElement.style.setProperty('--primaryColor', primaryColor)
             SetRootProperty('--primaryColor', primaryColor)
             SetRootProperty('--accentColor', accentColor)
+            SetRootProperty('--neutralColor', neutralColor)
+
+            SetHSLToRoot(this.primaryHSL, 'primary');
+            SetHSLToRoot(this.accentHSL, 'accent');
+            SetHSLToRoot(this.neutralHSL, 'neutral');
             // document.documentElement.style.setProperty('--accentColor', accentColor)
 
             this.$nextTick(function(){
@@ -1138,6 +1409,14 @@ export default {
             this.subHeadingSerif == 1 ? SetRootProperty('--cardSubHeading', 'var(--fontSerif)') : SetRootProperty('--cardSubHeading', 'var(--fontSansSerif)');
             this.textSerif == 1 ? SetRootProperty('--cardText', 'var(--fontSerif)') : SetRootProperty('--cardText', 'var(--fontSansSerif)');
 
+        },
+        matchHeight() {
+            MatchHeight.add('.cards-match-height .card', 'match-cards');    
+            MatchHeight.add('.tiles-match-height .card', 'match-tiles');    
+        },
+        updateHeight() {
+            MatchHeight.update('match-cards')    
+            MatchHeight.update('match-tiles')    
         }
         
 

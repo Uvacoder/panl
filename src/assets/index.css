@@ -8,6 +8,8 @@
 @import "@/assets/sass/layout.css";
 @import "@/assets/sass/icon.scss";
 @import "@/assets/sass/toggle.scss";
+@import "@/assets/sass/shapes.css";
+@import "@/assets/sass/tables.css";
 
 /* stylelint-disable */
 
@@ -17,7 +19,7 @@ html {
 
 body {
 	font-family: var(--fontMain);
-	font-size: 14px;
+	font-size: var(--baseFontSize);
 	/* letter-spacing: 0.5px; */
 	background-color: var(--neutralColor);
 	/* color: var(--accentColor); */

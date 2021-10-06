@@ -111,3 +111,18 @@ aside .admin {
 	/* font-size: calc(var(--baseFontSize) * 2); */
 	/* margin-right: 4px; */
 }
+
+main .header {
+}
+
+main .header__logo {
+	font-family: var(--fontSerif);
+	color: var(--primaryColor);
+}
+
+main .bg-overlay {
+	background-blend-mode: soft-light;
+	background-size: cover;
+	background-position: top;
+	background-color: var(--neutralColor);
+}

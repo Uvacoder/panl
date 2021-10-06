@@ -31,7 +31,7 @@
 
 .flex-basis-60,
 .flex-basis-65 {
-	flex: 0 60% !important;
+	flex: 1 0 60% !important;
 }
 
 aside {
@@ -92,7 +92,7 @@ aside .admin {
 }
 
 .sidebar-settings__control {
-	flex: 1 0 auto;
+	flex: 1 1 auto;
 }
 
 .footer {

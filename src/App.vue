@@ -750,7 +750,7 @@ export default {
     },
     data() {
         return {
-            colors: ['#EAE2B7', '#003049', '#EFEFEF'],// primary, accent, neutral
+            colors: ['#ffffff', '#ffffff', '#ffffff'],// primary, accent, neutral
             primaryHSL: {
                 H: 0, //number 0 - 360
                 S: 0, // percentage 100

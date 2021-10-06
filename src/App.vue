@@ -585,17 +585,17 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                             <div class="card-section--absolute w-100 h-100">
                                 <svg style="left: 5%; bottom: 10%; transform: rotate(45deg);" width="96px" height="91px" viewBox="0 0 96 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon id="Polygon" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 12%)" points="48 0 95.5528258 34.5491503 77.3892626 90.4508497 18.6107374 90.4508497 0.447174185 34.5491503"></polygon>
+                                        <polygon id="Polygon" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.8)" points="48 0 95.5528258 34.5491503 77.3892626 90.4508497 18.6107374 90.4508497 0.447174185 34.5491503"></polygon>
                                     </g>
                                 </svg>
                                 <svg style="left: 50%; bottom: 5%;" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <circle id="Oval-2" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)" cx="15" cy="15" r="15"></circle>
+                                        <circle id="Oval-2" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.9)" cx="15" cy="15" r="15"></circle>
                                     </g>
                                 </svg>
                                 <svg style="right: 5%; top: 5%;" width="100px" height="58px" viewBox="0 0 100 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g id="stripes" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)">
+                                        <g id="stripes" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.9)">
                                             <rect id="Rectangle-11" x="0" y="0" width="100" height="10"></rect>
                                             <rect id="Rectangle-11-Copy" x="0" y="24" width="100" height="10"></rect>
                                             <rect id="Rectangle-11-Copy-2" x="0" y="48" width="100" height="10"></rect>
@@ -604,12 +604,12 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                 </svg>
                                 <svg style="right: 5%; bottom: 10%; transform: rotate(90deg)" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon id="Triangle" fill="hsla(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%), 1" points="24 0 48 48 0 48"></polygon>
+                                        <polygon id="Triangle" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.8)" points="24 0 48 48 0 48"></polygon>
                                     </g>
                                 </svg>
                                 <svg style="left: 50%; bottom: 20%; transform:scale(1.5)" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g id="donut" fill="hsl(var(--primaryH), var(--primaryS), calc(var(--primaryL) + 15%)">
+                                        <g id="donut" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.9)">
                                             <path d="M15,30 C6.71572875,30 0,23.2842712 0,15 C0,6.71572875 6.71572875,0 15,0 C23.2842712,0 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z M15,18 C16.6568542,18 18,16.6568542 18,15 C18,13.3431458 16.6568542,12 15,12 C13.3431458,12 12,13.3431458 12,15 C12,16.6568542 13.3431458,18 15,18 Z" id="Combined-Shape"></path>
                                         </g>
                                     </g>

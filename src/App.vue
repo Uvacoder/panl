@@ -859,6 +859,7 @@ export default {
                         this.setActiveColorOnMount('primary')
                         this.setActiveColorOnMount('accent')
                         this.setActiveColorOnMount('neutral')
+                        this.matchHeight();
 
                     })
 
@@ -882,7 +883,7 @@ export default {
             console.log('foo', data)
         })*/
         
-        this.matchHeight();
+        
    
 
     },

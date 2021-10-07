@@ -5,6 +5,13 @@
 .text-right {
 	text-align: right;
 }
+.text-left {
+	text-align: left;
+}
+
+.text-small {
+	font-size: 0.875em !important;
+}
 
 .border-left-1 {
 	border-left: 1px solid var(--primaryColor);
@@ -30,4 +37,19 @@
 }
 .blend-negative {
 	background-blend-mode: negative;
+}
+
+::placeholder,
+::-webkit-input-placeholder {
+	color: red;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: var(--primaryColor);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: var(--primaryColor);
 }

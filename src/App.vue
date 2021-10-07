@@ -230,7 +230,7 @@
                                 </div>
                             </div>
                             
-                            <a href="#" @click="reverseColors" class="small text-white-50 my-2">Reverse Primary / Accent</a>
+                            <!-- <a href="#" @click="reverseColors" class="small text-white-50 my-2">Reverse Primary / Accent</a> -->
 
                             <!--<button @click="reverseColors" class="mt-3 sidebar-section__button--white btn text-center">Reverse Colors
                                 <div style="display:inline-block;">
@@ -241,6 +241,17 @@
                                 <path xmlns="http://www.w3.org/2000/svg" d="M3.07588 17.6172C3.12432 17.5001 3.19595 17.3904 3.29078 17.295Z" ></path>
                                 </svg></div>
                             </button>-->
+
+                            <div class="sidebar-settings">
+                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Reverse Colors</div>
+                            <div class="sidebar-settings__control d-flex justify-content-end">
+                                <!-- Switch -->
+                                <div class="form-check form-switch">
+                                    <input @change="reverseColors($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse" :checked="reverseColors == 1">
+                                    <label class="form-check-label visually-hidden" for="flexSwitchCheckReverse">Switch for reverse colors</label>
+                                </div>
+                            </div>
+                        </div>
                         
                             
                         </div>
@@ -282,16 +293,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
                     <div class="hr border-bottom--gradient"></div>
 
-                    <div class="sidebar-section">
-                        <div class="sidebar-section__heading">Layout</div>
-                        <div class="sidebar-section__block">
-                            <div class="d-flex justify-content-between">
-                            
-                                
-                            </div>
-                            
-                            
-                        </div>
+                    <div class="sidebar-sections flex-grow-1">
+                        <div class="sidebar-section__heading">Layout Settings</div>
+                        
                     </div>
                     
                     <div class="sidebar-settings-wrapper mt-3">
@@ -307,7 +311,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{paddings}}rem</div>
+                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{paddings/2}}rem</div>
                             <div class="sidebar-settings__control">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="Paddings">Change Padding</label>
@@ -528,7 +532,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                             <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
                             <div class="card-text " >Do what you love, and you'll always love what you do.</div>
                             <hr/>
-                            <a href="./" class="d-inline-block text-primary" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <a href="./" class="d-inline-block text-primary animate" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
 <path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
 </svg></a>
                             
@@ -537,38 +541,34 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 </div>
             </div>    
 
-            
-                <div class="row my-4 tiles-match-height" data-match-height-group="tiles"
-  data-match-height-enable="(min-width: 768px)">
-                <div class="col col-md-12">
+
+                <div class="row">
+                    <div class="col">
                     <div class="card bg-neutral text-primary">
                         <div class="card-body">
-                            <div class="card-subheading" >Up Coming</div>
-                            <h2 class="card-title card-heading card-heading--large mb-3" >Events</h2>
+                            <div class="card-subheading" >UI/UX</div>
+                            <h2 class="card-title card-heading card-heading--large mb-3" >Foundations</h2>
+                            <p>You can't know everything, no one does. Know the fundamentals to build a strong foundation, with it you can create anything you can image. I am still learning everyday.</p>
                             <div class="table-responsive">
                                 <table class="table text-primary">
                                     <thead>
                                         <tr>
-                                        <th scope="col">Event</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
+                                        <th scope="col">Core</th>
+                                        <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        <th scope="row">Prototype</th>
-                                        <td>09/29</td>
-                                        <td>8AM</td>
+                                        <th scope="row">Design</th>
+                                        <td class="text-left">Color Theory, Typography, Spacing</td>
                                         </tr>
                                         <tr>
                                         <th scope="row">Development</th>
-                                        <td>10/02</td>
-                                        <td>10AM</td>
+                                        <td>HTML, CSS</td>
                                         </tr>
                                         <tr>
-                                        <th scope="row">Deploy</th>
-                                        <td >11/11</td>
-                                        <td >7AM</td>
+                                        <th scope="row">Interactivity</th>
+                                        <td >JS</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -577,6 +577,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         </div>
                     </div>
                 </div>
+                </div>
+            
+                <div class="row my-4 tiles-match-height" data-match-height-group="tiles"
+  data-match-height-enable="(min-width: 768px)">
+                
                 <div class="col">
                     <div class="card bg-neutral text-primary root-margins ">
                         <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
@@ -593,9 +598,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                         <circle id="Oval-2" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.9)" cx="15" cy="15" r="15"></circle>
                                     </g>
                                 </svg>
-                                <svg style="right: 5%; top: 5%;" width="100px" height="58px" viewBox="0 0 100 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <svg style="right: 1%; top: 1%;" width="100px" height="58px" viewBox="0 0 100 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g id="stripes" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.9)">
+                                        <g id="stripes" fill="hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.7)">
                                             <rect id="Rectangle-11" x="0" y="0" width="100" height="10"></rect>
                                             <rect id="Rectangle-11-Copy" x="0" y="24" width="100" height="10"></rect>
                                             <rect id="Rectangle-11-Copy-2" x="0" y="48" width="100" height="10"></rect>
@@ -633,7 +638,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         <div class="card-body card-body--bordered ">
                             <div class="card-subheading">Schedule</div>
                             <div class="table-responsive">
-                                <table class="table text-primary">
+                                <table class="table text-primary table-striped">
                                     <thead>
                                         <tr>
                                         <th scope="col">Event</th>
@@ -648,7 +653,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                         <td>8AM</td>
                                         </tr>
                                         <tr>
-                                        <th scope="row">Development</th>
+                                        <th scope="row">Dev</th>
                                         <td>10/02</td>
                                         <td>10AM</td>
                                         </tr>
@@ -686,18 +691,86 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
             </div>
 
 
-
+            <!-- CONTACT / SOCIAL -->
 
 
             <div class="row my-4">
                 <div class="col">
-                    <div class="card bg-transparent text-primary root-margins">
-                        <div class="card-body">
-                            <div class="card-subheading" >Card Category</div>
-                            <div class="card-title card-heading card-heading--large mb-5" >The Bulk Of It</div>
-                            <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card bg-transparent text-primary footer">
+                        <div class="card-body ">
+                            <div class="card-subheading" >Contact</div>
+                            <div class="card-title card-heading card-heading--large mb-5" >Let's Collaborate</div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-title card-heading card-heading--large" >Let's Collaborate</div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis itaque sunt labore rerum incidunt est. Odit reiciendis maiores, quas facere cupiditate nesciunt voluptatum inventore quibusdam modi laboriosam corporis deserunt neque.</p>
+                                </div>
+                                <div class="col">
+                                    <!-- Form -->
+                                    <form 
+                                    action="" 
+                                    class="p-4 bg-transparent shadow text-primary"
+                                    name="contact"
+                                    method="post"
+                                    data-netlify="true"
+                                    data-netlify-honeypot="bot-field"
+                                    >
+                                        <input type="hidden" name="form-name" value="contact" />
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label small">First Name</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="firstName">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label small">Last Name</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="lastName">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label small">Email</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label small">Message</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                                            </div>
+                                            <div class="col">
+                                                <button type="submit" class="btn bg-primary text-accent text-small mb-3">Submit</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
                             <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-neutral" >View More</a>
+                            <div class="row align-items-center">
+                                <div class="col-md-6 social">
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="https://twitter.com/tinytouchgames" target="_blank" rel="noopener noreferrer" title="TinyTouchGames">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primaryColor)" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.995 6.68799C20.8914 6.15208 21.5622 5.30823 21.882 4.31399C21.0397 4.81379 20.118 5.16587 19.157 5.35499C17.8246 3.94552 15.7135 3.60251 14.0034 4.51764C12.2933 5.43277 11.4075 7.37948 11.841 9.26999C8.39062 9.09676 5.17598 7.4669 2.99702 4.78599C1.85986 6.74741 2.44097 9.25477 4.32502 10.516C3.64373 10.4941 2.97754 10.3096 2.38202 9.97799C2.38202 9.99599 2.38202 10.014 2.38202 10.032C2.38241 12.0751 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45022 16.0613 6.06057 17.2583 7.89602 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78739 21.0023 8.12002 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0342 20.33 8.78899C20.33 8.60299 20.3257 8.41799 20.317 8.23399C21.1575 7.62659 21.8828 6.87414 22.459 6.01199C21.676 6.35905 20.8455 6.58691 19.995 6.68799Z" fill="var(--primaryColor)"></path>
+                                            </svg>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://unsplash.com/@tutrinh" target="_blank" rel="noopener noreferrer" title="Unsplash">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M21 21H3V10.875H8.625V15.938H15.375V10.875H21V21ZM15.375 8.063H8.625V3H15.375V8.062V8.063Z" fill="var(--primaryColor)"></path>
+                                                </svg>
+                                            </a>
+
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 text-md-end small">
+                                    © 2021 |
+                                    All rights reserved |
+                                    <a href="https://hellotu.com" rel="noopener noreferrerrer" class="small">Hellotu.com</a>
+                                </div>
+
+                            </div>
+                            
                             
                         </div>
                     </div>
@@ -712,16 +785,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
 <script>
 // import HelloWorld from '@/components/HelloWorld.vue'
-// dark mode: midnight: #262E40, midmight-alt: #313B50
-// light mode: gallery: #F0EFF1, aspen gray: #ECF1F4
-// colors: accents(primary, secondary, tertiary), contrast(type), base(background)
-/*
-Romantic FFCDB2
-Wax Flower FFB4A2
-Tonys Pink E5989B
-Brandy Rose B5838D
-Salt Box 6D6875
-*/
+// colors: primary, accent, neutral
 // Vue3 don't have $on anymore, need to use 3rd party suggested by Vue docs
 // $ npm install --save mitt
 //https://github.com/developit/mitt
@@ -732,6 +796,8 @@ Salt Box 6D6875
 // https://www.npmjs.com/package/clipboard-copy;
 // https://www.npmjs.com/package/color-contrast
 // https://www.npmjs.com/package/@tannerhodges/match-height
+// icons social media
+// https://coolicons.cool/?ref=onepagelove
 
 import copy from 'clipboard-copy'
 import colorContrast from 'color-contrast'
@@ -811,15 +877,14 @@ export default {
 
         // BS Black Text Color
         this.bsBodyColor = GetRootPropertyValue('--bs-body-color');
-        // this.masterRGB = color.object()
         const loadColorPalette = async () => {
             try{
-                // const response = await fetch('https://www.colourlovers.com/api/palettes/top?format=json&numResults=10');
                 const params = {
                     access_token: import.meta.env.VITE_CONTENTFUL_API,
                     content_type: 'themes',
-                    limit: 20,
-                    order: '-fields.likes'
+                    // limit: 20,
+                    // order: '-fields.likes'
+                    order: 'fields.name'
                 }
                 const esc = encodeURIComponent;
                 const query = Object.keys(params).map(k => `${esc(k)}=${esc(params[k])}`).join('&')
@@ -958,7 +1023,6 @@ export default {
         updatePrimaryColor() {
             let newColor =  Color(this.primaryHSL).hex()
             this.colors[0] = newColor
-            // document.documentElement.style.setProperty('--primaryColor', newColor)
             SetRootProperty('--primaryColor', newColor)
             SetHSLToRoot(this.primaryHSL, 'primary');
                    
@@ -1021,11 +1085,6 @@ export default {
             SetRootProperty('--neutralColor', data.data)
 
             this.colors[2] = data.data
-            /*if(Color(this.colors[2]).isDark()) {
-                SetRootProperty('--bs-body-color', '#FEFEFE')
-            }else{
-                SetRootProperty('--bs-body-color', this.bsBodyColor)
-            }*/
             const currentHSL = RoundValues(this.neutralHSL) // old values
             const newHSL = RoundValues(Color(this.colors[2]).hsl().object())
             SetHSLToRoot(newHSL, 'neutral')
@@ -1087,20 +1146,6 @@ export default {
         },
         animateSlider(currentHSL={}, newColorHSL={}, colorHSLObj='primary') {
 
-            // anime usage
-            // target - starting point object {h:10, s:20, l:40} this will be the updating values by anime
-            // endpoints obj
-            // h: 100
-            // s: 100
-            // l: 100
-            // easing: easeInOutQuad
-            // duration: 500
-            /* update function() {
-                that.accentHSL.h = currrentHSL.h
-                that.accentHSL.s = currrentHSL.s
-                that.masterHSL.l = currrentHSL.l
-
-            }*/
             let HSL = {}
             if(colorHSLObj === 'primary') {
                 HSL = this.primaryHSL
@@ -1264,7 +1309,9 @@ export default {
         },
         onSliderPaddingsChange(e) {
             // console.log('slider paddings change', this.paddings)
-            SetRootProperty('--paddings', `${this.paddings}rem`)
+            
+            SetRootProperty('--paddings', `${this.paddings / 2}rem`)
+
             // console.log(document.documentElement.style.getPropertyValue('--paddings'))
             this.updateHeight();
         },

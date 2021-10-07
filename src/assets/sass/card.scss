@@ -32,28 +32,28 @@ main .card {
 	font-size: 1rem;
 }
 
-.card a {
+.card a.animate {
 	text-decoration: dotted;
 	transition: all 0.25s ease;
 	display: block;
 }
 
-.card a svg {
+.card a.animate svg {
 	margin-left: 0;
 	transition: all 0.25s ease;
 }
 
-.card a:hover {
+.card a.animate:hover {
 	margin-left: 5px;
 }
-.card a:hover svg {
-	text-decoration: dotted;
+.card a.animate:hover svg {
+	ext-decoration: dotted;
 	margin-left: 10px;
 }
 
 .card-body {
 	z-index: 1;
-	padding: 20px !important;
+	padding: 20px;
 	border-radius: var(--borderRadius);
 	overflow: hidden;
 	position: relative;
@@ -151,4 +151,22 @@ main .card {
 
 .card-section--absolute svg {
 	position: absolute;
+}
+
+.card.footer a.small {
+	font-size: inherit;
+	color: var(--primaryColor);
+	text-decoration: none;
+}
+
+.table {
+	--bs-table-bg: transparent;
+	--bs-table-accent-bg: transparent;
+	--bs-table-striped-color: var(--primaryColor);
+	--bs-table-striped-bg: hsla(
+		var(--primaryH),
+		var(--primaryS),
+		var(--primaryL),
+		0.05
+	);
 }

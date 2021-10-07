@@ -43,13 +43,13 @@ input[type="range"] {
 
 /* Color Dots */
 
-ul {
+ul.color-palette-list {
 	width: 100%;
 }
 
-li {
+ul.color-palette-list li {
 	min-width: 20px;
-	height: 40px;
+	/* height: 40px; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -59,7 +59,7 @@ li {
 	transition: all 0.25s ease;
 }
 
-li:hover {
+ul.color-palette-list li:hover {
 	flex-basis: 80px;
 	cursor: pointer;
 }
@@ -124,10 +124,6 @@ button.round {
 .round.active {
 	/* border: 2px solid #72f1b8; */
 	border: 2px solid #fff000;
-}
-
-.card-body {
-	padding: var(--padding);
 }
 
 .color-palette-list li:first-child div {

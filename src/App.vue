@@ -701,11 +701,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         <div class="card-title card-heading card-heading--large mb-4" >Let's Collaborate</div>
                         <div class="">
                             <div class="row g-0 shadow mb-5">
-                                <div class="col">
+                                <div class="col order-1">
                                    
                                         <!-- Card -->
-                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-multiply m-0 background-center" style="background-image: url(./portrait-1.jpg); padding: 0 !important;">
-                                            <div class="card-body-overlay card-body-overlay--neutral"></div>
+                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center" style="background-image: url(./chair.jpg); padding: 0 !important;">
+                                            <div class="card-body-overlay card-body-overlay--accent d-none"></div>
                                             <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
                                                 <div class="card-subheading" >Connect</div>
                                                 <p></p>
@@ -718,11 +718,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                         <!-- End -->
 
                                 </div>
-                                <div class="col">
+                                <div class="col order-0">
                                     <!-- Form -->
                                     <form 
                                     action="" 
-                                    class="p-4 bg-transparent text-primary"
+                                    class="p-4 pb-0 bg-transparent text-primary"
                                     name="contact"
                                     method="post"
                                     data-netlify="true"

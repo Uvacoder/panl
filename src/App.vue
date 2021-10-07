@@ -485,7 +485,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                     <div class="card bg-primary text-accent root-margins shadow">
                         <div class="card-body card-body--bordered ">
                             <div class="card-subheading" >Occupation</div>
-                            <div class="card-title card-heading card-heading--large mb-5" contenteditable="true">Do What You Love.</div>
+                            <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
                             <div class="card-text" >Do what you love, and you'll always love what you do.</div>
                             <hr/>
                             <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
@@ -697,18 +697,32 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
             <div class="row my-4">
                 <div class="col">
                     <div class="card bg-transparent text-primary footer">
-                        <div class="card-body ">
-                            <div class="row">
+                         <div class="card-subheading" >Contact</div>
+                        <div class="card-title card-heading card-heading--large mb-4" >Let's Collaborate</div>
+                        <div class="">
+                            <div class="row g-0 shadow mb-5">
                                 <div class="col">
-                                    <div class="card-subheading" >Contact</div>
-                                    <div class="card-title card-heading card-heading--large" >Let's Collaborate</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis itaque sunt labore rerum incidunt est. Odit reiciendis maiores, quas facere cupiditate nesciunt voluptatum inventore quibusdam modi laboriosam corporis deserunt neque.</p>
+                                   
+                                        <!-- Card -->
+                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-multiply m-0 background-center" style="background-image: url(./portrait-1.jpg); padding: 0 !important;">
+                                            <div class="card-body-overlay card-body-overlay--neutral"></div>
+                                            <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
+                                                <div class="card-subheading" >Connect</div>
+                                                <p></p>
+                                                <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                                <div class="card-title card-heading card-heading--large mt-5" >Master <br>At <br>Your<br>Craft</div>
+                                                <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- End -->
+
                                 </div>
                                 <div class="col">
                                     <!-- Form -->
                                     <form 
                                     action="" 
-                                    class="p-4 bg-transparent shadow text-primary"
+                                    class="p-4 bg-transparent text-primary"
                                     name="contact"
                                     method="post"
                                     data-netlify="true"

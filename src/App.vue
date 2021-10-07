@@ -733,16 +733,16 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                         <div class="row">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInputName" class="form-label small text-semibold">Name</label>
-                                                <input type="text" class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name">
+                                                <input type="text" class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name" v-model="form.name">
                                             </div>
                                            
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInputEmail" class="form-label small text-semibold">Email</label>
-                                                <input type="email" class="form-control text-small custom-field" id="exampleFormControlInputEmail" placeholder="" name="email">
+                                                <input type="email" class="form-control text-small custom-field" id="exampleFormControlInputEmail" placeholder="" name="email" v-model="form.email">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label small text-semibold">Message</label>
-                                                <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                                                <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message" v-model="form.message"></textarea>
                                             </div>
                                             <div class="col">
                                                 <button type="submit" class="btn btn-round bg-primary text-neutral text-small mb-3">Let's Connect</button>
@@ -898,7 +898,9 @@ export default {
             textSerif: 0,
             bsBodyColor: '',
             form: {
-                askPerson: ""
+                name: "",
+                email: "",
+                message: ""
             }
 
 
@@ -1522,6 +1524,7 @@ export default {
                 .join("&");
         },
         handleSubmit () {
+            console.log(this.form)
         const axiosConfig = {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };

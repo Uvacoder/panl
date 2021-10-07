@@ -744,7 +744,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                                 <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                                             </div>
                                             <div class="col">
-                                                <button type="submit" class="btn bg-primary text-neutral text-small mb-3">Let's Connect</button>
+                                                <button type="submit" class="btn btn-round bg-primary text-neutral text-small mb-3">Let's Connect</button>
                                             </div>
                                         </div>
                                         

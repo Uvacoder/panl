@@ -13,6 +13,10 @@
 	font-size: 0.875em !important;
 }
 
+.text-semibold {
+	font-weight: 600 !important;
+}
+
 .border-left-1 {
 	border-left: 1px solid var(--primaryColor);
 }
@@ -52,4 +56,48 @@
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
 	color: var(--primaryColor);
+}
+
+label.form-label {
+	/*background-color: hsla(
+		var(--primaryH),
+		var(--primaryS),
+		var(--primaryL),
+		0.05
+	);
+	padding: 4px 8px;
+	border-radius: 4px;*/
+}
+
+.custom-field {
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: hsla(
+		var(--primaryH),
+		var(--primaryS),
+		var(--primaryL),
+		0.05
+	);
+	border-radius: 0;
+	border-bottom: 2px solid var(--primaryColor);
+	color: var(--primaryColor) !important;
+	font-weight: 600;
+}
+.custom-field-text-area {
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: hsla(
+		var(--primaryH),
+		var(--primaryS),
+		var(--primaryL),
+		0.05
+	);
+	border-radius: 0;
+	border: 2px solid var(--primaryColor);
 }

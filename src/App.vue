@@ -698,10 +698,9 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 <div class="col">
                     <div class="card bg-transparent text-primary footer">
                         <div class="card-body ">
-                            <div class="card-subheading" >Contact</div>
-                            <div class="card-title card-heading card-heading--large mb-5" >Let's Collaborate</div>
                             <div class="row">
                                 <div class="col">
+                                    <div class="card-subheading" >Contact</div>
                                     <div class="card-title card-heading card-heading--large" >Let's Collaborate</div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis itaque sunt labore rerum incidunt est. Odit reiciendis maiores, quas facere cupiditate nesciunt voluptatum inventore quibusdam modi laboriosam corporis deserunt neque.</p>
                                 </div>
@@ -717,24 +716,21 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                     >
                                         <input type="hidden" name="form-name" value="contact" />
                                         <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label small">First Name</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="firstName">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInputName" class="form-label small text-semibold">Name</label>
+                                                <input type="text" class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name">
                                             </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label small">Last Name</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="lastName">
+                                           
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInputEmail" class="form-label small text-semibold">Email</label>
+                                                <input type="email" class="form-control text-small custom-field" id="exampleFormControlInputEmail" placeholder="" name="email">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label small">Email</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label small">Message</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                                                <label for="exampleFormControlTextarea1" class="form-label small text-semibold">Message</label>
+                                                <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                                             </div>
                                             <div class="col">
-                                                <button type="submit" class="btn bg-primary text-accent text-small mb-3">Submit</button>
+                                                <button type="submit" class="btn bg-primary text-accent text-small mb-3">Let's Connect</button>
                                             </div>
                                         </div>
                                         

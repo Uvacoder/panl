@@ -704,7 +704,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                 <div class="col order-1">
                                    
                                         <!-- Card -->
-                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center" style="background-image: url(./chair.jpg); padding: 0 !important;">
+                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center h-100" style="background-image: url(./chair.jpg); padding: 0 !important;">
                                             <div class="card-body-overlay card-body-overlay--accent d-none"></div>
                                             <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
                                                 <div class="card-subheading" >Connect</div>
@@ -721,12 +721,13 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                 <div class="col order-0">
                                     <!-- Form -->
                                     <form 
-                                    action="" 
+                                    action="/" 
                                     class="p-4 pb-0 bg-transparent text-primary"
                                     name="contact"
                                     method="post"
                                     data-netlify="true"
                                     data-netlify-honeypot="bot-field"
+                                    @submit.prevent="handleSubmit"
                                     >
                                         <input type="hidden" name="form-name" value="contact" />
                                         <div class="row">
@@ -787,8 +788,35 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                 </div>
             </div>
 
-           
 
+            <!-- Modal -->
+              <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+
+           
         </main>
     </div>
 </template>
@@ -809,23 +837,28 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 // icons social media
 // https://coolicons.cool/?ref=onepagelove
 
-import copy from 'clipboard-copy'
-import colorContrast from 'color-contrast'
+import copy from 'clipboard-copy';
+import colorContrast from 'color-contrast';
 import anime from 'animejs/lib/anime.es.js';
-import eventBus from '@/utilities/eventbus'
-import Color from 'color'
-import ColorDots from '@/components/ColorDots.vue'
-import Slider from '@/components/Slider.vue'
-import {RoundValues, SetRootProperty, GetRootPropertyValue, SetHSLToRoot} from '@/utilities/utils'
-import {Cookie} from '@/utilities/cookies'
+import eventBus from '@/utilities/eventbus';
+import Color from 'color';
+import ColorDots from '@/components/ColorDots.vue';
+import Slider from '@/components/Slider.vue';
+import {RoundValues, SetRootProperty, GetRootPropertyValue, SetHSLToRoot} from '@/utilities/utils';
+import {Cookie} from '@/utilities/cookies';
 import MatchHeight from '@tannerhodges/match-height';
+// import {Modal} from '../node_modules/bootstrap/js/dist/Modal.js'
+import { Modal } from '../node_modules/bootstrap/dist/js/bootstrap.esm.min.js'
+import axios from "axios";
+
 export default {
     components: {
         ColorDots,
-        Slider
+        Slider,
     },
     data() {
         return {
+            showModal: false,
             colors: ['#ffffff', '#ffffff', '#ffffff'],// primary, accent, neutral
             primaryHSL: {
                 H: 0, //number 0 - 360
@@ -863,7 +896,10 @@ export default {
             headingSerif: 1,
             subHeadingSerif: 0,
             textSerif: 0,
-            bsBodyColor: ''
+            bsBodyColor: '',
+            form: {
+                askPerson: ""
+            }
 
 
 
@@ -882,8 +918,10 @@ export default {
     },
     mounted() {
         
-        // Set San/Serif Heading
         (this.headingSerif === 1) ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');
+
+        const modals = this.$el.querySelectorAll('.modal');
+        modals.forEach(modalNode => new Modal(modalNode))
 
         // BS Black Text Color
         this.bsBodyColor = GetRootPropertyValue('--bs-body-color');
@@ -1475,6 +1513,26 @@ export default {
         updateHeight() {
             MatchHeight.update('match-cards')    
             MatchHeight.update('match-tiles')    
+        },
+        encode (data) {
+            return Object.keys(data)
+                .map(
+                key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+                )
+                .join("&");
+        },
+        handleSubmit () {
+        const axiosConfig = {
+            header: { "Content-Type": "application/x-www-form-urlencoded" }
+        };
+        axios.post(
+            "/",
+            this.encode({
+            "form-name": "contact",
+            ...this.form
+            }),
+            axiosConfig
+            ).then(() => console.log("success"));
         }
         
 

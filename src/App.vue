@@ -1550,6 +1550,9 @@ export default {
             ).then(() => {
                 this.modal.show()
                 this.$refs.contact.reset()
+                this.form.name = ""
+                this.form.email = ""
+                this.form.message = ""
             }).catch((err) => console.log('error: ', err));
         }
         

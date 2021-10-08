@@ -1549,6 +1549,7 @@ export default {
             axiosConfig
             ).then(() => {
                 this.modal.show()
+                this.$refs.contact.reset()
             }).catch((err) => console.log('error: ', err));
         }
         

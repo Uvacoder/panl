@@ -1,26 +1,12 @@
 <template>
-  
-    <div class="container-fluid d-flex p-0">
-        <aside>
-            <!-- Header - logo -->
-            <!-- Admin -->
-             <!-- Admin Panel 1 -->
-            <div class="admin">
+    <!-- <header>Header</header> -->
+    <div class="constainer-xxl tu-layout">
+        <aside class="tu-sidebar">
+            <div class="tu-links">
                 <div class="sidenav">
                     <div class="logo mb-4">
                         <div class="logo-icon">
-                            <!--<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="PANL-Logo-2">
-                                        <rect id="Rectangle-3" fill="#3EB69B" x="0" y="0" width="40" height="4"></rect>
-                                        <rect id="Rectangle-4" fill="#F8E71C" x="25" y="27" width="15" height="13"></rect>
-                                        <rect id="Rectangle-3-Copy" fill="#50E3C2" x="0" y="9" width="40" height="4"></rect>
-                                        <rect id="Rectangle-3-Copy-2" fill="#57F6D2" x="0" y="18" width="40" height="4"></rect>
-                                        <rect id="Rectangle-3-Copy-3" fill="#7EFCE0" x="0" y="27" width="20" height="4"></rect>
-                                        <rect id="Rectangle-3-Copy-4" fill="#AEFCEA" x="0" y="36" width="20" height="4"></rect>
-                                    </g>
-                                </g>
-                            </svg>-->
+                            
                         
                             <div class="ms-2 d-flex  flex-column">
                            
@@ -42,7 +28,7 @@
                         </div>
                     </div>
                     
-                    <p class="small border-bottom--gradient">
+                    <p class="small text-white-50">
                         Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
                         The Panl color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.
                     </p>
@@ -50,12 +36,11 @@
                     Based on the idea that color is the most intuitive way to code, we've created a tool to make complex ideas easily accessible. And then help designers use the color groups to guide the design.  It can be used to showcase a color component structure in a more accessible way than a color wheel.
                     </p>-->
                     
-                  
+                  <div class="hr border-bottom--gradient"></div>
                     
-                    
-                
-                    <div class="sidebar border-bottom--gradient">
-                        <div class="h6 mb-0 ">Current Palette</div>
+                    <!-- ANCHOR: CURRENT COLOR PALETTE DIV -->
+                    <div class="sidebar">
+                        <div class="h6 mb-0 " id="currentPalette">Current Palette</div>
                             <!--<ul class="d-flex">
                                     <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
                                     <li style="border:1px solid #efefef" :style="{backgroundColor: computedAccentMix}">{{computedAccentMix}}</li>
@@ -72,6 +57,34 @@
                                 </ul>
                             </div>
                     </div>
+
+                    <!-- ANCHOR: COLLAPSE -->
+                   <a class="text-white-50 small" data-bs-toggle="collapse" id="collapseColorsTrigger" href="#collapseColors" role="button" aria-expanded="false" aria-controls="collapseColors">
+                        Select Color Palette
+                    </a>
+                    <!-- <button class="btn btn-plain" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Button with data-bs-target
+                    </button> -->
+                    <div class="collapse" id="collapseColors">
+                        <div class="py-4">
+                            <h6>Color Palettes</h6>
+                            <div class="d-flex flex-row py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
+                                <div class="flex-basis-40 small">{{value.name}}</div>
+                                <ul class="list-unstyled d-flex p-0 m-0 flex-basis-65 color-palette-list">
+                                    <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex h-10">
+                                        
+                                        <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
+                                        <!-- <div>{{color.toUpperCase()}}</div> -->
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="hr border-bottom--gradient"></div>
+
 
                     <div class="sidebar-section ">
                         <div class="sidebar-section__heading">Primary</div>
@@ -178,7 +191,7 @@
                     </div>
 
 
-                    <div class="hr border-bottom--gradient"></div>
+                    <!--<div class="hr border-bottom--gradient"></div>
                     <div class="sidebar-section justify-content-between align-items-stretch flex-column">
                         <h6>Color Palettes</h6>
                         <div class="d-flex flex-row py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
@@ -187,24 +200,56 @@
                                 <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex h-10">
                                     
                                     <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
-                                    <!-- <div>{{color.toUpperCase()}}</div> -->
                                     
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     
 
 
                 </div>
             </div>
-        <!-- Admin Panel 2 -->
-            <div class="admin position-relative">
+        </aside>
+       
+        <!-- Main -->
+        <main class="tu-main">
+            <div class="tu-intro">
+                <div class="bg-accent">
+                    <div class="row pt-4">
+                        <div class="col-12">
+                            <div class="header d-flex justify-content-center align-items-center">
+                                <div class="header__logo">
+                                    <svg width="165px" height="67px" viewBox="0 0 165 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Group-4" fill="var(--primaryColor)">
+                                                <path d="M0.264144897,61.3234558 C5.52617391,45.5480855 12.7860819,29.5410614 22.043869,13.3023834 C25.4834646,15.737208 27.8159714,17.3447011 29.0413895,18.1248627 C26.9216131,21.1827901 25.9078166,23.3675359 26,24.6791 C28.0789795,21.8616765 31.7729289,19.3077443 37.0818481,17.0173035 C39.0424805,18.8386434 41.5243429,20.835907 44.5274353,23.0090942 C44.5274353,27.0036214 43.0500183,31.8844331 40.0951843,37.6515293 C42.8488668,36.804294 46.5027974,35.3320262 51.0569763,33.234726 C53.5904948,22.423111 61.0237923,16.1670265 73.3568687,14.4664726 L77.9173317,21.4394531 L81.0778122,16.7011242 L87.5733185,21.4394531 C85.2397368,24.9916586 83.5479873,27.6936652 82.4980698,29.5454731 C81.2699992,31.7115011 79.5447668,35.0362481 77.3223724,39.5197144 C84.4432119,37.1229045 88.8719482,35.0279083 90.6085815,33.234726 C90.6085815,30.8850149 94.322525,24.6289304 101.750412,14.4664726 L107.894592,19.2720337 C105.19869,24.660258 103.850739,26.7792409 103.850739,25.6289825 C110.200867,20.3553111 114.875158,17.4847514 117.873611,17.0173035 L124.354874,23.4196968 C124.020665,28.4700279 121.860245,33.8367004 117.873611,39.5197144 C121.6763,38.2063446 123.048401,37.8883362 131.209473,33.234726 C135.246063,21.0171051 142.782547,10.0481364 153.818924,0.327819824 C157.378586,2.16427612 161.016276,4.34729004 164.731995,6.87686157 C164.731995,20.5285339 156.305873,29.9029134 139.453629,35 C138.334478,38.1971029 137.604721,40.3370361 137.264359,41.4197998 C141.464391,42.3132222 150.050257,39.5811005 163.021957,33.2234344 L164.731995,39.5197144 C160.806444,41.9954278 156.981252,43.9275338 153.25642,45.3160324 C149.531588,46.704531 143.620309,48.4018704 135.522583,50.4080505 C131.60553,46.3398336 129.067001,43.7904612 127.906998,42.7599335 C123.329096,45.7412872 118.407555,48.031517 113.142372,49.6306229 L105.136055,43.9065742 C108.210173,39.4835745 110.347474,36.1296863 111.547958,33.8449097 C112.748443,31.560133 113.580526,29.5413024 114.044209,27.7884178 L98.5418892,35.5437088 L93.7139435,50.4080505 L86,44.2819977 L74.0949554,50.4080505 C72.4264476,47.8831278 70.8636983,45.8411102 69.4067078,44.2819977 C65.5511983,47.2122854 61.6694132,49.254303 57.7613525,50.4080505 C53.064799,45.9272156 50.3114675,42.931132 49.501358,41.4197998 C49.501358,42.6061198 40.3488617,45.6022034 22.043869,50.4080505 C19.9839884,47.8789673 17.9186045,45.8369497 15.8477173,44.2819977 C13.9043884,46.5596975 11.2836609,53.8462423 7.98553467,66.1416321 L0.264144897,61.3234558 Z M17.038681,42.3793983 C23.1780851,41.4315699 27.3660124,39.9990335 29.6024628,38.081789 C31.8389132,36.1645446 33.8245407,32.3046705 35.5593452,26.5021667 L19.4954853,36.7847748 L17.038681,42.3793983 Z M71.1963921,31.3833337 L73.7992706,22.3409052 C68.9415238,23.6899946 65.4687315,25.6219299 63.3808937,28.1367111 C61.2930559,30.6514923 59.7610061,34.7478427 58.7847443,40.4257622 C61.9239134,39.2406288 64.2234002,38.1162963 65.6832047,37.0527649 C67.1430091,35.9892334 68.9807383,34.099423 71.1963921,31.3833337 Z M142.935436,27.4432487 C147.483344,24.9655223 150.536447,22.5890683 152.094746,20.3138866 C153.653045,18.038705 155.143936,13.7807361 156.567421,7.53997993 C153.096104,11.4297881 150.599252,14.4860682 149.076862,16.7088203 C147.554473,18.9315724 145.507331,22.5097152 142.935436,27.4432487 Z" id="BW"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="header__text ms-4 px-4 me-auto text-left border-left-1">
+                                    <div class="h6 text-primary text-left mb-0">
+                                        Color Pairing <br> Accessibility <br> Playground
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card bg-transparent text-primary root-margins p-0" style="padding:0 !important;">
+                                    <h2 class="card-title card-heading mb-1" >
+                                        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
+                                    </h2>
+                                    <p class="mt-5 card-text">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
+                                The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tu-toc">
                 <div class="sidenav">
-                    
-
-                    <!-- <div class="hr border-bottom--gradient"></div> -->
-
                     <div class="sidebar-section my-2">
                         <div class="sidebar-section__heading justify-content-start flex-grow-1">
                             <div class=" ">Color Contrast Checker</div>
@@ -212,8 +257,6 @@
                         </div>
                        
                     </div>
-
-
 
                     <div class="sidebar-section justify-content-start align-items-start">
                         
@@ -321,7 +364,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Margins {{margins}}rem</div>
+                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Margins {{margins/2}}rem</div>
                             <div class="sidebar-settings__control">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="Padding">Change Margins</label>
@@ -411,47 +454,11 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
 
                 </div>
-                
             </div>
-        </aside>
-       
-        <!-- Main -->
-        <main class="container layout flex-grow">
+           <div class="tu-content">
+               
            
-                
-           
-            <div class="row">
-                <div class="col-12">
-                    <div class="header d-flex justify-content-center align-items-center">
-                        <div class="header__logo">
-                            <svg width="165px" height="67px" viewBox="0 0 165 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Group-4" fill="var(--primaryColor)">
-                                        <path d="M0.264144897,61.3234558 C5.52617391,45.5480855 12.7860819,29.5410614 22.043869,13.3023834 C25.4834646,15.737208 27.8159714,17.3447011 29.0413895,18.1248627 C26.9216131,21.1827901 25.9078166,23.3675359 26,24.6791 C28.0789795,21.8616765 31.7729289,19.3077443 37.0818481,17.0173035 C39.0424805,18.8386434 41.5243429,20.835907 44.5274353,23.0090942 C44.5274353,27.0036214 43.0500183,31.8844331 40.0951843,37.6515293 C42.8488668,36.804294 46.5027974,35.3320262 51.0569763,33.234726 C53.5904948,22.423111 61.0237923,16.1670265 73.3568687,14.4664726 L77.9173317,21.4394531 L81.0778122,16.7011242 L87.5733185,21.4394531 C85.2397368,24.9916586 83.5479873,27.6936652 82.4980698,29.5454731 C81.2699992,31.7115011 79.5447668,35.0362481 77.3223724,39.5197144 C84.4432119,37.1229045 88.8719482,35.0279083 90.6085815,33.234726 C90.6085815,30.8850149 94.322525,24.6289304 101.750412,14.4664726 L107.894592,19.2720337 C105.19869,24.660258 103.850739,26.7792409 103.850739,25.6289825 C110.200867,20.3553111 114.875158,17.4847514 117.873611,17.0173035 L124.354874,23.4196968 C124.020665,28.4700279 121.860245,33.8367004 117.873611,39.5197144 C121.6763,38.2063446 123.048401,37.8883362 131.209473,33.234726 C135.246063,21.0171051 142.782547,10.0481364 153.818924,0.327819824 C157.378586,2.16427612 161.016276,4.34729004 164.731995,6.87686157 C164.731995,20.5285339 156.305873,29.9029134 139.453629,35 C138.334478,38.1971029 137.604721,40.3370361 137.264359,41.4197998 C141.464391,42.3132222 150.050257,39.5811005 163.021957,33.2234344 L164.731995,39.5197144 C160.806444,41.9954278 156.981252,43.9275338 153.25642,45.3160324 C149.531588,46.704531 143.620309,48.4018704 135.522583,50.4080505 C131.60553,46.3398336 129.067001,43.7904612 127.906998,42.7599335 C123.329096,45.7412872 118.407555,48.031517 113.142372,49.6306229 L105.136055,43.9065742 C108.210173,39.4835745 110.347474,36.1296863 111.547958,33.8449097 C112.748443,31.560133 113.580526,29.5413024 114.044209,27.7884178 L98.5418892,35.5437088 L93.7139435,50.4080505 L86,44.2819977 L74.0949554,50.4080505 C72.4264476,47.8831278 70.8636983,45.8411102 69.4067078,44.2819977 C65.5511983,47.2122854 61.6694132,49.254303 57.7613525,50.4080505 C53.064799,45.9272156 50.3114675,42.931132 49.501358,41.4197998 C49.501358,42.6061198 40.3488617,45.6022034 22.043869,50.4080505 C19.9839884,47.8789673 17.9186045,45.8369497 15.8477173,44.2819977 C13.9043884,46.5596975 11.2836609,53.8462423 7.98553467,66.1416321 L0.264144897,61.3234558 Z M17.038681,42.3793983 C23.1780851,41.4315699 27.3660124,39.9990335 29.6024628,38.081789 C31.8389132,36.1645446 33.8245407,32.3046705 35.5593452,26.5021667 L19.4954853,36.7847748 L17.038681,42.3793983 Z M71.1963921,31.3833337 L73.7992706,22.3409052 C68.9415238,23.6899946 65.4687315,25.6219299 63.3808937,28.1367111 C61.2930559,30.6514923 59.7610061,34.7478427 58.7847443,40.4257622 C61.9239134,39.2406288 64.2234002,38.1162963 65.6832047,37.0527649 C67.1430091,35.9892334 68.9807383,34.099423 71.1963921,31.3833337 Z M142.935436,27.4432487 C147.483344,24.9655223 150.536447,22.5890683 152.094746,20.3138866 C153.653045,18.038705 155.143936,13.7807361 156.567421,7.53997993 C153.096104,11.4297881 150.599252,14.4860682 149.076862,16.7088203 C147.554473,18.9315724 145.507331,22.5097152 142.935436,27.4432487 Z" id="BW"></path>
-                                    </g>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="header__text ms-4 px-4 me-auto text-left border-left-1">
-                            <div class="h6 text-primary text-left mb-0">
-                                Color Pairing <br> Accessibility <br> Playground
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card bg-transparent text-primary root-margins p-0" style="padding:0 !important;">
-                            <h2 class="card-title card-heading mb-1" >
-                                 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
-                            </h2>
-                            
-
-                            <p class="mt-5 card-text">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
-                        The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
-                            
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="row my-4 cards-match-height" data-match-height-group="cards"
   data-match-height-enable="(min-width: 768px)">
@@ -731,7 +738,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                     ref="contact"
                                     >
                                         <input type="hidden" name="form-name" value="contact" />
-                                        <div class="row">
+                                                 <div class="row">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInputName" class="form-label small text-semibold">Name</label>
                                                 <input type="text" class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name" v-model="form.name">
@@ -795,31 +802,32 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                
-                <div class="modal-body bg-primary">
-                    <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-top h-100" style="background-image: url(./portrait-2.jpg); padding: 0 !important;">
-                        <div class="card-body-overlay card-body-overlay--accent d-none position-relative"></div>
-                        <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
-                        <button type="button" class="btn-close position-absolute top-0 end-0 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <div class="card-title card-heading card-heading--large mt-5" >Thank You <br> For Your <br> Submission</div>
-                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
-                            
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                    <div class="modal-body bg-primary">
+                        <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-top h-100" style="background-image: url(./portrait-2.jpg); padding: 0 !important;">
+                            <div class="card-body-overlay card-body-overlay--accent d-none position-relative"></div>
+                            <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
+                            <button type="button" class="btn-close position-absolute top-0 end-0 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                <div class="card-title card-heading card-heading--large mt-5" >Thank You <br> For Your <br> Submission</div>
+                                <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
+                                
+                            </div>
                         </div>
                     </div>
-                </div>
-                
+                    
+                    </div>
                 </div>
             </div>
+
             </div>
-
-
-
+            <!-- End content -->
            
         </main>
     </div>
+    <!-- <footer>Footer</footer> -->
 </template>
 
 <script>
@@ -922,6 +930,10 @@ export default {
     },
     mounted() {
         
+
+        
+
+
         (this.headingSerif === 1) ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');
 
         
@@ -1379,7 +1391,7 @@ export default {
         },
         onSliderMarginsChange(e) {
             // console.log('slider margins change', this.margins)
-            SetRootProperty('--margins', `${this.margins}rem`)
+            SetRootProperty('--margins', `${this.margins / 2}rem`)
             // console.log(document.documentElement.style.getPropertyValue('--margins'))
             this.updateHeight();
         },
@@ -1409,10 +1421,6 @@ export default {
             this.accentHSL = RoundValues(accentColor.hsl().object())
             this.neutralHSL = RoundValues(neutralColor.hsl().object())
 
-
-            // this.accentHSL = RoundValues(Color(accentColor).hsl().object())
-
-            // document.documentElement.style.setProperty('--primaryColor', primaryColor)
             SetRootProperty('--primaryColor', primaryColor)
             SetRootProperty('--accentColor', accentColor)
             SetRootProperty('--neutralColor', neutralColor)
@@ -1420,7 +1428,6 @@ export default {
             SetHSLToRoot(this.primaryHSL, 'primary');
             SetHSLToRoot(this.accentHSL, 'accent');
             SetHSLToRoot(this.neutralHSL, 'neutral');
-            // document.documentElement.style.setProperty('--accentColor', accentColor)
 
             this.$nextTick(function(){
                 this.setActiveColorOnMount('primary')
@@ -1429,21 +1436,27 @@ export default {
 
             })
 
+            //ANCHOR: COLLAPSE CODE
+            // Close color palette
+            document.getElementById('collapseColorsTrigger').click();
+            document.getElementById('currentPalette').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+
+
         },
         saveSettings() {
             Cookie.getAllCookies();
             let cookieObj = {
-            paletteId: this.currentPaletteId,
-            borderRadius: this.borderRadius,
-            baseFontSize: this.baseFontSize,
-            paddings: this.paddings,
-            margins: this.margins,
-            headingSerif: this.headingSerif,
-            subHeadingSerif: this.subHeadingSerif,
-            textSerif: this.textSerif,
-            primaryColor: this.colors[0],
-            accentColor: this.colors[1],
-            neutralColor: this.colors[2]
+                paletteId: this.currentPaletteId,
+                borderRadius: this.borderRadius,
+                baseFontSize: this.baseFontSize,
+                paddings: this.paddings,
+                margins: this.margins,
+                headingSerif: this.headingSerif,
+                subHeadingSerif: this.subHeadingSerif,
+                textSerif: this.textSerif,
+                primaryColor: this.colors[0],
+                accentColor: this.colors[1],
+                neutralColor: this.colors[2]
             }
             // Cookie names
             // __panl-palletteId
@@ -1525,8 +1538,8 @@ export default {
             MatchHeight.add('.tiles-match-height .card', 'match-tiles');    
         },
         updateHeight() {
-            MatchHeight.update('match-cards')    
-            MatchHeight.update('match-tiles')    
+            // MatchHeight.update('match-cards')    
+            // MatchHeight.update('match-tiles')    
         },
         encode (data) {
             return Object.keys(data)
@@ -1536,7 +1549,6 @@ export default {
                 .join("&");
         },
         handleSubmit () {
-            // this.$refs.contact.reset()
         const axiosConfig = {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };

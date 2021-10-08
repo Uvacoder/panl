@@ -728,6 +728,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                     data-netlify="true"
                                     data-netlify-honeypot="bot-field"
                                     @submit.prevent="handleSubmit"
+                                    ref="contact"
                                     >
                                         <input type="hidden" name="form-name" value="contact" />
                                         <div class="row">
@@ -790,26 +791,26 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
 
 
             <!-- Modal -->
-              <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-            </button>
+            
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <div class="modal-body bg-primary">
+                    <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-top h-100" style="background-image: url(./portrait-2.jpg); padding: 0 !important;">
+                        <div class="card-body-overlay card-body-overlay--accent d-none position-relative"></div>
+                        <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
+                        <button type="button" class="btn-close position-absolute top-0 end-0 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <div class="card-title card-heading card-heading--large mt-5" >Thank You <br> For Your <br> Submission</div>
+                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                
                 </div>
             </div>
             </div>
@@ -901,7 +902,8 @@ export default {
                 name: "",
                 email: "",
                 message: ""
-            }
+            },
+            modal: null
 
 
 
@@ -922,8 +924,18 @@ export default {
         
         (this.headingSerif === 1) ? SetRootProperty('--cardHeading', 'var(--fontSerif)') : SetRootProperty('--cardHeading', 'var(--fontSansSerif)');
 
-        const modals = this.$el.querySelectorAll('.modal');
-        modals.forEach(modalNode => new Modal(modalNode))
+        
+        this.modal = new Modal(document.getElementById('exampleModal'))
+        // var that = this
+        // setTimeout(function(){
+
+        //     that.modal.show()
+        // }, 5000)
+        
+
+        this.modal._element.addEventListener('shown.bs.modal', function (event) {
+            document.querySelector('form[name="contact"]').reset()
+        })
 
         // BS Black Text Color
         this.bsBodyColor = GetRootPropertyValue('--bs-body-color');
@@ -1524,7 +1536,7 @@ export default {
                 .join("&");
         },
         handleSubmit () {
-            console.log(this.form)
+            // this.$refs.contact.reset()
         const axiosConfig = {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
@@ -1535,7 +1547,9 @@ export default {
             ...this.form
             }),
             axiosConfig
-            ).then(() => console.log("success"));
+            ).then(() => {
+                this.modal.show()
+            }).catch((err) => console.log('error: ', err));
         }
         
 

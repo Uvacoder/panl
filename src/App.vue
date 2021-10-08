@@ -778,7 +778,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                 <div class="col-md-6 text-md-end small">
                                     © 2021 |
                                     All rights reserved |
-                                    <a href="https://hellotu.com" rel="noopener noreferrerrer" class="small">Hellotu.com</a>
+                                    Designed and Developed By <a href="https://hellotu.com" rel="noopener noreferrerrer" class="small">Hellotu.com</a>
                                 </div>
 
                             </div>

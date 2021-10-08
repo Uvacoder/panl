@@ -926,7 +926,7 @@ export default {
 
         
         this.modal = new Modal(document.getElementById('exampleModal'))
-        // var that = this
+        var that = this
         // this.modal.show()
         // const thankYoumModal = this.modal._element
         

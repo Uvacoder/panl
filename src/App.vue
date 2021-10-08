@@ -927,14 +927,14 @@ export default {
         
         this.modal = new Modal(document.getElementById('exampleModal'))
         // var that = this
-        // setTimeout(function(){
-
-        //     that.modal.show()
-        // }, 5000)
+        // this.modal.show()
+        // const thankYoumModal = this.modal._element
         
-
-        this.modal._element.addEventListener('shown.bs.modal', function (event) {
+        document.getElementById('exampleModal').addEventListener('shown.bs.modal', function (event) {
             document.querySelector('form[name="contact"]').reset()
+            setTimeout(function(){
+                that.modal.hide()
+            }, 3000)
         })
 
         // BS Black Text Color

@@ -31,13 +31,13 @@ html {
 @media (min-width: 768px) {
 	.tu-layout {
 		display: grid;
-		gap: 1rem;
+		gap: 0;
 		grid-template-areas: "sidebar main";
 		grid-template-columns: 1fr 3fr;
 	}
 	.tu-main {
 		display: grid;
-		gap: inherit;
+		gap: 0;
 		grid-template-areas:
 			"intro"
 			"toc"

@@ -82,8 +82,12 @@ html {
 	font-family: "Urbanist", san-serif;
 	font-weight: 400;
 	min-width: 320px;
+	height: 100%;
 }
 
+.tu-main::-webkit-scrollbar,
+.tu-links::-webkit-scrollbar,
+.tu-toc::-webkit-scrollbar,
 .sidenav::-webkit-scrollbar {
 	display: none;
 }

@@ -3,7 +3,7 @@
     <div class="constainer-xxl tu-layout">
         <aside class="tu-sidebar">
             <div class="tu-links">
-                <div class="sidenav">
+                <div class="sidenav sidenav__hello">
                     <div class="logo mb-4">
                         <div class="logo-icon">
                             
@@ -259,10 +259,25 @@
                     </div>
 
                     <div class="sidebar-section justify-content-start align-items-start">
-                        
-                        <div class="sidebar-section__heading">
+                        <!-- ANCHOR: COLOR CONTRAST INFO -->
+                        <div class="sidebar-section__heading pe-2">
                             <div class="small text-whtie-50">Primary / Accent</div>
-                            <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrast}}</span><div class="d-flex flex-column"><span class="text-uppercase"><span class="small text-muted text-uppercase">Norm</span> {{computedContrastRatingNorm}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Large</span> {{computedContrastRatingLarge}}</span></div></div>
+                            <div class="py-2 d-flex justify-content-lg-between">
+                                <div>
+                                    <div class="small text-muted text-uppercase">Ratio</div> 
+                                    {{computedContrast}}
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <div class="text-uppercase">
+                                        <div class="small text-muted text-uppercase">Norm</div> 
+                                        {{computedContrastRatingNorm}}
+                                    </div>
+                                    <div class="text-uppercase mt-2">
+                                        <div class="small text-muted text-uppercase">Large</div> 
+                                        {{computedContrastRatingLarge}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card">
                             
@@ -1580,7 +1595,10 @@ export default {
 // Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
 </script>
 
-<style scoped>
+<style lang="scss">
+
+
+
 
 
 </style>

@@ -1,16 +1,18 @@
-@import "@/assets/sass/root.scss";
+@charset "utf-8";
+@import "@/assets/sass/root.css";
 @import "@/assets/sass/colors.css";
-@import "@/assets/sass/utility.scss";
-@import "@/assets/sass/logo.scss";
-@import "@/assets/sass/card.scss";
-@import "@/assets/sass/slider.scss";
-@import "@/assets/sass/contrast-checker.scss";
+@import "@/assets/sass/utility.css";
+@import "@/assets/sass/logo.css";
+@import "@/assets/sass/card.css";
+@import "@/assets/sass/slider.css";
+@import "@/assets/sass/contrast-checker.css";
 @import "@/assets/sass/layout.css";
-@import "@/assets/sass/icon.scss";
-@import "@/assets/sass/toggle.scss";
+@import "@/assets/sass/icon.css";
+@import "@/assets/sass/toggle.css";
 @import "@/assets/sass/shapes.css";
 @import "@/assets/sass/tables.css";
 @import "@/assets/sass/modal.css";
+@import "@/assets/sass/test.css";
 
 /* stylelint-disable */
 

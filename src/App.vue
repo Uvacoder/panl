@@ -41,6 +41,7 @@
                     <!-- ANCHOR: CURRENT COLOR PALETTE DIV -->
                     <div class="sidebar">
                         <div class="h6 mb-0 " id="currentPalette">Current Palette</div>
+                                <p class="hello">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quae quisquam ducimus numquam. Obcaecati minima facilis blanditiis aliquam vel animi voluptate debitis, ipsum, aspernatur repudiandae, perspiciatis nam. Tempore, dolores eum?</p>
                             <!--<ul class="d-flex">
                                     <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
                                     <li style="border:1px solid #efefef" :style="{backgroundColor: computedAccentMix}">{{computedAccentMix}}</li>
@@ -473,96 +474,103 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
            <div class="tu-content">
                
            
-            
+             <div class="wrapper">
+                    <div class="container">
 
-            <div class="row my-4 cards-match-height" data-match-height-group="cards"
-  data-match-height-enable="(min-width: 768px)">
-                <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern.jpg)">
-                        <div class="card-body-overlay card-body-overlay--primary"></div>
-                        <div class="card-body card-body--bordered ">
-                            <div class="card-subheading" >Featuring</div>
-                            <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
-                            <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-bottom" style="background-image: url(./statue.jpg);">
-                        <div class="card-body-overlay card-body-overlay--primary"></div>
-                        <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
-                            <div class="card-subheading" >I AM</div>
-                            <p></p>
-                            <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
-                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-accent text-primary">View More</a> -->
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-primary text-accent root-margins shadow">
-                        <div class="card-body card-body--bordered ">
-                            <div class="card-subheading" >Occupation</div>
-                            <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
-                            <div class="card-text" >Do what you love, and you'll always love what you do.</div>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>    
+                        <div class="row my-4 cards-match-height" data-match-height-group="cards"
+            data-match-height-enable="(min-width: 768px)">
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern.jpg)">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--bordered ">
+                                        <div class="card-subheading" >Featuring</div>
+                                        <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
+                                        <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                                        <hr/>
+                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-bottom" style="background-image: url(./statue.jpg);">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
+                                        <div class="card-subheading" >I AM</div>
+                                        <p></p>
+                                        <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                        <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
+                                        <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-accent text-primary">View More</a> -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow">
+                                    <div class="card-body card-body--bordered ">
+                                        <div class="card-subheading" >Occupation</div>
+                                        <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
+                                        <div class="card-text" >Do what you love, and you'll always love what you do.</div>
+                                        <hr/>
+                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
 
-
-
-            <div class="row my-4 cards-match-height" data-match-height-group="cards"
-  data-match-height-enable="(min-width: 768px)">
-                <div class="col">
-                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
-                        <div class="card-body-overlay card-body-overlay--accent"></div>
-                        <div class="card-body  card-body--h-360">
-                            <div class="card-subheading" >Featuring</div>
-                            <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
-                            <p class="card-text  " >It is a beautiful thing when a career and a passion come together.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
-                            
-                        </div>
-                    </div>
                 </div>
-                <div class="col">
-                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./portrait-3.jpg)">
-                        <div class="card-body-overlay card-body-overlay--accent"></div>
-                        <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
-                            <div class="card-subheading" >I AM</div>
-                            <p></p>
-                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
-                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-accent text-primary root-margins shadow">
-                        <div class="card-body  card-body--h-360">
-                            <div class="card-subheading" >Occupation</div>
-                            <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
-                            <div class="card-text " >Do what you love, and you'll always love what you do.</div>
-                            <hr/>
-                            <a href="./" class="d-inline-block text-primary animate" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
-</svg></a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>    
+            </div>
 
+                <div class="wrapper">
+                    <div class="container">
+
+                
+                            <div class="row my-4 cards-match-height" data-match-height-group="cards"
+                data-match-height-enable="(min-width: 768px)">
+                                <div class="col">
+                                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./pattern-5.jpg)">
+                                        <div class="card-body-overlay card-body-overlay--accent"></div>
+                                        <div class="card-body  card-body--h-360">
+                                            <div class="card-subheading" >Featuring</div>
+                                            <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
+                                            <p class="card-text  " >It is a beautiful thing when a career and a passion come together.</p>
+                                            <hr/>
+                                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(./portrait-3.jpg)">
+                                        <div class="card-body-overlay card-body-overlay--accent"></div>
+                                        <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
+                                            <div class="card-subheading" >I AM</div>
+                                            <p></p>
+                                            <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
+                                            <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card bg-accent text-primary root-margins shadow">
+                                        <div class="card-body  card-body--h-360">
+                                            <div class="card-subheading" >Occupation</div>
+                                            <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
+                                            <div class="card-text " >Do what you love, and you'll always love what you do.</div>
+                                            <hr/>
+                                            <a href="./" class="d-inline-block text-primary animate" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
+                </svg></a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                </div>
+                </div>
 
                 <div class="row">
                     <div class="col">
@@ -723,7 +731,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                         <div class="card-title card-heading card-heading--large mb-4" >Let's Collaborate</div>
                         <div class="">
                             <div class="row g-0 shadow mb-5">
-                                <div class="col order-1">
+                                <div class="col-12 col-md-6 order-md-1">
                                    
                                         <!-- Card -->
                                         <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center h-100" style="background-image: url(./chair.jpg); padding: 0 !important;">
@@ -740,7 +748,7 @@ Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 
                                         <!-- End -->
 
                                 </div>
-                                <div class="col order-0">
+                                <div class="col-12 col-md-6 order-0">
                                     <!-- Form -->
                                     <form 
                                     action="/" 
@@ -1594,10 +1602,13 @@ export default {
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
 </script>
+<!-- ANCHOR: STYLE -->
+<style global lang="scss">
+@import '@/assets/sass/test.scss';
 
-<style lang="scss">
-
-
+.container {
+    max-width: 960px !important;
+}
 
 
 

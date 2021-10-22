@@ -4,7 +4,26 @@ html {
 /* Bootstrap Layout */
 .tu-links {
 	overflow: auto;
-	font-weight: 600;
+	font-weight: 900;
+}
+
+.tu-links button.btn::before {
+	color: pink !important;
+	content: " ";
+	display: block;
+	border-bottom: 1px solid var(--primaryColor) !important;
+}
+
+.tu-links button.btn::before {
+	width: 1.25em;
+	line-height: 0;
+	/*content: url(
+		data:image/svg + xml,
+		%3csvgxmlns="http://www.w3.org/2000/svg"width="16"height="16"viewBox="0 0 16 16"%3e%3cpathfill="none"stroke="rgba%280,0,0,.5%29"stroke-linecap="round"stroke-linejoin="round"stroke-width="2"d="M5 14l6-6-6-6"/%3e%3c/svg%3e
+	);*/
+	display: block;
+	transition: transform 0.35s ease;
+	transform-origin: 0.5em 50%;
 }
 
 .tu-sidebar {
@@ -82,7 +101,8 @@ html {
 	font-family: "Urbanist", san-serif;
 	font-weight: 400;
 	min-width: 320px;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
 }
 
 .tu-main::-webkit-scrollbar,

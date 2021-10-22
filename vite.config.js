@@ -11,4 +11,6 @@ export default defineConfig({
 			"@/": `${path.resolve(__dirname, "src")}/`,
 		},
 	},
+	sourcemap: true,
+	// css: { postcss: "./postcssapp.config.js" },
 });

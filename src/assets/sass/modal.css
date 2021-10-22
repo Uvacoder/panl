@@ -1,3 +1,14 @@
 .modal {
 	/* background: rgba(255, 255, 255, 0.7); */
 }
+
+.modal-content,
+.modal-body,
+.modal .card {
+	border: none;
+	box-shadow: none;
+}
+
+.modal-content-round {
+	border-radius: 10px;
+}

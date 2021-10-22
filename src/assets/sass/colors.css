@@ -21,3 +21,22 @@
 	border-radius: 4px;
 	margin: 20px 0;
 }
+
+.border-bottom-gradient-no-after {
+	background-size: 100% 2px !important;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	border-bottom: 0 !important;
+}
+
+.white {
+	color: #ffffff;
+}
+
+.bg-dark-navy {
+	background-color: #0b0037;
+}
+
+.dark-navy {
+	color: #0b0037;
+}

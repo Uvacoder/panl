@@ -859,7 +859,7 @@
                 <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-top h-100" style="background-image: url(../images/720/jelly.jpg); padding: 0 !important;">
                     <div class="card-body-overlay card-body-overlay--accent d-none position-relative"></div>
                     <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
-                    <button type="button" class="btn-close btn-close-accent position-absolute top-0 end-0 p-2" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                         <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                         <div class="card-title card-heading card-heading--large mt-5" >Thank You <br> For Your <br> Submission</div>
                         <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
@@ -929,6 +929,8 @@ import MatchHeight from '@tannerhodges/match-height';
 // import {Modal} from '../node_modules/bootstrap/js/dist/Modal.js'
 import { Modal } from '../node_modules/bootstrap/dist/js/bootstrap.esm.min.js'
 import axios from "axios";
+import colorData from '@/data/colors.json';
+
 
 export default {
     components: {
@@ -1000,7 +1002,9 @@ export default {
     },
     mounted() {
         
-
+        // Colordata json file
+        console.log("Color Data");
+        console.log(colorData);
         
 
 
@@ -1023,19 +1027,19 @@ export default {
         this.bsBodyColor = GetRootPropertyValue('--bs-body-color');
         const loadColorPalette = async () => {
             try{
-                const params = {
+                /*const params = {
                     access_token: import.meta.env.VITE_CONTENTFUL_API,
                     content_type: 'themes',
                     // limit: 20,
                     // order: '-fields.likes'
                     order: 'fields.name'
-                }
+                }*/
                 //const esc = encodeURIComponent;
                 //const query = Object.keys(params).map(k => `${esc(k)}=${esc(params[k])}`).join('&')
                 //const response = await fetch('https://cdn.contentful.com/spaces/rysom3n9r3je/entries?' + query);
-                const response = await fetch('./src/data/colors.json');
+                //const response = await fetch('./src/data/colors.json');
                 //if(response.status === 200) {
-                    const data = await response.json();
+                    const data = colorData;
                     console.log(data);
                     data.forEach(item => {
                         this.colorPalettes.push(item)

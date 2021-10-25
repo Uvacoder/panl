@@ -13,8 +13,8 @@
 .contrast-checker-card__text {
 	line-height: 0.85rem;
 	font-size: 0.75rem;
-	border-left: 1px solid var(--primaryColor);
-	padding-left: 10px;
+	/* border-left: 1px solid var(--primaryColor); */
+	/* padding-left: 10px; */
 	letter-spacing: 0.5px;
 	font-weight: normal;
 	align-items: left;

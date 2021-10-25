@@ -296,9 +296,9 @@
                         <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card">
                             
                             <div class="bg-accent p-2 contrast-checker-card__outter">
-                                <div class="d-flex align-items-center justify-content-center contrast-checker-card__inner">
+                                <div class="d-flex flex-column align-items-center justify-content-center contrast-checker-card__inner">
                                     <span class="h1 me-1 text-primary contrast-checker-card__heading">A a</span>
-                                    <span class="small text-primary contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                                    <span class="small text-primary contrast-checker-card__text">a b c 1 2 3 </span>
                                 </div>
                             </div>
                             
@@ -340,9 +340,9 @@
                         <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card--neutral">
                             
                             <div class="bg-neutral p-2 contrast-checker-card__outter--neutral text-center">
-                                <div class="d-flex align-items-center justify-content-center contrast-checker-card__inner--neutral">
+                                <div class="d-flex flex-column align-items-center justify-content-center contrast-checker-card__inner--neutral">
                                     <span class="h1 text-primary contrast-checker-card__heading--neutral">A a</span>
-                                    <span class="small text-primary contrast-checker-card__text">abcd ef ghji lmno pqrs tuv wxzy 123 4567 890 !@#$% &?</span>
+                                    <span class="small text-primary contrast-checker-card__text">a b c 1 2 3</span>
                                 </div>
                             </div>
                             

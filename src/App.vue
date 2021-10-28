@@ -40,7 +40,18 @@
                     
                     <!-- ANCHOR: CURRENT COLOR PALETTE DIV -->
                     <div class="sidebar">
-                        <div class="h6 mb-0 " id="currentPalette">Current Palette</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="h6 mb-0 " id="currentPalette">Selected Palette</div>
+                            <button class="btn text-white p-0 m-0 small d-flex justify-content-center align-items-center" data-bs-toggle="collapse" id="collapseColorsTrigger" data-bs-target="#collapseColors" role="button" aria-expanded="false" aria-controls="collapseColors">
+                        Select Another Palette
+                        <span class="ms-1">
+                            <svg style="width: 18px" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M12.6508 2.24073C12.2763 1.91974 11.7233 1.92007 11.3488 2.24106L11.2604 2.31823C11.2055 2.36654 11.1266 2.4368 11.0269 2.52728C10.8277 2.70819 10.5454 2.97036 10.2077 3.30004C9.5335 3.9582 8.63218 4.89144 7.72807 5.98928C6.8264 7.08416 5.90543 8.36263 5.206 9.71154C4.51106 11.0518 4 12.5279 4 14C4 18.4183 7.58172 22 12 22C16.4183 22 20 18.4183 20 14C20 12.5279 19.4889 11.0518 18.794 9.71154C18.0946 8.36263 17.1736 7.08416 16.2719 5.98928C15.3678 4.89144 14.4665 3.9582 13.7923 3.30004C13.4546 2.97036 13.1723 2.70819 12.9731 2.52728L12.6508 2.24073ZM6 14C6 12.9721 6.36394 11.8232 6.9815 10.6322C7.59457 9.44984 8.4236 8.29081 9.27193 7.26069C10.1178 6.23354 10.9665 5.35427 11.6048 4.73119C11.7483 4.59109 11.8809 4.46425 12 4.35191C12.1191 4.46425 12.2517 4.59109 12.3952 4.73119C13.0335 5.35427 13.8822 6.23354 14.7281 7.26069C15.5764 8.29081 16.4054 9.44984 17.0185 10.6322C17.6361 11.8232 18 12.9721 18 14C18 17.3137 15.3137 20 12 20C8.68629 20 6 17.3137 6 14Z" fill="#fff"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M8.35964 14.0416C7.8303 14.1991 7.52889 14.7559 7.68643 15.2853C8.11874 16.7378 9.26213 17.8812 10.7147 18.3135C11.244 18.4711 11.8009 18.1697 11.9584 17.6403C12.1159 17.111 11.8145 16.5542 11.2852 16.3966C10.48 16.157 9.84298 15.52 9.60334 14.7148C9.4458 14.1854 8.88897 13.884 8.35964 14.0416Z" fill="#fff"></path>
+</svg>
+                        </span>
+                    </button>
+                        </div>
                                 
                             <!--<ul class="d-flex">
                                     <li style="border:1px solid #efefef; cursor:pointer" :style="{backgroundColor: computedPrimaryMix}" @click="copyToClipboard(computedPrimaryMix)">{{computedPrimaryMix}}</li>
@@ -60,9 +71,7 @@
                     </div>
 
                     <!-- ANCHOR: COLLAPSE -->
-                   <button class="btn text-white-50 small" data-bs-toggle="collapse" id="collapseColorsTrigger" data-bs-target="#collapseColors" role="button" aria-expanded="false" aria-controls="collapseColors">
-                        Select Color Palette
-                    </button>
+                   
                     <!-- <button class="btn btn-plain" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Button with data-bs-target
                     </button> -->
@@ -86,13 +95,20 @@
 
                     <div class="hr border-bottom--gradient"></div>
 
-                    <div class="h6 mb-0 text-white-75 mb-1">
-                        Adjustments
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-white-75 h6 mb-0">
+                            Adjustments
+                        </div>
+                        <div>
+                            <svg style="width:20px" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path xmlns="http://www.w3.org/2000/svg" d="M9 5C8.44772 5 8 5.44772 8 6C8 6.55228 8.44772 7 9 7C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5ZM6.17071 5C6.58254 3.83481 7.69378 3 9 3C10.3062 3 11.4175 3.83481 11.8293 5H19C19.5523 5 20 5.44772 20 6C20 6.55228 19.5523 7 19 7H11.8293C11.4175 8.16519 10.3062 9 9 9C7.69378 9 6.58254 8.16519 6.17071 7H5C4.44772 7 4 6.55228 4 6C4 5.44772 4.44772 5 5 5H6.17071ZM15 11C14.4477 11 14 11.4477 14 12C14 12.5523 14.4477 13 15 13C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11ZM12.1707 11C12.5825 9.83481 13.6938 9 15 9C16.3062 9 17.4175 9.83481 17.8293 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H17.8293C17.4175 14.1652 16.3062 15 15 15C13.6938 15 12.5825 14.1652 12.1707 13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H12.1707ZM9 17C8.44772 17 8 17.4477 8 18C8 18.5523 8.44772 19 9 19C9.55228 19 10 18.5523 10 18C10 17.4477 9.55228 17 9 17ZM6.17071 17C6.58254 15.8348 7.69378 15 9 15C10.3062 15 11.4175 15.8348 11.8293 17H19C19.5523 17 20 17.4477 20 18C20 18.5523 19.5523 19 19 19H11.8293C11.4175 20.1652 10.3062 21 9 21C7.69378 21 6.58254 20.1652 6.17071 19H5C4.44772 19 4 18.5523 4 18C4 17.4477 4.44772 17 5 17H6.17071Z" fill="#fff"></path>
+</svg>
+                        </div>
                     </div>
                     <div class="small mb-3 text-white-50">
                         <ol class="m-0 list-unstyled">
                             <li class="p-1">Click on the color boxes to the right to select different color.</li>
-                            <li class="p-1">Use slider to for fine tuning.</li>
+                            <li class="p-1">Use slider to fine tune.</li>
                         </ol>
                     </div>
                     <div class="sidebar-section ">
@@ -246,7 +262,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 py-5">
                                 <div class="card bg-transparent text-primary root-margins p-0" >
                                         
                                         <div class="row">
@@ -259,7 +275,7 @@
                                             <div class="col">
                                                 <div class="h2">PANL makes it easy. </div>
                                                  <p class="">
-                                                PANL lets you explore colors in the most interesting way and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to quickly see color relationships and how well they convey on a page or inside a component. 
+                                                PANL lets you explore colors in the most interesting way and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also very useful for designers to quickly see color relationships and how well they mesh together on a page or inside a component. 
                                                 </p>
                                             </div>
                                         </div>
@@ -317,7 +333,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card">
+                        <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card ps-4">
                             
                             <div class="bg-accent p-2 contrast-checker-card__outter">
                                 <div class="d-flex flex-column align-items-center justify-content-center contrast-checker-card__inner">
@@ -363,7 +379,7 @@
                             
                             <div class="py-2 d-flex justify-content-lg-between"><div><div class="small text-muted text-uppercase">Ratio</div> {{computedContrastNeutral}}</div><div class="d-flex flex-column"><div class="text-uppercase"><div class="small text-muted text-uppercase">Norm</div> {{computedContrastRatingNeutralNorm}}</div><div class="text-uppercase mt-2"><div class="small text-muted e">Large</div> {{computedContrastRatingNeutralLarge}}</div></div></div>
                         </div>
-                        <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card--neutral">
+                        <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card--neutral ps-4">
                             
                             <div class="bg-neutral p-2 contrast-checker-card__outter--neutral text-center">
                                 <div class="d-flex flex-column align-items-center justify-content-center contrast-checker-card__inner--neutral">
@@ -386,8 +402,14 @@
 
                     <div class="hr border-bottom--gradient"></div>
 
-                    <div class="sidebar-sections flex-grow-1 mb-3">
-                        <div class="sidebar-section__heading">Layout Settings</div>
+                    <div class="sidebar-sections d-flex justify-content-between mb-3">
+                        <div class="h5 mb-0">Layout Settings</div>
+                        <div class="">
+
+                            <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path xmlns="http://www.w3.org/2000/svg" d="M3 5C3 3.89543 3.89543 3 5 3H9C10.1046 3 11 3.89543 11 5V9C11 10.1046 10.1046 11 9 11H5C3.89543 11 3 10.1046 3 9V5ZM9 5H5V9H9V5ZM13 5C13 3.89543 13.8954 3 15 3H19C20.1046 3 21 3.89543 21 5V9C21 10.1046 20.1046 11 19 11H15C13.8954 11 13 10.1046 13 9V5ZM19 5H15V9H19V5ZM3 15C3 13.8954 3.89543 13 5 13H9C10.1046 13 11 13.8954 11 15V19C11 20.1046 10.1046 21 9 21H5C3.89543 21 3 20.1046 3 19V15ZM9 15H5V19H9V15ZM13 15C13 13.8954 13.8954 13 15 13H19C20.1046 13 21 13.8954 21 15V19C21 20.1046 20.1046 21 19 21H15C13.8954 21 13 20.1046 13 19V15ZM19 15H15V19H19V15Z" fill="#fff"></path>
+    </svg>
+                        </div>
                     </div>
                     
                     <div class="sidebar-settings-wrapper ">
@@ -488,8 +510,10 @@
                             <div class="sidebar-settings__control d-flex justify-content-end">
                                 <div class="icon" @click="loadSettings">
                                     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path xmlns="http://www.w3.org/2000/svg" d="M9 5C8.44772 5 8 5.44772 8 6C8 6.55228 8.44772 7 9 7C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5ZM6.17071 5C6.58254 3.83481 7.69378 3 9 3C10.3062 3 11.4175 3.83481 11.8293 5H19C19.5523 5 20 5.44772 20 6C20 6.55228 19.5523 7 19 7H11.8293C11.4175 8.16519 10.3062 9 9 9C7.69378 9 6.58254 8.16519 6.17071 7H5C4.44772 7 4 6.55228 4 6C4 5.44772 4.44772 5 5 5H6.17071ZM15 11C14.4477 11 14 11.4477 14 12C14 12.5523 14.4477 13 15 13C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11ZM12.1707 11C12.5825 9.83481 13.6938 9 15 9C16.3062 9 17.4175 9.83481 17.8293 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H17.8293C17.4175 14.1652 16.3062 15 15 15C13.6938 15 12.5825 14.1652 12.1707 13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H12.1707ZM9 17C8.44772 17 8 17.4477 8 18C8 18.5523 8.44772 19 9 19C9.55228 19 10 18.5523 10 18C10 17.4477 9.55228 17 9 17ZM6.17071 17C6.58254 15.8348 7.69378 15 9 15C10.3062 15 11.4175 15.8348 11.8293 17H19C19.5523 17 20 17.4477 20 18C20 18.5523 19.5523 19 19 19H11.8293C11.4175 20.1652 10.3062 21 9 21C7.69378 21 6.58254 20.1652 6.17071 19H5C4.44772 19 4 18.5523 4 18C4 17.4477 4.44772 17 5 17H6.17071Z" fill="#FFFFFF"></path>
-                                    </svg>
+<path xmlns="http://www.w3.org/2000/svg" d="M11.5144 2.12584C11.8164 1.95805 12.1836 1.95805 12.4856 2.12584L21.4856 7.12584C21.8031 7.30221 22 7.63683 22 8C22 8.36317 21.8031 8.69779 21.4856 8.87416L12.4856 13.8742C12.1836 14.0419 11.8164 14.0419 11.5144 13.8742L2.51436 8.87416C2.19689 8.69779 2 8.36317 2 8C2 7.63683 2.19689 7.30221 2.51436 7.12584L11.5144 2.12584ZM5.05913 8L12 11.856L18.9409 8L12 4.14396L5.05913 8Z" fill="#fff"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M2.12584 11.5144C2.39405 11.0316 3.00286 10.8576 3.48564 11.1258L12 15.856L20.5144 11.1258C20.9971 10.8576 21.6059 11.0316 21.8742 11.5144C22.1424 11.9971 21.9684 12.6059 21.4856 12.8742L12.4856 17.8742C12.1836 18.0419 11.8164 18.0419 11.5144 17.8742L2.51436 12.8742C2.03157 12.6059 1.85763 11.9971 2.12584 11.5144Z" fill="#fff"></path>
+<path xmlns="http://www.w3.org/2000/svg" d="M2.12584 15.5144C2.39405 15.0316 3.00286 14.8576 3.48564 15.1258L12 19.856L20.5144 15.1258C20.9971 14.8576 21.6059 15.0316 21.8742 15.5144C22.1424 15.9971 21.9684 16.6059 21.4856 16.8742L12.4856 21.8742C12.1836 22.0419 11.8164 22.0419 11.5144 21.8742L2.51436 16.8742C2.03157 16.6059 1.85763 15.9971 2.12584 15.5144Z" fill="#fff"></path>
+</svg>
                                 </div>
                                 
                             </div>
@@ -509,7 +533,7 @@
             <div class="tu-content">
                 
             
-                <div class="wrapper">
+                <div class="wrapper py-5">
                     <div class="container">
                             <div class="row my-4 cards-match-height" data-match-height-group="cards"
                 data-match-height-enable="(min-width: 768px)">
@@ -607,7 +631,7 @@
                 </div>
                 </div>
 
-                <div class="wrapper">
+                <div class="wrapper py-5">
                     <div class="container">
                         <div class="row">
                     <div class="col">
@@ -648,9 +672,9 @@
                     </div>
                 </div>
                 
-                <div class="wrapper">
+                <div class="wrapper py-5">
                     <div class="container">
-                        <div class="row my-4 tiles-match-height" data-match-height-group="tiles"
+                        <div class="row tiles-match-height" data-match-height-group="tiles"
     data-match-height-enable="(min-width: 768px)">
                 
                 <div class="col">
@@ -744,7 +768,7 @@
                     </div>
                 </div>
                 
-                <div class="wrapper">
+                <div class="wrapper py-5">
                     <div class="container">
                         <div class="row my-4">
                 <div class="col">
@@ -766,7 +790,7 @@
                 </div>
 
                 <!-- CONTACT / SOCIAL -->
-                <div class="wrapper">
+                <div class="wrapper py-5">
                     <div class="container">
                         <div class="row my-4">
                     <div class="col">
@@ -828,8 +852,8 @@
                                         </form>
                                     </div>
                                 </div>
-                                <hr/>
-                                <div class="row align-items-center">
+                                <hr class="my-5" />
+                                <div class="row align-items-center py-4">
                                     <div class="col-md-6 social">
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">

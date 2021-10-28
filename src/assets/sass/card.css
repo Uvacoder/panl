@@ -119,20 +119,20 @@ main .card {
 	);
 }
 .card-body-overlay--accent {
-	background: rgb(255, 29, 153);
+	/* background: rgb(255, 29, 153); */
 	background: linear-gradient(
 		180deg,
-		rgba(255, 29, 153, 0) -20%,
-		var(--accentColor) 80%
+		hsla(var(--accentH), var(--accentS), var(--accentL), 0.25) 0%,
+		hsla(var(--accentH), var(--accentS), var(--accentL), 1) 100%
 	);
 }
 
 .card-body-overlay--primary {
-	background: rgb(255, 29, 153);
+	/* background: rgb(255, 29, 153); */
 	background: linear-gradient(
 		180deg,
-		rgba(255, 29, 153, 0) 20%,
-		var(--primaryColor) 80%
+		hsla(var(--primaryH), var(--primaryS), var(--primaryL), 0.5) 20%,
+		hsla(var(--primaryH), var(--primaryS), var(--primaryL), 1) 100%
 	);
 }
 

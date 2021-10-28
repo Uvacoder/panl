@@ -486,54 +486,6 @@
             
                 <div class="wrapper">
                     <div class="container">
-
-                        <div class="row my-4 cards-match-height" data-match-height-group="cards"
-            data-match-height-enable="(min-width: 768px)">
-                            <div class="col">
-                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(../images/720/pattern.jpg)">
-                                    <div class="card-body-overlay card-body-overlay--primary"></div>
-                                    <div class="card-body card-body--h-360 card-body--bordered ">
-                                        <div class="card-subheading" >Featuring</div>
-                                        <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
-                                        <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
-                                        <hr/>
-                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-bottom" style="background-image: url(../images/720/statue-invert.jpg);">
-                                    <div class="card-body-overlay card-body-overlay--primary"></div>
-                                    <div class="card-body card-body--h-360 card-body--bordered  d-flex flex-column justify-content-between">
-                                        <div class="card-subheading" >I AM</div>
-                                        <p></p>
-                                        <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
-                                        <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-accent text-primary">View More</a> -->
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card bg-primary text-accent root-margins shadow">
-                                    <div class="card-body card-body--h-360 card-body--bordered ">
-                                        <div class="card-subheading" >Occupation</div>
-                                        <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
-                                        <div class="card-text" >Do what you love, and you'll always love what you do.</div>
-                                        <hr/>
-                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-
-                </div>
-            </div>
-
-                <div class="wrapper">
-                    <div class="container">
                             <div class="row my-4 cards-match-height" data-match-height-group="cards"
                 data-match-height-enable="(min-width: 768px)">
                                 <div class="col">
@@ -550,7 +502,7 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply" style="background-image: url(../images/720/portrait-3.jpg)">
+                                    <div class="card bg-accent text-primary root-margins shadow card-overlay blend-multiply background-center" style="background-image: url(../images/720/portrait-3.jpg)">
                                         <div class="card-body-overlay card-body-overlay--accent"></div>
                                         <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
                                             <div class="card-subheading" >I AM</div>
@@ -579,6 +531,55 @@
                                 </div>
                             </div>    
                     </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="container">
+
+                        <div class="row my-4 cards-match-height" data-match-height-group="cards"
+            data-match-height-enable="(min-width: 768px)">
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(../images/720/pattern.jpg)">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--h-360 card-body--bordered ">
+                                        <div class="card-subheading" >Featuring</div>
+                                        <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
+                                        <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                                        <hr/>
+                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply background-center" style="background-image: url(../images/720/statue-2.jpg);">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--h-360 card-body--bordered  d-flex flex-column justify-content-between">
+                                        <div class="card-subheading" >I AM</div>
+                                        <p></p>
+                                        <!-- <p class="card-text text-primary" contenteditable="true">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                        <div class="card-title card-heading card-heading--large mt-5" >Be Great. <br/> Create.</div>
+                                        <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-accent text-primary">View More</a> -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins shadow card-overlay blend-multiply" style="background-image: url(../images/720/surfer.jpg)">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--h-360 card-body--bordered ">
+                                        <div class="card-subheading" >Occupation</div>
+                                        <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
+                                        <div class="card-text" >Do what you love, and you'll always love what you do.</div>
+                                        <hr/>
+                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+                </div>
                 </div>
 
                 <div class="wrapper">
@@ -718,7 +719,6 @@
                     </div>
                 </div>
                 
-            
                 <div class="wrapper">
                     <div class="container">
                         <div class="row my-4">
@@ -740,110 +740,106 @@
                     </div>
                 </div>
 
-
-            
-
-
-            <!-- CONTACT / SOCIAL -->
-            <div class="wrapper">
-                <div class="container">
-                    <div class="row my-4">
-                <div class="col">
-                    <div class="card bg-transparent text-primary footer">
-                            <div class="card-subheading" >Contact</div>
-                        <div class="card-title card-heading card-heading--large mb-4" >Let's Collaborate</div>
-                        <div class="">
-                            <div class="row g-0 shadow mb-5">
-                                <div class="col-12 col-md-6 order-md-1">
-                                    
-                                        <!-- Card -->
-                                        <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center h-100" style="background-image: url(./chair.jpg); padding: 0 !important;">
-                                            <div class="card-body-overlay card-body-overlay--accent d-none"></div>
-                                            <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
-                                                <div class="card-subheading" >Connect</div>
-                                                <p></p>
-                                                <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                                <div class="card-title card-heading card-heading--large mt-5" >Master <br>At <br>Your<br>Craft</div>
-                                                <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
-                                                
+                <!-- CONTACT / SOCIAL -->
+                <div class="wrapper">
+                    <div class="container">
+                        <div class="row my-4">
+                    <div class="col">
+                        <div class="card bg-transparent text-primary footer">
+                                <div class="card-subheading" >Contact</div>
+                            <div class="card-title card-heading card-heading--large mb-4" >Let's Collaborate</div>
+                            <div class="">
+                                <div class="row g-0 shadow mb-5">
+                                    <div class="col-12 col-md-6 order-md-1">
+                                        
+                                            <!-- Card -->
+                                            <div class="card bg-neutral text-primary root-margins card-overlay blend-soft-light m-0 background-center h-100" style="background-image: url(./chair.jpg); padding: 0 !important;">
+                                                <div class="card-body-overlay card-body-overlay--accent d-none"></div>
+                                                <div class="card-body  card-body--h-360 d-flex flex-column justify-content-between">
+                                                    <div class="card-subheading" >Connect</div>
+                                                    <p></p>
+                                                    <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                                    <div class="card-title card-heading card-heading--large mt-5" >Master <br>At <br>Your<br>Craft</div>
+                                                    <!-- <a href="#" class="btn btn-round mt-0 d-inline-block bg-primary text-accent" >View More</a> -->
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- End -->
+                                            <!-- End -->
 
-                                </div>
-                                <div class="col-12 col-md-6 order-0">
-                                    <!-- Form -->
-                                    <form autocomplete="off"
-                                    action="/" 
-                                    class="p-4 pb-0 bg-transparent text-primary"
-                                    name="contact"
-                                    method="post"
-                                    data-netlify="true"
-                                    data-netlify-honeypot="bot-field"
-                                    @submit.prevent="handleSubmit"
-                                    ref="contact"
-                                    >
-                                        <input type="hidden" name="form-name" value="contact" />
-                                                    <div class="row">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInputName" class="form-label small text-semibold">Name</label>
-                                                <input type="text" autocomplete="off"
-                                                required class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name" v-model="form.name">
+                                    </div>
+                                    <div class="col-12 col-md-6 order-0">
+                                        <!-- Form -->
+                                        <form autocomplete="off"
+                                        action="/" 
+                                        class="p-4 pb-0 bg-transparent text-primary"
+                                        name="contact"
+                                        method="post"
+                                        data-netlify="true"
+                                        data-netlify-honeypot="bot-field"
+                                        @submit.prevent="handleSubmit"
+                                        ref="contact"
+                                        >
+                                            <input type="hidden" name="form-name" value="contact" />
+                                                        <div class="row">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInputName" class="form-label small text-semibold">Name</label>
+                                                    <input type="text" autocomplete="off"
+                                                    required class="form-control text-small custom-field" id="exampleFormControlInputName" placeholder="" name="name" v-model="form.name">
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInputEmail" class="form-label small text-semibold">Email</label>
+                                                    <input type="email" required="required" class="form-control text-small custom-field" id="exampleFormControlInputEmail" placeholder="" name="email" v-model="form.email">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label small text-semibold">Message</label>
+                                                    <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message" v-model="form.message"></textarea>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="submit" class="btn btn-round bg-primary text-neutral text-small mb-3">Let's Connect</button>
+                                                </div>
                                             </div>
                                             
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInputEmail" class="form-label small text-semibold">Email</label>
-                                                <input type="email" required="required" class="form-control text-small custom-field" id="exampleFormControlInputEmail" placeholder="" name="email" v-model="form.email">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label small text-semibold">Message</label>
-                                                <textarea class="form-control text-small custom-field-text-area" id="exampleFormControlTextarea1" rows="3" name="message" v-model="form.message"></textarea>
-                                            </div>
-                                            <div class="col">
-                                                <button type="submit" class="btn btn-round bg-primary text-neutral text-small mb-3">Let's Connect</button>
-                                            </div>
-                                        </div>
-                                        
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr/>
-                            <div class="row align-items-center">
-                                <div class="col-md-6 social">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item">
-                                            <a href="https://twitter.com/tinytouchgames" target="_blank" rel="noopener noreferrer" title="TinyTouchGames">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primaryColor)" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M19.995 6.68799C20.8914 6.15208 21.5622 5.30823 21.882 4.31399C21.0397 4.81379 20.118 5.16587 19.157 5.35499C17.8246 3.94552 15.7135 3.60251 14.0034 4.51764C12.2933 5.43277 11.4075 7.37948 11.841 9.26999C8.39062 9.09676 5.17598 7.4669 2.99702 4.78599C1.85986 6.74741 2.44097 9.25477 4.32502 10.516C3.64373 10.4941 2.97754 10.3096 2.38202 9.97799C2.38202 9.99599 2.38202 10.014 2.38202 10.032C2.38241 12.0751 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45022 16.0613 6.06057 17.2583 7.89602 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78739 21.0023 8.12002 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0342 20.33 8.78899C20.33 8.60299 20.3257 8.41799 20.317 8.23399C21.1575 7.62659 21.8828 6.87414 22.459 6.01199C21.676 6.35905 20.8455 6.58691 19.995 6.68799Z" fill="var(--primaryColor)"></path>
-                                            </svg>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="https://unsplash.com/@tutrinh" target="_blank" rel="noopener noreferrer" title="Unsplash">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M21 21H3V10.875H8.625V15.938H15.375V10.875H21V21ZM15.375 8.063H8.625V3H15.375V8.062V8.063Z" fill="var(--primaryColor)"></path>
+                                <hr/>
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 social">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="https://twitter.com/tinytouchgames" target="_blank" rel="noopener noreferrer" title="TinyTouchGames">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primaryColor)" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M19.995 6.68799C20.8914 6.15208 21.5622 5.30823 21.882 4.31399C21.0397 4.81379 20.118 5.16587 19.157 5.35499C17.8246 3.94552 15.7135 3.60251 14.0034 4.51764C12.2933 5.43277 11.4075 7.37948 11.841 9.26999C8.39062 9.09676 5.17598 7.4669 2.99702 4.78599C1.85986 6.74741 2.44097 9.25477 4.32502 10.516C3.64373 10.4941 2.97754 10.3096 2.38202 9.97799C2.38202 9.99599 2.38202 10.014 2.38202 10.032C2.38241 12.0751 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45022 16.0613 6.06057 17.2583 7.89602 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78739 21.0023 8.12002 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0342 20.33 8.78899C20.33 8.60299 20.3257 8.41799 20.317 8.23399C21.1575 7.62659 21.8828 6.87414 22.459 6.01199C21.676 6.35905 20.8455 6.58691 19.995 6.68799Z" fill="var(--primaryColor)"></path>
                                                 </svg>
-                                            </a>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="https://unsplash.com/@tutrinh" target="_blank" rel="noopener noreferrer" title="Unsplash">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21 21H3V10.875H8.625V15.938H15.375V10.875H21V21ZM15.375 8.063H8.625V3H15.375V8.062V8.063Z" fill="var(--primaryColor)"></path>
+                                                    </svg>
+                                                </a>
 
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                                <div class="col-md-6 text-md-end small">
-                                    © 2021 |
-                                    All rights reserved |
-                                    Designed and Developed By <a href="https://hellotu.com" rel="noopener noreferrerrer" class="small">Hellotu.com</a>
-                                </div>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 text-md-end small">
+                                        © 2021 |
+                                        All rights reserved |
+                                        Designed and Developed By <a href="https://hellotu.com" rel="noopener noreferrerrer" class="small">Hellotu.com</a>
+                                    </div>
 
+                                </div>
+                                
+                                
                             </div>
-                            
-                            
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
-                    </div>
-                </div>
-            </div>
 
             
             </div>

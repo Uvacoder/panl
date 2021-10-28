@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     
-                    <p class="small text-white-50">
+                    <p class="small text-white-50 d-none">
                         Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
                         The Panl color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.
                     </p>
@@ -95,25 +95,25 @@
                         </div>
                     </div>
                     <div class="sidebar-color d-flex mt-3 align-items-center">
-                        <div class="sidebar-color__heading text-white-50">{{colors[0].toUpperCase()}}</div>
+                        <div class="sidebar-color__heading text-white-75">{{colors[0].toUpperCase()}}</div>
                         <div class="sidebar-color__block bg-primary border-radius-4 h-10"></div>
                     </div>
                     <div class="sidebar-settings-wrapper mt-3">
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Hue {{primaryHSL.h}} &#176; </div>
+                            <div class="sidebar-settings__heading text-white-75">Hue {{primaryHSL.h}} &#176; </div>
                             <div class="sidebar-settings__control">
                                 <Slider label="RotateMaster" color-type="master" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(primaryHSL.h) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Saturation {{primaryHSL.s}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Saturation {{primaryHSL.s}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="SaturationMaster" color-type="master" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(primaryHSL.s) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Lightness {{primaryHSL.l}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Lightness {{primaryHSL.l}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="LightenMaster" color-type="master" channel="l"  :label-hidden="true" :max=100 :value=parseInt(primaryHSL.l) @colorChange="onSliderChange($event)"></Slider>
                             </div>
@@ -129,25 +129,25 @@
                         </div>
                     </div>
                     <div class="sidebar-color d-flex align-items-center mt-3">
-                        <div class="sidebar-color__heading text-white-50">{{colors[1].toUpperCase()}}</div>
+                        <div class="sidebar-color__heading text-white-75">{{colors[1].toUpperCase()}}</div>
                         <div class="sidebar-color__block bg-accent border-radius-4 h-10"></div>
                     </div>
                     <div class="sidebar-settings-wrapper mt-3">
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Hue {{accentHSL.h}} &#176; </div>
+                            <div class="sidebar-settings__heading text-white-75">Hue {{accentHSL.h}} &#176; </div>
                             <div class="sidebar-settings__control">
                                 <Slider label="RotateAccent" color-type="accent" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(accentHSL.h) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Saturation {{accentHSL.s}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Saturation {{accentHSL.s}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="SaturationAccent" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(accentHSL.s) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Lightness {{accentHSL.l}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Lightness {{accentHSL.l}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="LightenAccent" color-type="accent" channel="l"  :label-hidden="true" :max=100 :value=parseInt(accentHSL.l) @colorChange="onSliderChange($event)"></Slider>
                             </div>
@@ -165,25 +165,25 @@
                         </div>
                     </div>
                     <div class="sidebar-color d-flex align-items-center mt-3">
-                        <div class="sidebar-color__heading text-white-50">{{colors[2].toUpperCase()}}</div>
+                        <div class="sidebar-color__heading text-white-75">{{colors[2].toUpperCase()}}</div>
                         <div class="sidebar-color__block bg-neutral border-radius-4 h-10"></div>
                     </div>
                     <div class="sidebar-settings-wrapper mt-3">
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Hue {{neutralHSL.h}} &#176; </div>
+                            <div class="sidebar-settings__heading text-white-75">Hue {{neutralHSL.h}} &#176; </div>
                             <div class="sidebar-settings__control">
                                 <Slider label="RotateNeutral" color-type="neutral" channel="h" :label-hidden="true" :min=0 :max=360 :value=parseInt(neutralHSL.h) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Saturation {{neutralHSL.s}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Saturation {{neutralHSL.s}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="SaturationNeutral" color-type="neutral" channel="s"  :label-hidden="true" :min=0 :max=100 :value=parseInt(neutralHSL.s) @colorChange="onSliderChange($event)"></Slider>
                             </div>
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50">Lightness {{neutralHSL.l}}</div>
+                            <div class="sidebar-settings__heading text-white-75">Lightness {{neutralHSL.l}}</div>
                             <div class="sidebar-settings__control">
                                 <Slider label="LightenNeutral" color-type="neutral" channel="l"  :label-hidden="true" :max=100 :value=parseInt(neutralHSL.l) @colorChange="onSliderChange($event)"></Slider>
                             </div>
@@ -272,10 +272,14 @@
                         
                     </div>
 
-                    <div class="sidebar-section justify-content-start align-items-start">
+                    <div class="sidebar-sections flex-grow-1 mb-2">
+                        <div class="sidebar-section__heading">Primary vs. Accent</div>
+                    </div>
+
+                    <div class="sidebar-section justify-content-start align-items-start mb-3">
                         <!-- ANCHOR: COLOR CONTRAST INFO -->
-                        <div class="sidebar-section__heading pe-2">
-                            <div class="small text-whtie-50">Primary / Accent</div>
+                        <div class="flex-basis-40 pe-2">
+                            
                             <div class="py-2 d-flex justify-content-lg-between">
                                 <div>
                                     <div class="small text-muted text-uppercase">Ratio</div> 
@@ -327,15 +331,17 @@
                         
                             
                         </div>
-
-                        
-                            
                     </div>
 
-                    <div class="sidebar-section justify-content-start align-items-start mt-4">
-                        <div class="sidebar-section__heading">
-                            <div class="small text-whtie-50">Primary / Neutral</div>
-                            <div class="py-2 d-flex justify-content-lg-between"><span><span class="small text-muted text-uppercase">Ratio</span> {{computedContrastNeutral}}</span><div class="d-flex flex-column"><span class="text-uppercase"><span class="small text-muted text-uppercase">Norm</span> {{computedContrastRatingNeutralNorm}}</span><span class="text-uppercase"><span class="small text-muted text-uppercase">Large</span> {{computedContrastRatingNeutralLarge}}</span></div></div>
+                    <div class="sidebar-sections flex-grow-1 mb-2">
+                        <div class="sidebar-section__heading">Primary vs. Neutral</div>
+                    </div>
+
+                    <div class="sidebar-section justify-content-start align-items-start mb-3">
+                        
+                        <div class="sidebar-section__heading pe-2">
+                            
+                            <div class="py-2 d-flex justify-content-lg-between"><div><div class="small text-muted text-uppercase">Ratio</div> {{computedContrastNeutral}}</div><div class="d-flex flex-column"><div class="text-uppercase"><div class="small text-muted text-uppercase">Norm</div> {{computedContrastRatingNeutralNorm}}</div><div class="text-uppercase mt-2"><div class="small text-muted e">Large</div> {{computedContrastRatingNeutralLarge}}</div></div></div>
                         </div>
                         <div class="sidebar-section__block d-flex flex-column w-100 contrast-checker-card--neutral">
                             
@@ -360,16 +366,15 @@
 
                     <div class="hr border-bottom--gradient"></div>
 
-                    <div class="sidebar-sections flex-grow-1">
+                    <div class="sidebar-sections flex-grow-1 mb-3">
                         <div class="sidebar-section__heading">Layout Settings</div>
-                        
                     </div>
                     
-                    <div class="sidebar-settings-wrapper mt-3">
+                    <div class="sidebar-settings-wrapper ">
                     
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Base Font Size {{baseFontSize}}pt</div>
-                            <div class="sidebar-settings__control">
+                            <div class="sidebar-settings__heading text-white-75">Base Font {{baseFontSize}}pt</div>
+                            <div class="sidebar-settings__control ps-2">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="BaseFontSize">Change Base Font Size</label>
                                 <input @input="onSliderBaseFontSizeChange" class="slider" type="range" name="BaseFontSize" id="BaseFontSize" v-model="baseFontSize" min="10" max="20" >
@@ -378,8 +383,8 @@
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Padding {{paddings/2}}rem</div>
-                            <div class="sidebar-settings__control">
+                            <div class="sidebar-settings__heading text-white-75 ">Padding {{paddings/2}}rem</div>
+                            <div class="sidebar-settings__control ps-2">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="Paddings">Change Padding</label>
                                 <input @input="onSliderPaddingsChange" class="slider" type="range" name="Paddings" id="Paddings" v-model="paddings" min="0" max="5" >
@@ -388,8 +393,8 @@
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Margins {{margins/2}}rem</div>
-                            <div class="sidebar-settings__control">
+                            <div class="sidebar-settings__heading text-white-75">Margins {{margins/2}}rem</div>
+                            <div class="sidebar-settings__control ps-2">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="Padding">Change Margins</label>
                                 <input @input="onSliderMarginsChange" class="slider" type="range" name="Margins" id="Margins" v-model="margins" min="0" max="5" >
@@ -398,8 +403,8 @@
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Border Radius {{borderRadius}}px</div>
-                            <div class="sidebar-settings__control">
+                            <div class="sidebar-settings__heading text-white-75">Border Radius {{borderRadius}}px</div>
+                            <div class="sidebar-settings__control ps-2">
                                 <!-- <Slider label="SaturationMaster" color-type="accent" channel="s"  :label-hidden="true" :min=0 :max=5 @colorChange="onSliderChange($event)"></Slider> -->
                                 <label class="visually-hidden" for="borderRadius">Change Border Radius</label>
                                 <input @input="onSliderBorderRadiusChange" class="slider" type="range" name="borderRadius" id="borderRadius" v-model="borderRadius" min="0" max="20" >
@@ -408,8 +413,8 @@
                         
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Heading Serif</div>
-                            <div class="sidebar-settings__control d-flex justify-content-end">
+                            <div class="sidebar-settings__heading text-white-75">Heading Serif</div>
+                            <div class="sidebar-settings__control ps-2 d-flex justify-content-end">
                                 <!-- Switch -->
                                 <div class="form-check form-switch">
                                     <input @change="onSwitchHeadingChange($event)" class="form-check-input" type="checkbox" id="flexSwitchCheckHeading" :checked="headingSerif == 1">
@@ -418,7 +423,7 @@
                             </div>
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Sub-heading Serif</div>
+                            <div class="sidebar-settings__heading text-white-75">Sub-heading Serif</div>
                             <div class="sidebar-settings__control d-flex justify-content-end">
                                 <!-- Switch -->
                                 <div class="form-check form-switch">
@@ -428,7 +433,7 @@
                             </div>
                         </div>
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Text Serif</div>
+                            <div class="sidebar-settings__heading text-white-75">Text Serif</div>
                             <div class="sidebar-settings__control d-flex justify-content-end">
                                 <!-- Switch -->
                                 <div class="form-check form-switch">
@@ -438,10 +443,17 @@
                             </div>
                         </div>
 
-                        <hr>
+                        <div class="border-bottom--gradient"></div>
+
+                        <div class="sidebar-sections flex-grow-1 mb-3">
+                            <div class="sidebar-section__heading">Save Settings</div>
+                            <div class="small text-white-50">
+                                This will save to a cookie.
+                            </div>
+                        </div>
 
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Save current settings</div>
+                            <div class="sidebar-settings__heading text-white-75 flex-basis-65">Save current settings</div>
                             <div class="sidebar-settings__control d-flex justify-content-end">
                                 <div class="icon" @click="saveSettings">
                                     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -452,7 +464,7 @@
                         </div>
 
                         <div class="sidebar-settings">
-                            <div class="sidebar-settings__heading text-white-50 flex-basis-65">Load previous settings</div>
+                            <div class="sidebar-settings__heading text-white-75 flex-basis-65">Load previous settings</div>
                             <div class="sidebar-settings__control d-flex justify-content-end">
                                 <div class="icon" @click="loadSettings">
                                     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -466,15 +478,8 @@
                     </div>
 
                 
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <div class="copyright small">
-                                <span class="me-2">&copy; 2021 <br>All rights reserved</span><br>
-                                <span><a href="www.hellotu.com" title="HelloTu.com" class="text-white">Hellotu.com</a></span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="border-bottom--gradient"></div>
+                    
 
 
                 </div>

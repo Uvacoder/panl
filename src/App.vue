@@ -86,7 +86,13 @@
 
                     <div class="hr border-bottom--gradient"></div>
 
-
+                    <div class="h6 mb-0 text-white-75">
+                        Adjustments
+                    </div>
+                    <div class="small mb-3 text-white-50">
+                        1. To pick a different color within the palette, click on the color boxes to the right. <br/>
+                        2. Fine tune the colors by sliding the slider left or right.
+                    </div>
                     <div class="sidebar-section ">
                         <div class="sidebar-section__heading">Primary</div>
                         <div class="sidebar-section__colors primary-color-dots d-flex align-items-center">
@@ -219,9 +225,9 @@
             <div class="tu-intro">
                 <div class="wrapper">
                     <div class="container">
-                        <div class="row pt-4">
-                            <div class="col-12">
-                                <div class="header d-flex justify-content-center align-items-center">
+                        <div class="row">
+                            <div class="col-12 py-4">
+                                <div class="header d-flex justify-content-center align-items-center px-4">
                                     <div class="header__logo">
                                         <svg width="165px" height="67px" viewBox="0 0 165 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -233,18 +239,30 @@
                                     </div>
                                     <div class="header__text ms-4 px-4 me-auto text-left border-left-1">
                                         <div class="h6 text-primary text-left mb-0">
-                                            Color Pairing <br> Accessibility <br> Playground
+                                            Primary <br> Accent <br> Neutral & <br> Layout
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="card bg-transparent text-primary root-margins p-0" style="padding:0 !important;">
-                                        <h2 class="card-title card-heading mb-1" >
-                                            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&*()_+
-                                        </h2>
-                                        <p class="mt-5 card-text">Ideas can be complex and abstract. Understanding them visually is hard. PANL makes it easy. <br>
-                                    The PANL color component visualization tool, is the most interesting way to explore colors and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to communicate color to developers, or to quickly see color relationships.</p>
+                                <div class="card bg-transparent text-primary root-margins p-0" >
+                                        
+                                        <div class="row">
+                                            <div class="col">
+                                                 <div class="h4">
+                                                    Designs and ideas can be complex and abstract. Understanding them without visuals are hard. 
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col">
+                                                <div class="h2">PANL makes it easy. </div>
+                                                 <p class="">
+                                                PANL lets you explore colors in the most interesting way and how accessible they are against one another. PANL enables you to easily identify the hue, saturation, and lightness of a color. It is also a very useful tool for designers to quickly see color relationships and how well they convey on a page or inside a component. 
+                                                </p>
+                                            </div>
+                                        </div>
+                                       
+                                       
                                         
                                 </div>
                             </div>
@@ -273,7 +291,7 @@
                     </div>
 
                     <div class="sidebar-sections flex-grow-1 mb-2">
-                        <div class="sidebar-section__heading">Primary vs. Accent</div>
+                        <div class="h6">Primary vs. Accent</div>
                     </div>
 
                     <div class="sidebar-section justify-content-start align-items-start mb-3">
@@ -334,7 +352,7 @@
                     </div>
 
                     <div class="sidebar-sections flex-grow-1 mb-2">
-                        <div class="sidebar-section__heading">Primary vs. Neutral</div>
+                        <div class="h6">Primary vs. Neutral</div>
                     </div>
 
                     <div class="sidebar-section justify-content-start align-items-start mb-3">

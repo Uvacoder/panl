@@ -86,12 +86,14 @@
 
                     <div class="hr border-bottom--gradient"></div>
 
-                    <div class="h6 mb-0 text-white-75">
+                    <div class="h6 mb-0 text-white-75 mb-1">
                         Adjustments
                     </div>
                     <div class="small mb-3 text-white-50">
-                        1. To pick a different color within the palette, click on the color boxes to the right. <br/>
-                        2. Fine tune the colors by sliding the slider left or right.
+                        <ol class="m-0 list-unstyled">
+                            <li class="p-1">Click on the color boxes to the right to select different color.</li>
+                            <li class="p-1">Use slider to for fine tuning.</li>
+                        </ol>
                     </div>
                     <div class="sidebar-section ">
                         <div class="sidebar-section__heading">Primary</div>

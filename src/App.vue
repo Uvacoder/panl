@@ -1615,8 +1615,8 @@ export default {
             MatchHeight.add('.tiles-match-height .card', 'match-tiles');    
         },
         updateHeight() {
-            // MatchHeight.update('match-cards')    
-            // MatchHeight.update('match-tiles')    
+            MatchHeight.update('match-cards')    
+            MatchHeight.update('match-tiles')    
         },
         encode (data) {
             return Object.keys(data)

@@ -323,7 +323,7 @@
                             <div class="py-2 d-flex justify-content-lg-between">
                                 <div>
                                     <div class="small text-muted text-uppercase">Ratio</div> 
-                                    <span class="hotpink"></span>{{computedContrast}}
+                                    <span class="hotpink">{{computedContrast}}</span>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <div class="text-uppercase">

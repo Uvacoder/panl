@@ -55,6 +55,15 @@ html {
 	}
 }
 @media (min-width: 992px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl {
+		max-width: 960px;
+	}
+
 	.tu-layout {
 		grid-template-columns: 1fr 5fr;
 	}
@@ -72,6 +81,28 @@ html {
 		z-index: 2;
 		height: calc(100vh - 0rem);
 		overflow-y: auto;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl {
+		max-width: 960px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl {
+		max-width: 960px;
 	}
 }
 

@@ -82,8 +82,8 @@
                         <div class="p-3">
                             <h6>Color Palettes</h6>
                             <div class="d-flex flex-row py-2 align-items-center color-palette-list-wrapper" role="button" v-for="(value, index) in colorPalettes" :key="index" :class="{active: currentPaletteId === index}" @click="setCurrentPalette(index)">
-                                <div class="col-md-6 small">{{value.name}}</div>
-                                <ul class="list-unstyled d-flex p-0 m-0 col-md-6 color-palette-list">
+                                <div class="col-sm-6 small">{{value.name}}</div>
+                                <ul class="list-unstyled d-flex p-0 m-0 col-sm-6 color-palette-list">
                                     <li  v-for="(color, index) in value.colors" :key="index"  class="small d-flex h-10">
                                         
                                         <div class="d-block w-100 h-100 " :style="{backgroundColor:'#'+color+''}" ></div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="small mb-3 text-white-50">
                         <ol class="m-0 list-unstyled">
-                            <li class="p-1">Click on the color boxes to the right to select different color.</li>
+                            <li class="p-1">Click on the color boxes on the right to select different color.</li>
                             <li class="p-1">Use slider to fine tune.</li>
                         </ol>
                     </div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="sidebar-color d-flex mt-3 align-items-center">
                         <div class="sidebar-color__heading text-white-75">{{colors[0].toUpperCase()}}</div>
-                        <div class="sidebar-color__block bg-primary border-radius-4 h-10"></div>
+                        <div class="sidebar-color__block bg-primary border-radius-4 h-10" :title="`${colors[0].toUpperCase()}`"></div>
                     </div>
                     <div class="sidebar-settings-wrapper mt-3">
                         <div class="sidebar-settings">
@@ -379,7 +379,7 @@
 
                     <div class="sidebar-section justify-content-start align-items-start mb-3">
                         
-                        <div class="sidebar-section__heading pe-2">
+                        <div class="flex-basis-40 pe-2">
                             
                             <div class="py-2 d-flex justify-content-lg-between"><div><div class="small text-muted text-uppercase">Ratio</div> <span class="hotpink">{{computedContrastNeutral}}</span></div><div class="d-flex flex-column"><div class="text-uppercase"><div class="small text-muted text-uppercase">Norm</div> {{computedContrastRatingNeutralNorm}}</div><div class="text-uppercase mt-2"><div class="small text-muted e">Large</div> {{computedContrastRatingNeutralLarge}}</div></div></div>
                         </div>
@@ -549,7 +549,7 @@
                                             <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
                                             <p class="card-text  " >It is a beautiful thing when a career and a passion come together.</p>
                                             <hr/>
-                                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-primary text-accent" contenteditable="true">View More</a>
+                                            <a href="#" class="btn btn-round mt-2 mx-0 d-inline-block bg-primary d-sm-block text-accent">View More</a>
                                             
                                         </div>
                                     </div>
@@ -575,7 +575,7 @@
                                             <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
                                             <div class="card-text " >Do what you love, and you'll always love what you do.</div>
                                             <hr/>
-                                            <a href="./" class="d-inline-block text-primary animate" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <a href="./" class="d-inline-block d-sm-block text-primary animate" >View More <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                 <path xmlns="http://www.w3.org/2000/svg" d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L19.7071 11.2929C19.8946 11.4804 20 11.7348 20 12C20 12.2652 19.8946 12.5196 19.7071 12.7071L13.7071 18.7071C13.3166 19.0976 12.6834 19.0976 12.2929 18.7071C11.9024 18.3166 11.9024 17.6834 12.2929 17.2929L16.5858 13L5 13C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11L16.5858 11L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z" fill="var(--primaryColor)"></path>
                 </svg></a>
                                             
@@ -599,7 +599,7 @@
                                         <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
                                         <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
                                         <hr/>
-                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary">View More</a>
+                                        <a href="#" class="btn btn-round mt-2 d-sm-block d-inline-block bg-accent text-primary">View More</a>
                                         
                                     </div>
                                 </div>
@@ -625,7 +625,7 @@
                                         <div class="card-title card-heading card-heading--large mb-5">Do What You Love.</div>
                                         <div class="card-text" >Do what you love, and you'll always love what you do.</div>
                                         <hr/>
-                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
+                                        <a href="#" class="btn btn-round mt-2 d-sm-block d-inline-block bg-accent text-primary" >View More</a>
                                         
                                     </div>
                                 </div>

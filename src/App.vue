@@ -109,10 +109,9 @@
                         </div>
                     </div>
                     <div class="small mb-3 text-white-50">
-                        <ol class="m-0 list-unstyled">
-                            <li class="p-1">Click on the color boxes on the right to select different color.</li>
-                            <li class="p-1">Use slider to fine tune.</li>
-                        </ol>
+                        <p>
+                            Click on the color boxes on the right to select different color. Use slider to fine tune.
+                        </p>
                     </div>
                     <div class="sidebar-section ">
                         <div class="sidebar-section__heading">Primary</div>
@@ -547,7 +546,7 @@
                                         <div class="card-body  card-body--h-360">
                                             <div class="card-subheading" >Featuring</div>
                                             <h2 class="card-title card-heading card-heading--large mb-5" >Create With Passion</h2>
-                                            <p class="card-text  " >It is a beautiful thing when a career and a passion come together.</p>
+                                            <p class="card-text  " >It is a beautiful thing when a career and a passion comes together.</p>
                                             <hr/>
                                             <a href="#" class="btn btn-round mt-2 mx-0 d-inline-block bg-primary d-sm-block text-accent">View More</a>
                                             
@@ -597,7 +596,7 @@
                                     <div class="card-body card-body--h-360 card-body--bordered ">
                                         <div class="card-subheading" >Featuring</div>
                                         <h2 class="card-title card-heading card-heading--large mb-5" contenteditable="true">Create With Passion</h2>
-                                        <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion come together.</p>
+                                        <p class="card-text e text-accent" contenteditable="true">It is a beautiful thing when a career and a passion comes together.</p>
                                         <hr/>
                                         <a href="#" class="btn btn-round mt-2 d-sm-block d-inline-block bg-accent text-primary">View More</a>
                                         

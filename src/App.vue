@@ -1145,8 +1145,11 @@ export default {
             console.log('===================================================')
             console.log('foo', data)
         })*/
+        setTimeout(function(){
+            //that.modal.hide() // close modal
+            this.matchHeight();
+        }, 750)
         
-        this.matchHeight();
    
 
     },

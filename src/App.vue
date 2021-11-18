@@ -682,7 +682,7 @@
                 
                 <div class="col">
                     <div class="card bg-neutral text-primary root-margins ">
-                        <div class="card-body card-body--bordered  d-flex flex-column justify-content-between">
+                        <div class="card-body card-body--h-360 card-body--bordered  d-flex flex-column justify-content-between">
                             <!-- <p class="card-text text-primary" >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                             <div class="card-title card-heading card-heading--large mt-5">Be Great. <br/> Create.</div>
                             <div class="card-section--absolute w-100 h-100">
@@ -723,7 +723,7 @@
                 </div>
                 <div class="col">
                     <div class="card bg-transparent text-primary root-margins ">
-                        <div class="card-body card-body--bordered ">
+                        <div class="card-body card-body--h-360 card-body--bordered ">
                             <div class="card-subheading" >Occupation</div>
                             <div class="card-title card-heading card-heading--large mb-5" >Do What You Love.</div>
                             <div class="card-text ">Do what you love, and you'll always love what you do.</div>
@@ -733,7 +733,7 @@
                 </div>
                 <div class="col">
                     <div class="card bg-transparent text-primary root-margins ">
-                        <div class="card-body card-body--bordered ">
+                        <div class="card-body card-body--h-360 card-body--bordered ">
                             <div class="card-subheading">Schedule</div>
                             <div class="table-responsive">
                                 <table class="table text-primary table-striped">
@@ -774,19 +774,19 @@
                 <div class="wrapper py-5">
                     <div class="container">
                         <div class="row my-4">
-                <div class="col">
-                    <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay blend-multiply" style="background-image: url(../images/720/pattern.jpg)">
-                        <div class="card-body-overlay card-body-overlay--primary"></div>
-                        <div class="card-body card-body--bordered">
-                            <div class="card-subheading" >Card Category</div>
-                            <h2 class="card-title card-heading card-heading--large mb-5" >The Bulk Of It</h2>
-                            <p class="card-text text-accent" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <hr/>
-                            <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
-                            
-                        </div>
-                    </div>
-                </div>
+                            <div class="col">
+                                <div class="card bg-primary text-accent root-margins flex-shrink-1 card-overlay blend-multiply" style="background-image: url(../images/720/pattern.jpg)">
+                                    <div class="card-body-overlay card-body-overlay--primary"></div>
+                                    <div class="card-body card-body--bordered">
+                                        <div class="card-subheading" >Card Category</div>
+                                        <h2 class="card-title card-heading card-heading--large mb-5" >The Bulk Of It</h2>
+                                        <p class="card-text text-accent" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <hr/>
+                                        <a href="#" class="btn btn-round mt-2 me-2 d-inline-block bg-accent text-primary" >View More</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                 
                         </div>
                     </div>

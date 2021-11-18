@@ -1146,7 +1146,7 @@ export default {
             console.log('foo', data)
         })*/
         
-        
+        this.matchHeight();
    
 
     },

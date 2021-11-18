@@ -1122,7 +1122,8 @@ export default {
                         this.setActiveColorOnMount('primary')
                         this.setActiveColorOnMount('accent')
                         this.setActiveColorOnMount('neutral')
-                        this.matchHeight();
+                        // this.matchHeight();
+                        this.updateHeight();
 
                     })
 
@@ -1145,10 +1146,7 @@ export default {
             console.log('===================================================')
             console.log('foo', data)
         })*/
-        setTimeout(function(){
-            //that.modal.hide() // close modal
-            this.matchHeight();
-        }, 750)
+       )
         
    
 
